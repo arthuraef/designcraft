@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Article } from '@/types/article';
 import ArticleCard from '@/components/ArticleCard';
 import MarqueeTicker from '@/components/MarqueeTicker';
@@ -12,22 +12,40 @@ interface HomeClientProps {
 }
 
 export default function HomeClient({ initialArticles }: HomeClientProps) {
+  const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('TODAS');
   const [viewMode, setViewMode] = useState<'grid' | 'compact'>('grid');
 
+  // Load from client storage if available
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('designcraft_articles_v1');
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setArticles(parsed.filter((a: Article) => a.published));
+          }
+        } catch (e) {
+          console.warn('Error parsing stored articles:', e);
+        }
+      }
+    }
+  }, []);
+
   // Extract all categories
   const categories = useMemo(() => {
     const set = new Set<string>();
-    initialArticles.forEach((a) => {
+    articles.forEach((a) => {
       if (a.category) set.add(a.category);
     });
     return ['TODAS', ...Array.from(set)];
-  }, [initialArticles]);
+  }, [articles]);
 
   // Filter articles
   const filteredArticles = useMemo(() => {
-    return initialArticles.filter((article) => {
+    return articles.filter((article) => {
       const matchesSearch =
         search === '' ||
         article.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -39,11 +57,11 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
 
       return matchesSearch && matchesCat;
     });
-  }, [initialArticles, search, selectedCategory]);
+  }, [articles, search, selectedCategory]);
 
   const featuredArticle = useMemo(() => {
-    return initialArticles.find((a) => a.featured) || initialArticles[0];
-  }, [initialArticles]);
+    return articles.find((a) => a.featured) || articles[0];
+  }, [articles]);
 
   const nonFeaturedArticles = useMemo(() => {
     if (!featuredArticle) return filteredArticles;

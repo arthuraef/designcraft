@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Article } from '@/types/article';
 import BrutalistCover from '@/components/BrutalistCover';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
+import { likeStoredArticle } from '@/lib/client-articles';
 import {
   ArrowLeft,
   Share2,
@@ -41,20 +42,11 @@ export default function ArticleDetailClient({
       })
     : 'RASCUNHO';
 
-  const handleLike = async () => {
+  const handleLike = () => {
     if (hasLiked) return;
-    setLikes((prev) => prev + 1);
+    const updatedLikes = likeStoredArticle(article.id);
+    setLikes(updatedLikes || likes + 1);
     setHasLiked(true);
-
-    try {
-      await fetch(`/api/articles/${article.id}/stats`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'like' }),
-      });
-    } catch (e) {
-      console.error('Error saving like:', e);
-    }
   };
 
   const handleShare = () => {

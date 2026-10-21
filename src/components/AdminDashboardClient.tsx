@@ -1,12 +1,18 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Article } from '@/types/article';
 import {
+  getStoredArticles,
+  deleteStoredArticle,
+  toggleStoredArticlePublish,
+  resetStoredArticlesToSeeds,
+  saveStoredArticles,
+} from '@/lib/client-articles';
+import {
   Plus,
   Search,
-  Filter,
   Eye,
   Heart,
   Edit,
@@ -16,7 +22,6 @@ import {
   Upload,
   RefreshCw,
   CheckCircle,
-  FileText,
   AlertTriangle,
   ArrowUpRight,
 } from 'lucide-react';
@@ -31,11 +36,18 @@ export default function AdminDashboardClient({
   const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<'ALL' | 'PUBLISHED' | 'DRAFT'>('ALL');
-  const [loadingAction, setLoadingAction] = useState<string | null>(null);
   const [notification, setNotification] = useState<{
     type: 'success' | 'error';
     text: string;
   } | null>(null);
+
+  // Sync with client storage on mount
+  useEffect(() => {
+    const stored = getStoredArticles();
+    if (stored && stored.length > 0) {
+      setArticles(stored);
+    }
+  }, []);
 
   const showNotification = (text: string, type: 'success' | 'error' = 'success') => {
     setNotification({ text, type });
@@ -74,58 +86,35 @@ export default function AdminDashboardClient({
   }, [articles, search, statusFilter]);
 
   // Toggle publish
-  const handleTogglePublish = async (article: Article) => {
-    setLoadingAction(`toggle-${article.id}`);
-    try {
-      const res = await fetch(`/api/articles/${article.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ published: !article.published }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error);
-
-      setArticles((prev) =>
-        prev.map((a) => (a.id === article.id ? data.article : a))
-      );
+  const handleTogglePublish = (article: Article) => {
+    const updated = toggleStoredArticlePublish(article.id);
+    if (updated) {
+      setArticles(getStoredArticles());
       showNotification(
-        `Status alterado para ${!article.published ? 'PUBLICADO' : 'RASCUNHO'}`
+        `Status alterado para ${updated.published ? 'PUBLICADO' : 'RASCUNHO'}`
       );
-    } catch (err) {
-      showNotification((err as Error).message, 'error');
-    } finally {
-      setLoadingAction(null);
     }
   };
 
   // Delete article
-  const handleDelete = async (id: string, title: string) => {
+  const handleDelete = (id: string, title: string) => {
     if (!confirm(`CONFIRMAR EXCLUSÃO DO ARTIGO:\n\n"${title}"\n\nEsta ação é irreversível.`)) {
       return;
     }
 
-    setLoadingAction(`del-${id}`);
-    try {
-      const res = await fetch(`/api/articles/${id}`, {
-        method: 'DELETE',
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error);
-
-      setArticles((prev) => prev.filter((a) => a.id !== id));
+    const ok = deleteStoredArticle(id);
+    if (ok) {
+      setArticles(getStoredArticles());
       showNotification('Artigo removido com sucesso.');
-    } catch (err) {
-      showNotification((err as Error).message, 'error');
-    } finally {
-      setLoadingAction(null);
     }
   };
 
   // Export JSON
   const handleExport = () => {
+    const currentList = getStoredArticles();
     const dataStr =
       'data:text/json;charset=utf-8,' +
-      encodeURIComponent(JSON.stringify(articles, null, 2));
+      encodeURIComponent(JSON.stringify(currentList, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute('href', dataStr);
     downloadAnchor.setAttribute(
@@ -144,26 +133,15 @@ export default function AdminDashboardClient({
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = async (event) => {
+    reader.onload = (event) => {
       try {
         const imported = JSON.parse(event.target?.result as string);
         if (!Array.isArray(imported)) {
           throw new Error('O arquivo JSON deve conter uma lista de artigos');
         }
 
-        // For simplicity, overwrite or merge
-        for (const item of imported) {
-          await fetch('/api/articles', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(item),
-          });
-        }
-
-        const refreshed = await fetch('/api/articles?all=true').then((r) => r.json());
-        if (refreshed.articles) {
-          setArticles(refreshed.articles);
-        }
+        saveStoredArticles(imported);
+        setArticles(imported);
         showNotification('Artigos importados com sucesso!');
       } catch (err) {
         showNotification((err as Error).message, 'error');
@@ -173,7 +151,7 @@ export default function AdminDashboardClient({
   };
 
   // Reset to seeds
-  const handleResetSeeds = async () => {
+  const handleResetSeeds = () => {
     if (
       !confirm(
         'RESTAURAR ARTIGOS ORIGINAIS?\n\nIsso recarregará os 5 ensaios seminais do DesignCraft.'
@@ -182,19 +160,9 @@ export default function AdminDashboardClient({
       return;
     }
 
-    setLoadingAction('reset');
-    try {
-      const res = await fetch('/api/articles/reset', { method: 'POST' });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error);
-
-      setArticles(data.articles);
-      showNotification('Repositório restaurado com os artigos seminais!');
-    } catch (err) {
-      showNotification((err as Error).message, 'error');
-    } finally {
-      setLoadingAction(null);
-    }
+    const reset = resetStoredArticlesToSeeds();
+    setArticles(reset);
+    showNotification('Repositório restaurado com os artigos seminais!');
   };
 
   return (
@@ -342,7 +310,7 @@ export default function AdminDashboardClient({
               </button>
             </div>
 
-            {/* Data Actions (Backup / Restore) */}
+            {/* Data Actions */}
             <div className="flex items-center gap-2 font-mono text-xs">
               <button
                 onClick={handleExport}
@@ -366,15 +334,10 @@ export default function AdminDashboardClient({
 
               <button
                 onClick={handleResetSeeds}
-                disabled={loadingAction === 'reset'}
                 className="btn-brutal bg-white px-3 py-2 flex items-center gap-1 font-bold text-black hover:bg-[#FF4400] hover:text-white"
                 title="Restaurar artigos padrão"
               >
-                <RefreshCw
-                  className={`w-3.5 h-3.5 ${
-                    loadingAction === 'reset' ? 'animate-spin' : ''
-                  }`}
-                />
+                <RefreshCw className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">RESET</span>
               </button>
             </div>
@@ -443,7 +406,6 @@ export default function AdminDashboardClient({
                     <td className="p-3 whitespace-nowrap">
                       <button
                         onClick={() => handleTogglePublish(article)}
-                        disabled={loadingAction === `toggle-${article.id}`}
                         className={`px-2 py-1 font-black text-[10px] uppercase border-2 border-black shadow-brutal-sm cursor-pointer ${
                           article.published
                             ? 'bg-[#00E575] text-black hover:bg-[#00c966]'
@@ -482,16 +444,15 @@ export default function AdminDashboardClient({
                         {/* View in site */}
                         <Link
                           href={`/article/${article.slug}`}
-                          target="_blank"
                           className="btn-brutal bg-white p-1.5 text-black hover:bg-[#FFE600]"
                           title="Abrir no site"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </Link>
 
-                        {/* Edit */}
+                        {/* Edit via /admin/edit?id=... */}
                         <Link
-                          href={`/admin/edit/${article.id}`}
+                          href={`/admin/edit?id=${article.id}`}
                           className="btn-brutal bg-[#FFE600] p-1.5 text-black hover:bg-black hover:text-white"
                           title="Editar artigo"
                         >
@@ -501,7 +462,6 @@ export default function AdminDashboardClient({
                         {/* Delete */}
                         <button
                           onClick={() => handleDelete(article.id, article.title)}
-                          disabled={loadingAction === `del-${article.id}`}
                           className="btn-brutal bg-white p-1.5 text-[#FF4400] hover:bg-[#FF4400] hover:text-white"
                           title="Excluir artigo"
                         >

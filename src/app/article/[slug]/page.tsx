@@ -7,6 +7,13 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateStaticParams() {
+  const articles = await getAllArticles(true);
+  return articles.map((article) => ({
+    slug: article.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
@@ -36,13 +43,6 @@ export default async function ArticlePage({ params }: PageProps) {
 
   if (!article) {
     notFound();
-  }
-
-  // Record view asynchronously
-  try {
-    await incrementArticleStats(article.id, 'view');
-  } catch (e) {
-    console.error('Failed to increment view:', e);
   }
 
   const allArticles = await getAllArticles(false);

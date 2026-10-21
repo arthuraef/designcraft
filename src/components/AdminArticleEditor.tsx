@@ -3,21 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Article, ArticleInput } from '@/types/article';
+import {
+  createStoredArticle,
+  updateStoredArticle,
+  generateSlug,
+} from '@/lib/client-articles';
 import MarkdownRenderer from './MarkdownRenderer';
 import BrutalistCover from './BrutalistCover';
 import {
   ArrowLeft,
   Save,
-  Eye,
-  Columns,
   Check,
   AlertCircle,
-  Hash,
-  Type,
-  Quote,
-  Code,
-  List,
-  Sparkles,
   ExternalLink,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -100,16 +97,9 @@ export default function AdminArticleEditor({
     'split'
   );
 
-  // Auto-slug on title change when creating new
   useEffect(() => {
     if (!isEdit && title && !slug) {
-      const generated = title
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)+/g, '');
-      setSlug(generated);
+      setSlug(generateSlug(title));
     }
   }, [title, isEdit, slug]);
 
@@ -117,7 +107,7 @@ export default function AdminArticleEditor({
     setContent((prev) => prev + '\n' + snippet);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatusMessage(null);
@@ -149,40 +139,27 @@ export default function AdminArticleEditor({
     };
 
     try {
-      const url = isEdit
-        ? `/api/articles/${initialData?.id}`
-        : `/api/articles`;
-      const method = isEdit ? 'PUT' : 'POST';
-
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Erro ao salvar artigo');
+      if (isEdit && initialData?.id) {
+        updateStoredArticle(initialData.id, payload);
+      } else {
+        createStoredArticle(payload);
       }
 
       setStatusMessage({
         type: 'success',
         text: isEdit
           ? 'Artigo atualizado com sucesso!'
-          : 'Artigo criado com sucesso!',
+          : 'Artigo criado com sucesso no arquivo!',
       });
 
       setTimeout(() => {
         router.push('/admin');
-        router.refresh();
-      }, 1000);
+      }, 700);
     } catch (err) {
       setStatusMessage({
         type: 'error',
         text: (err as Error).message || 'Falha na operação',
       });
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -214,7 +191,6 @@ export default function AdminArticleEditor({
             {isEdit && initialData?.slug && (
               <Link
                 href={`/article/${initialData.slug}`}
-                target="_blank"
                 className="btn-brutal bg-white px-3 py-2 text-xs font-mono flex items-center gap-1 text-black"
               >
                 <span>VER PÁGINA</span>
@@ -488,9 +464,6 @@ export default function AdminArticleEditor({
                     placeholder="https://images.unsplash.com/..."
                     className="w-full p-2.5 border-2 border-black font-mono placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
                   />
-                  <p className="text-[10px] text-black/60 mt-1">
-                    Se fornecida, a imagem será exibida em alto contraste brutalista. Caso contrário, a capa tipográfica geométrica será renderizada automaticamente.
-                  </p>
                 </div>
               </div>
 
@@ -520,7 +493,6 @@ export default function AdminArticleEditor({
                 [03] CONTEÚDO DO ENSAIO (MARKDOWN)
               </h2>
 
-              {/* View switch */}
               <div className="flex items-center gap-1 font-mono text-xs font-bold">
                 <button
                   type="button"
@@ -538,7 +510,7 @@ export default function AdminArticleEditor({
                     activeTab === 'editor' ? 'bg-black text-white' : 'bg-white'
                   }`}
                 >
-                  Apenas Editor
+                  Editor
                 </button>
                 <button
                   type="button"
@@ -547,7 +519,7 @@ export default function AdminArticleEditor({
                     activeTab === 'preview' ? 'bg-black text-white' : 'bg-white'
                   }`}
                 >
-                  Apenas Prévia
+                  Prévia
                 </button>
               </div>
             </div>
@@ -611,9 +583,8 @@ export default function AdminArticleEditor({
               </button>
             </div>
 
-            {/* Dual Pane Layout */}
+            {/* Dual Pane */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-[500px]">
-              {/* Textarea Editor */}
               {(activeTab === 'split' || activeTab === 'editor') && (
                 <div
                   className={`${
@@ -631,7 +602,6 @@ export default function AdminArticleEditor({
                 </div>
               )}
 
-              {/* Live Preview */}
               {(activeTab === 'split' || activeTab === 'preview') && (
                 <div
                   className={`${
