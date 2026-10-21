@@ -218,7 +218,7 @@ export default function ArticleDetailClient({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono">
           {prevArticle ? (
             <Link
-              href={`/article/${prevArticle.slug}`}
+              href={`/article/?slug=${prevArticle.slug}`}
               className="border-brutal bg-white p-5 shadow-brutal card-brutal-interactive flex flex-col justify-between"
             >
               <span className="text-xs font-bold text-black/60 flex items-center gap-1 mb-2">
@@ -236,7 +236,7 @@ export default function ArticleDetailClient({
 
           {nextArticle ? (
             <Link
-              href={`/article/${nextArticle.slug}`}
+              href={`/article/?slug=${nextArticle.slug}`}
               className="border-brutal bg-white p-5 shadow-brutal card-brutal-interactive flex flex-col justify-between text-right"
             >
               <span className="text-xs font-bold text-black/60 flex items-center justify-end gap-1 mb-2">

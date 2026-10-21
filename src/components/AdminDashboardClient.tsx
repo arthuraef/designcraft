@@ -443,7 +443,7 @@ export default function AdminDashboardClient({
                       <div className="flex items-center justify-end gap-1.5">
                         {/* View in site */}
                         <Link
-                          href={`/article/${article.slug}`}
+                          href={`/article/?slug=${article.slug}`}
                           className="btn-brutal bg-white p-1.5 text-black hover:bg-[#FFE600]"
                           title="Abrir no site"
                         >

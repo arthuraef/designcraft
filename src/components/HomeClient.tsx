@@ -296,7 +296,7 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
                       </td>
                       <td className="p-3 font-black text-sm">
                         <Link
-                          href={`/article/${article.slug}`}
+                          href={`/article/?slug=${article.slug}`}
                           className="hover:underline hover:text-[#0029FF]"
                         >
                           {article.title}
@@ -310,7 +310,7 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
                       </td>
                       <td className="p-3 text-right whitespace-nowrap">
                         <Link
-                          href={`/article/${article.slug}`}
+                          href={`/article/?slug=${article.slug}`}
                           className="btn-brutal bg-[#FFE600] px-2.5 py-1 text-[11px] inline-block"
                         >
                           LER →

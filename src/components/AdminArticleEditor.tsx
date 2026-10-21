@@ -190,7 +190,7 @@ export default function AdminArticleEditor({
           <div className="flex items-center gap-3">
             {isEdit && initialData?.slug && (
               <Link
-                href={`/article/${initialData.slug}`}
+                href={`/article/?slug=${initialData.slug}`}
                 className="btn-brutal bg-white px-3 py-2 text-xs font-mono flex items-center gap-1 text-black"
               >
                 <span>VER PÁGINA</span>

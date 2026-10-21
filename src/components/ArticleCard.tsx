@@ -44,7 +44,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
                 <span className="text-black/70">• {article.readingTimeMinutes} MIN LEITURA</span>
               </div>
 
-              <Link href={`/article/${article.slug}`}>
+              <Link href={`/article/?slug=${article.slug}`}>
                 <h2 className="text-2xl sm:text-4xl font-black text-black uppercase tracking-tight leading-none hover:text-[#0029FF] transition-colors mb-4">
                   {article.title}
                 </h2>
@@ -79,7 +79,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
               </div>
 
               <Link
-                href={`/article/${article.slug}`}
+                href={`/article/?slug=${article.slug}`}
                 className="btn-brutal bg-[#FFE600] px-4 py-2 flex items-center gap-1.5 text-black hover:bg-black hover:text-white"
               >
                 <span>LER ENSAIO</span>
@@ -113,7 +113,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
             <span>{formattedDate}</span>
           </div>
 
-          <Link href={`/article/${article.slug}`}>
+          <Link href={`/article/?slug=${article.slug}`}>
             <h3 className="text-xl font-black text-black uppercase tracking-tight leading-tight hover:text-[#0029FF] transition-colors mb-3 line-clamp-2">
               {article.title}
             </h3>
@@ -150,7 +150,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
           </div>
 
           <Link
-            href={`/article/${article.slug}`}
+            href={`/article/?slug=${article.slug}`}
             className="btn-brutal bg-white px-3 py-1.5 flex items-center gap-1 text-black hover:bg-[#FFE600]"
           >
             <span>LER</span>
