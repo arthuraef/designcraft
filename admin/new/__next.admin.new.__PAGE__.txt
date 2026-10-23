@@ -1,13 +1,13 @@
 1:"$Sreact.fragment"
-2:"/designcraft/_next/static/chunks/03wmawtn4pr1x.js"
+2:"/designcraft/_next/static/chunks/3suph_y-59pyw.js"
 3:I[45678,["$2"],"default"]
 4:I[39756,["$2"],"default"]
 5:I[37457,["$2"],"default"]
-6:"/designcraft/_next/static/chunks/0_v10h2jgnoi_.js"
-7:"/designcraft/_next/static/chunks/2p8lkvvhj71vp.js"
+6:"/designcraft/_next/static/chunks/3sff_reqvldpr.js"
+7:"/designcraft/_next/static/chunks/2zctai_sjbt_k.js"
 8:I[29306,["$2","$6","$7"],"default"]
 9:I[13642,["$2"],"default"]
-12:"/designcraft/_next/static/chunks/0qdwubk8rgpap.js"
+12:"/designcraft/_next/static/chunks/20lcm-e7ncjxx.js"
 13:I[13427,["$2","$12","$7"],"default"]
 14:I[97367,["$2"],"OutletBoundary"]
 15:"$Sreact.suspense"
@@ -16,14 +16,14 @@
 1a:"MetadataBoundary"
 1b:I[97367,["$2"],"$1a"]
 1c:I[27201,["$2"],"IconMark"]
-:HL["/designcraft/_next/static/chunks/0e856212y1w35.css","style"]
+:HL["/designcraft/_next/static/chunks/2wf8a17s37zsk.css","style"]
 b:X
 e:X
 e:C
-11:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L13",null,{"isEdit":false}],[["$","script","script-0",{"src":"/designcraft/_next/static/chunks/0qdwubk8rgpap.js","async":true}],["$","script","script-1",{"src":"/designcraft/_next/static/chunks/2p8lkvvhj71vp.js","async":true}]],["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]]}],"p":"$@17","v":null,"s":"$b"}}]]
+11:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L13",null,{"isEdit":false}],[["$","script","script-0",{"src":"/designcraft/_next/static/chunks/20lcm-e7ncjxx.js","async":true}],["$","script","script-1",{"src":"/designcraft/_next/static/chunks/2zctai_sjbt_k.js","async":true}]],["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]]}],"p":"$@17","v":null,"s":"$b"}}]]
 f:[["children",{"s":"new","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@10","v":"$e","s":"$b"},"c":"$Q11"}]]
 c:[["children",{"s":"admin","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@d","v":"$e","s":"$b"},"c":"$Qf"}]]
-0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/0e856212y1w35.css","precedence":"next"}],["$","script","script-0",{"src":"/designcraft/_next/static/chunks/03wmawtn4pr1x.js","async":true}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"className":"min-h-screen bg-[#F4F4F0] text-black font-sans selection:bg-[#FFE600] selection:text-black flex flex-col","children":[["$","$L3",null,{}],["$","div",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[["$","$L8",null,{}],[]]}]}],["$","$L9",null,{}]]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"NOVO ARTIGO /// CMS DESIGNCRAFT"}],["$","meta","1",{"name":"description","content":"Criar e publicar um novo ensaio crítico sobre design."}],["$","link","2",{"rel":"icon","href":"/designcraft/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L1c","3",{}]]}]}],null]}],null]}],"p":"$@1d","v":null,"s":"$b"}},"a":"$@1e","u":"$@1f","b":"F3Aw4twW7WAgBGhh2qks7"}
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/2wf8a17s37zsk.css","precedence":"next"}],["$","script","script-0",{"src":"/designcraft/_next/static/chunks/3suph_y-59pyw.js","async":true}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"className":"min-h-screen bg-[#E9ECEF] text-[#111215] font-sans selection:bg-[#E63926] selection:text-white flex flex-col","children":[["$","$L3",null,{}],["$","div",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[["$","$L8",null,{}],[]]}]}],["$","$L9",null,{}]]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"NOVO ARTIGO /// CMS DESIGNCRAFT"}],["$","meta","1",{"name":"description","content":"Criar e publicar um novo ensaio crítico sobre design."}],["$","link","2",{"rel":"icon","href":"/designcraft/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L1c","3",{}]]}]}],null]}],null]}],"p":"$@1d","v":null,"s":"$b"}},"a":"$@1e","u":"$@1f","b":"FxMeSa9Lu-Ntl7uO458_L"}
 16:null
 b:300
 1f:true
