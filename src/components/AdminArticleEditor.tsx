@@ -35,12 +35,11 @@ const CATEGORIES_PRESET = [
 ];
 
 const COLOR_PRESETS = [
-  { name: 'Amarelo Alerta', hex: '#FFE600' },
-  { name: 'Laranja Tráfego', hex: '#FF4400' },
-  { name: 'Azul Sinal', hex: '#0029FF' },
-  { name: 'Verde Terminal', hex: '#00E575' },
-  { name: 'Cinza Concreto', hex: '#E5E5E0' },
-  { name: 'Branco Puro', hex: '#FFFFFF' },
+  { name: 'Vermilion Suíço', hex: '#E63926' },
+  { name: 'Preto Técnico', hex: '#111215' },
+  { name: 'Ardósia Escura', hex: '#334155' },
+  { name: 'Cinza Concreto', hex: '#64748B' },
+  { name: 'Chalk Paper', hex: '#F1F5F9' },
 ];
 
 export default function AdminArticleEditor({
@@ -55,26 +54,26 @@ export default function AdminArticleEditor({
   const [excerpt, setExcerpt] = useState(initialData?.excerpt || '');
   const [content, setContent] = useState(
     initialData?.content ||
-      `## 01. A Tese Principal\n\nEscreva aqui o ensaio crítico sobre design. O brutalismo exige posições claras e sem meias-palavras.\n\n> "Uma citação provocadora que sintetiza a inquietação formal do artigo."\n\n### Princípios de Construção\n\n* **Ponto 01:** O meio digital é concreto e elétrons.\n* **Ponto 02:** Evite a suavização arbitrária das arestas.\n\n\`\`\`css\n/* Código de exemplo */\n.interface-honesta {\n  border: 3px solid #000000;\n  box-shadow: 6px 6px 0px #000000;\n}\n\`\`\``
+      `## 01. A Tese Principal\n\nEscreva aqui o ensaio crítico sobre design. A tradição internacional exige rigor tipográfico e clareza estrutural.\n\n> "A evolução da cultura é proporcional ao desaparecimento do ornamento do objeto de uso." — Adolf Loos\n\n### Princípios de Construção\n\n* **Ponto 01:** A grelha é a base matemática da informação.\n* **Ponto 02:** Elimine sombras difusas e ornamentos sem propósito.\n\n\`\`\`css\n/* Racionalismo Suíço */\n.interface {\n  border: 1px solid #D0D5DD;\n  background: #FFFFFF;\n}\n\`\`\``
   );
   const [category, setCategory] = useState(
     initialData?.category || 'TEORIA CRÍTICA'
   );
   const [customCategory, setCustomCategory] = useState('');
   const [tagsStr, setTagsStr] = useState(
-    initialData?.tags?.join(', ') || 'Brutalismo, Interface, Teoria'
+    initialData?.tags?.join(', ') || 'Modernismo, Tipografia, Arquitetura'
   );
   const [authorName, setAuthorName] = useState(
     initialData?.author?.name || 'Arthur Ferreira'
   );
   const [authorRole, setAuthorRole] = useState(
-    initialData?.author?.role || 'Designer & Crítico de Sistemas'
+    initialData?.author?.role || 'Crítico de Arquitetura Visual'
   );
   const [authorBio, setAuthorBio] = useState(
     initialData?.author?.bio || ''
   );
   const [coverColor, setCoverColor] = useState(
-    initialData?.coverColor || '#FFE600'
+    initialData?.coverColor || '#E63926'
   );
   const [coverPattern, setCoverPattern] = useState<'grid' | 'stripes' | 'dots' | 'blocks'>(
     initialData?.coverPattern || 'stripes'
@@ -148,8 +147,8 @@ export default function AdminArticleEditor({
       setStatusMessage({
         type: 'success',
         text: isEdit
-          ? 'Artigo atualizado com sucesso!'
-          : 'Artigo criado com sucesso no arquivo!',
+          ? 'Artigo atualizado com sucesso no catálogo.'
+          : 'Novo artigo registrado com sucesso no catálogo.',
       });
 
       setTimeout(() => {
@@ -165,24 +164,24 @@ export default function AdminArticleEditor({
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F4F0] py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#E9ECEF] py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Top Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b-4 border-black">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#D0D5DD]">
           <div className="flex items-center gap-3">
             <Link
               href="/admin"
-              className="btn-brutal bg-white px-3 py-1.5 text-xs font-mono flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-sm border border-[#D0D5DD] bg-white hover:border-[#111215] text-[#111215] text-xs font-mono flex items-center gap-1.5 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>VOLTAR AO CMS</span>
+              <span>Voltar ao CMS</span>
             </Link>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
-                {isEdit ? 'EDITAR ARTIGO' : 'NOVO ARTIGO'}
+              <h1 className="text-xl sm:text-3xl font-extrabold tracking-tight text-[#111215]">
+                {isEdit ? 'Editar Documento' : 'Novo Documento'}
               </h1>
-              <span className="font-mono text-xs text-black/60 font-bold">
-                EDITOR BRUTALISTA DE CONTEÚDO
+              <span className="font-mono text-xs text-[#64748B]">
+                EDITOR TIPOGRÁFICO DE CONTEÚDO
               </span>
             </div>
           </div>
@@ -191,24 +190,24 @@ export default function AdminArticleEditor({
             {isEdit && initialData?.slug && (
               <Link
                 href={`/article/?slug=${initialData.slug}`}
-                className="btn-brutal bg-white px-3 py-2 text-xs font-mono flex items-center gap-1 text-black"
+                className="px-3 py-2 border border-[#D0D5DD] bg-white hover:border-[#111215] text-xs font-mono flex items-center gap-1 text-[#111215] rounded-sm transition-colors"
               >
-                <span>VER PÁGINA</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Ver Página</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#64748B]" />
               </Link>
             )}
 
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="btn-brutal bg-[#FFE600] px-5 py-2.5 text-sm font-mono font-black flex items-center gap-2 text-black hover:bg-[#00E575]"
+              className="px-5 py-2.5 bg-[#111215] hover:bg-[#E63926] text-white text-xs font-mono font-semibold rounded-sm transition-colors flex items-center gap-2 uppercase tracking-wider"
             >
               {isSubmitting ? (
-                <span>SALVANDO...</span>
+                <span>Salvando...</span>
               ) : (
                 <>
                   <Save className="w-4 h-4" />
-                  <span>SALVAR & PUBLICAR</span>
+                  <span>Salvar & Publicar</span>
                 </>
               )}
             </button>
@@ -218,33 +217,36 @@ export default function AdminArticleEditor({
         {/* Status Toast Alert */}
         {statusMessage && (
           <div
-            className={`border-brutal p-4 mb-6 font-mono text-sm font-black flex items-center gap-2 shadow-brutal ${
+            className={`border p-3.5 mb-6 font-mono text-xs font-semibold flex items-center gap-2 rounded-sm ${
               statusMessage.type === 'success'
-                ? 'bg-[#00E575] text-black'
-                : 'bg-[#FF4400] text-white'
+                ? 'bg-white border-[#10B981] text-[#065F46]'
+                : 'bg-white border-[#EF4444] text-[#991B1B]'
             }`}
           >
             {statusMessage.type === 'success' ? (
-              <Check className="w-5 h-5" />
+              <Check className="w-4 h-4 text-[#10B981]" />
             ) : (
-              <AlertCircle className="w-5 h-5" />
+              <AlertCircle className="w-4 h-4 text-[#EF4444]" />
             )}
             <span>{statusMessage.text}</span>
           </div>
         )}
 
-        {/* Main Form */}
-        <form onSubmit={handleSubmit} className="space-y-8">
+        {/* Form Body */}
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Metadata Grid */}
-          <div className="border-brutal bg-white p-6 shadow-brutal">
-            <h2 className="font-mono text-xs font-black uppercase tracking-wider bg-black text-white px-3 py-1 inline-block mb-6">
-              [01] METADADOS DO ENSAIO
-            </h2>
+          <div className="border border-[#D0D5DD] bg-[#FFFFFF] p-6 rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <div className="flex justify-between items-center text-xs font-mono text-[#64748B] mb-5 border-b border-[#E2E8F0] pb-2">
+              <span className="font-bold text-[#111215] uppercase tracking-wider">
+                [01] METADADOS DO DOCUMENTO
+              </span>
+              <span>INDEX SPEC</span>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono text-xs">
               {/* Title */}
               <div className="md:col-span-2">
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   TÍTULO PRINCIPAL *
                 </label>
                 <input
@@ -252,14 +254,14 @@ export default function AdminArticleEditor({
                   required
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="EX: A TIRANIA DO CANTO ARREDONDADO..."
-                  className="w-full p-3 border-2 border-black font-sans text-lg font-black uppercase placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
+                  placeholder="EX: ORNAMENT IS CRIME: MODERNISM '26..."
+                  className="w-full p-3 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-sans text-lg font-bold text-[#111215] placeholder:text-[#94A3B8] focus:border-[#111215] focus:bg-white focus:outline-none transition-colors"
                 />
               </div>
 
               {/* Slug */}
               <div>
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   SLUG (URL AMIGÁVEL) *
                 </label>
                 <input
@@ -267,21 +269,21 @@ export default function AdminArticleEditor({
                   required
                   value={slug}
                   onChange={(e) => setSlug(e.target.value)}
-                  placeholder="ex: a-tirania-do-canto-arredondado"
-                  className="w-full p-2.5 border-2 border-black font-mono font-bold placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
+                  placeholder="ex: ornament-is-crime"
+                  className="w-full p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] placeholder:text-[#94A3B8] focus:border-[#111215] focus:bg-white focus:outline-none transition-colors"
                 />
               </div>
 
               {/* Category */}
               <div>
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   CATEGORIA *
                 </label>
                 <div className="flex gap-2">
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="flex-1 p-2.5 border-2 border-black font-mono font-bold bg-white focus:outline-none"
+                    className="flex-1 p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] focus:border-[#111215] focus:outline-none"
                   >
                     {CATEGORIES_PRESET.map((c) => (
                       <option key={c} value={c}>
@@ -293,29 +295,29 @@ export default function AdminArticleEditor({
                     type="text"
                     value={customCategory}
                     onChange={(e) => setCustomCategory(e.target.value)}
-                    placeholder="Ou nova categoria..."
-                    className="w-48 p-2.5 border-2 border-black font-mono font-bold placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
+                    placeholder="Ou nova..."
+                    className="w-36 p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] placeholder:text-[#94A3B8] focus:border-[#111215] focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Subtitle */}
               <div className="md:col-span-2">
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   SUBTÍTULO / FRASE DE IMPACTO
                 </label>
                 <input
                   type="text"
                   value={subtitle}
                   onChange={(e) => setSubtitle(e.target.value)}
-                  placeholder="Uma linha de contextualização crítica..."
-                  className="w-full p-2.5 border-2 border-black font-sans font-medium placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
+                  placeholder="Linha conceitual de apoio..."
+                  className="w-full p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-sans text-sm text-[#334155] placeholder:text-[#94A3B8] focus:border-[#111215] focus:bg-white focus:outline-none transition-colors"
                 />
               </div>
 
               {/* Excerpt */}
               <div className="md:col-span-2">
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   RESUMO / LEAD (PARA CARDS E BUSCA) *
                 </label>
                 <textarea
@@ -323,28 +325,28 @@ export default function AdminArticleEditor({
                   required
                   value={excerpt}
                   onChange={(e) => setExcerpt(e.target.value)}
-                  placeholder="Breve parágrafo explicativo que instigue a leitura..."
-                  className="w-full p-2.5 border-2 border-black font-sans text-sm placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
+                  placeholder="Parágrafo que introduz a tese com rigor e objetividade..."
+                  className="w-full p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-sans text-xs text-[#334155] placeholder:text-[#94A3B8] focus:border-[#111215] focus:bg-white focus:outline-none transition-colors"
                 />
               </div>
 
               {/* Tags */}
               <div>
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   TAGS (SEPARADAS POR VÍRGULA)
                 </label>
                 <input
                   type="text"
                   value={tagsStr}
                   onChange={(e) => setTagsStr(e.target.value)}
-                  placeholder="Brutalismo, Figma, Tipografia, UI"
-                  className="w-full p-2.5 border-2 border-black font-mono font-bold placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
+                  placeholder="Modernismo, Grid, Bauhaus"
+                  className="w-full p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] placeholder:text-[#94A3B8] focus:border-[#111215] focus:bg-white focus:outline-none transition-colors"
                 />
               </div>
 
-              {/* Author info */}
+              {/* Author */}
               <div>
-                <label className="block font-black uppercase text-black mb-1">
+                <label className="block font-semibold text-[#111215] mb-1">
                   AUTOR & CARGO
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -353,29 +355,29 @@ export default function AdminArticleEditor({
                     value={authorName}
                     onChange={(e) => setAuthorName(e.target.value)}
                     placeholder="Nome do autor"
-                    className="p-2.5 border-2 border-black font-mono font-bold focus:bg-[#FFE600]/20 focus:outline-none"
+                    className="p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] focus:border-[#111215] focus:outline-none"
                   />
                   <input
                     type="text"
                     value={authorRole}
                     onChange={(e) => setAuthorRole(e.target.value)}
                     placeholder="Cargo ou bio curta"
-                    className="p-2.5 border-2 border-black font-mono font-bold focus:bg-[#FFE600]/20 focus:outline-none"
+                    className="p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] focus:border-[#111215] focus:outline-none"
                   />
                 </div>
               </div>
             </div>
 
             {/* Publication Toggles */}
-            <div className="mt-6 pt-6 border-t-2 border-black flex flex-wrap items-center gap-6 font-mono text-xs font-bold">
+            <div className="mt-5 pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center gap-6 font-mono text-xs">
               <label className="flex items-center gap-2 cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={published}
                   onChange={(e) => setPublished(e.target.checked)}
-                  className="w-5 h-5 accent-black border-2 border-black"
+                  className="w-4 h-4 accent-[#111215]"
                 />
-                <span className="uppercase">Publicar Imediatamente (Visível no Site)</span>
+                <span className="font-semibold text-[#111215]">Publicar Imediatamente (Visível no Site)</span>
               </label>
 
               <label className="flex items-center gap-2 cursor-pointer select-none">
@@ -383,26 +385,45 @@ export default function AdminArticleEditor({
                   type="checkbox"
                   checked={featured}
                   onChange={(e) => setFeatured(e.target.checked)}
-                  className="w-5 h-5 accent-[#FF4400] border-2 border-black"
+                  className="w-4 h-4 accent-[#E63926]"
                 />
-                <span className="uppercase text-[#FF4400]">★ Destaque na Página Inicial</span>
+                <span className="font-semibold text-[#E63926]">★ Destaque na Página Inicial</span>
               </label>
             </div>
           </div>
 
-          {/* Cover & Visual Identity */}
-          <div className="border-brutal bg-white p-6 shadow-brutal">
-            <h2 className="font-mono text-xs font-black uppercase tracking-wider bg-black text-white px-3 py-1 inline-block mb-6">
-              [02] CAPA BRUTALISTA DO ARTIGO
-            </h2>
+          {/* Cover & Graphic Identity */}
+          <div className="border border-[#D0D5DD] bg-[#FFFFFF] p-6 rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <div className="flex justify-between items-center text-xs font-mono text-[#64748B] mb-5 border-b border-[#E2E8F0] pb-2">
+              <span className="font-bold text-[#111215] uppercase tracking-wider">
+                [02] CAPA TÉCNICA DO ARTIGO
+              </span>
+              <span>VISUAL SPEC</span>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Cover settings */}
               <div className="lg:col-span-7 space-y-4 font-mono text-xs">
+                {/* Image URL */}
+                <div>
+                  <label className="block font-semibold text-[#111215] mb-1">
+                    URL DE IMAGEM FOTOGRÁFICA / ARQUITETÔNICA (RECOMENDADO)
+                  </label>
+                  <input
+                    type="url"
+                    value={coverImage}
+                    onChange={(e) => setCoverImage(e.target.value)}
+                    placeholder="https://images.unsplash.com/photo-..."
+                    className="w-full p-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-[#111215] placeholder:text-[#94A3B8] focus:border-[#111215] focus:outline-none"
+                  />
+                  <p className="text-[11px] text-[#64748B] mt-1 font-sans">
+                    Fotos arquitetônicas preto-e-branco reforçam a estética internacional. Caso vazio, um gráfico técnico de semicírculo vermelho e grid será renderizado.
+                  </p>
+                </div>
+
                 {/* Color presets */}
                 <div>
-                  <label className="block font-black uppercase text-black mb-2">
-                    COR DE ACENTO DA CAPA
+                  <label className="block font-semibold text-[#111215] mb-2">
+                    COR DE ACENTO VISUAL
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {COLOR_PRESETS.map((p) => (
@@ -411,75 +432,31 @@ export default function AdminArticleEditor({
                         key={p.hex}
                         onClick={() => setCoverColor(p.hex)}
                         style={{ backgroundColor: p.hex }}
-                        className={`w-10 h-10 border-2 border-black flex items-center justify-center font-bold text-xs ${
-                          coverColor === p.hex ? 'ring-4 ring-black scale-110' : ''
+                        className={`w-7 h-7 rounded-sm border border-[#D0D5DD] flex items-center justify-center text-white text-[10px] font-bold ${
+                          coverColor === p.hex ? 'ring-2 ring-[#111215]' : ''
                         }`}
                         title={p.name}
                       >
                         {coverColor === p.hex ? '✓' : ''}
                       </button>
                     ))}
-                    <input
-                      type="text"
-                      value={coverColor}
-                      onChange={(e) => setCoverColor(e.target.value)}
-                      placeholder="#FFE600"
-                      className="w-24 p-2 border-2 border-black font-mono font-bold uppercase text-center"
-                    />
                   </div>
-                </div>
-
-                {/* Pattern */}
-                <div>
-                  <label className="block font-black uppercase text-black mb-2">
-                    PADRÃO GEOMÉTRICO DE FUNDO
-                  </label>
-                  <div className="grid grid-cols-4 gap-2">
-                    {(['stripes', 'grid', 'dots', 'blocks'] as const).map((pat) => (
-                      <button
-                        type="button"
-                        key={pat}
-                        onClick={() => setCoverPattern(pat)}
-                        className={`p-2 border-2 border-black uppercase font-bold text-center ${
-                          coverPattern === pat
-                            ? 'bg-black text-white'
-                            : 'bg-[#F4F4F0] hover:bg-zinc-200'
-                        }`}
-                      >
-                        {pat}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Optional Custom Image */}
-                <div>
-                  <label className="block font-black uppercase text-black mb-1">
-                    URL DE IMAGEM EXTERNA (OPCIONAL)
-                  </label>
-                  <input
-                    type="url"
-                    value={coverImage}
-                    onChange={(e) => setCoverImage(e.target.value)}
-                    placeholder="https://images.unsplash.com/..."
-                    className="w-full p-2.5 border-2 border-black font-mono placeholder:text-black/40 focus:bg-[#FFE600]/20 focus:outline-none"
-                  />
                 </div>
               </div>
 
-              {/* Real-time Cover Preview */}
+              {/* Cover Preview */}
               <div className="lg:col-span-5">
-                <span className="block font-mono text-[10px] font-black uppercase text-black/60 mb-2">
-                  PRÉVIA DA CAPA RENDERIZADA:
+                <span className="block font-mono text-[10px] text-[#64748B] uppercase tracking-wider mb-2">
+                  PRÉVIA DA CAPA:
                 </span>
-                <div className="border-2 border-black shadow-brutal">
+                <div className="border border-[#D0D5DD] rounded-sm overflow-hidden">
                   <BrutalistCover
                     title={title || 'TÍTULO DO SEU ARTIGO'}
                     category={customCategory.trim() || category}
                     color={coverColor}
                     pattern={coverPattern}
                     image={coverImage.trim() || undefined}
-                    className="h-56 w-full"
+                    className="h-44 w-full"
                   />
                 </div>
               </div>
@@ -487,18 +464,20 @@ export default function AdminArticleEditor({
           </div>
 
           {/* Content & Markdown Editor */}
-          <div className="border-brutal bg-white p-6 shadow-brutal">
+          <div className="border border-[#D0D5DD] bg-[#FFFFFF] p-6 rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-              <h2 className="font-mono text-xs font-black uppercase tracking-wider bg-black text-white px-3 py-1 inline-block">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#111215]">
                 [03] CONTEÚDO DO ENSAIO (MARKDOWN)
-              </h2>
+              </span>
 
-              <div className="flex items-center gap-1 font-mono text-xs font-bold">
+              <div className="flex items-center gap-1 font-mono text-xs">
                 <button
                   type="button"
                   onClick={() => setActiveTab('split')}
-                  className={`px-2.5 py-1 border-2 border-black uppercase ${
-                    activeTab === 'split' ? 'bg-black text-white' : 'bg-white'
+                  className={`px-2.5 py-1 rounded-sm border uppercase transition-colors ${
+                    activeTab === 'split'
+                      ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                      : 'bg-white text-[#64748B] border-[#D0D5DD]'
                   }`}
                 >
                   Dividido
@@ -506,8 +485,10 @@ export default function AdminArticleEditor({
                 <button
                   type="button"
                   onClick={() => setActiveTab('editor')}
-                  className={`px-2.5 py-1 border-2 border-black uppercase ${
-                    activeTab === 'editor' ? 'bg-black text-white' : 'bg-white'
+                  className={`px-2.5 py-1 rounded-sm border uppercase transition-colors ${
+                    activeTab === 'editor'
+                      ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                      : 'bg-white text-[#64748B] border-[#D0D5DD]'
                   }`}
                 >
                   Editor
@@ -515,8 +496,10 @@ export default function AdminArticleEditor({
                 <button
                   type="button"
                   onClick={() => setActiveTab('preview')}
-                  className={`px-2.5 py-1 border-2 border-black uppercase ${
-                    activeTab === 'preview' ? 'bg-black text-white' : 'bg-white'
+                  className={`px-2.5 py-1 rounded-sm border uppercase transition-colors ${
+                    activeTab === 'preview'
+                      ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                      : 'bg-white text-[#64748B] border-[#D0D5DD]'
                   }`}
                 >
                   Prévia
@@ -524,42 +507,42 @@ export default function AdminArticleEditor({
               </div>
             </div>
 
-            {/* Markdown helper toolbar */}
-            <div className="flex flex-wrap gap-1.5 p-2 bg-[#F4F4F0] border-2 border-black mb-4 font-mono text-xs">
+            {/* Quick Helper Toolbar */}
+            <div className="flex flex-wrap gap-1.5 p-2 bg-[#F8F9FA] border border-[#E2E8F0] rounded-sm mb-4 font-mono text-xs">
               <button
                 type="button"
                 onClick={() => insertMarkdown('## Novo Subtítulo')}
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
                 H2
               </button>
               <button
                 type="button"
                 onClick={() => insertMarkdown('### Seção Menor')}
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
                 H3
               </button>
               <button
                 type="button"
-                onClick={() => insertMarkdown('> "Citação brutalista em destaque aqui."')}
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                onClick={() => insertMarkdown('> "Citação sobre tipografia ou arquitetura."')}
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
                 Citação
               </button>
               <button
                 type="button"
                 onClick={() =>
-                  insertMarkdown('```css\n.regra {\n  border: 3px solid #000;\n}\n```')
+                  insertMarkdown('```css\n.grid {\n  border: 1px solid #D0D5DD;\n}\n```')
                 }
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
                 Código
               </button>
               <button
                 type="button"
-                onClick={() => insertMarkdown('* Item com marcador')}
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                onClick={() => insertMarkdown('* Item em lista')}
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
                 Lista
               </button>
@@ -567,19 +550,19 @@ export default function AdminArticleEditor({
                 type="button"
                 onClick={() =>
                   insertMarkdown(
-                    '| Coluna 1 | Coluna 2 |\n| :--- | :--- |\n| Dado A | Dado B |'
+                    '| Especificação | Valor |\n| :--- | :--- |\n| Grid | 1px Hairline |'
                   )
                 }
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
                 Tabela
               </button>
               <button
                 type="button"
                 onClick={() => insertMarkdown('---')}
-                className="px-2 py-1 bg-white border border-black font-bold hover:bg-[#FFE600]"
+                className="px-2 py-0.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215]"
               >
-                Linha Divisória
+                Divisor
               </button>
             </div>
 
@@ -597,7 +580,7 @@ export default function AdminArticleEditor({
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="Escreva em formato Markdown..."
-                    className="w-full flex-1 p-4 border-2 border-black font-mono text-sm leading-relaxed bg-[#FFFFFF] text-black focus:outline-none focus:bg-[#FFE600]/10"
+                    className="w-full flex-1 p-4 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-xs leading-relaxed text-[#111215] focus:outline-none focus:border-[#111215] focus:bg-white transition-colors"
                   />
                 </div>
               )}
@@ -606,10 +589,10 @@ export default function AdminArticleEditor({
                 <div
                   className={`${
                     activeTab === 'split' ? 'lg:col-span-6' : 'lg:col-span-12'
-                  } border-2 border-black bg-white p-6 overflow-y-auto max-h-[600px]`}
+                  } border border-[#D0D5DD] bg-white rounded-sm p-6 overflow-y-auto max-h-[600px]`}
                 >
-                  <div className="border-b-2 border-black pb-2 mb-4 font-mono text-xs font-black text-black/60 uppercase">
-                    /// PRÉVIA AO VIVO DA RENDERIZAÇÃO
+                  <div className="border-b border-[#E2E8F0] pb-2 mb-4 font-mono text-[10px] text-[#94A3B8] uppercase">
+                    PRÉVIA DA RENDERIZAÇÃO EDITORIAL
                   </div>
                   <MarkdownRenderer content={content} />
                 </div>
@@ -618,19 +601,19 @@ export default function AdminArticleEditor({
           </div>
 
           {/* Bottom Submit */}
-          <div className="flex justify-end gap-4 font-mono">
+          <div className="flex justify-end gap-3 font-mono text-xs">
             <Link
               href="/admin"
-              className="btn-brutal bg-white px-6 py-3 text-sm font-bold text-black"
+              className="px-5 py-2.5 bg-white border border-[#D0D5DD] hover:border-[#111215] rounded-sm text-[#111215] font-medium"
             >
-              CANCELAR
+              Cancelar
             </Link>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-brutal bg-[#FFE600] px-8 py-3 text-sm font-black text-black hover:bg-[#00E575]"
+              className="px-6 py-2.5 bg-[#111215] hover:bg-[#E63926] text-white rounded-sm font-semibold uppercase tracking-wider transition-colors"
             >
-              {isSubmitting ? 'SALVANDO...' : 'CONFIRMAR & SALVAR ARTIGO'}
+              {isSubmitting ? 'Salvando...' : 'Salvar Ensaio'}
             </button>
           </div>
         </form>

@@ -3,8 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Article } from '@/types/article';
 import ArticleCard from '@/components/ArticleCard';
-import MarqueeTicker from '@/components/MarqueeTicker';
-import { Search, Filter, Sparkles, BookOpen, Layers, Terminal, ArrowRight } from 'lucide-react';
+import { Search, ArrowRight, ArrowUpRight, SlidersHorizontal, BookOpen, Terminal } from 'lucide-react';
 import Link from 'next/link';
 
 interface HomeClientProps {
@@ -65,7 +64,6 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
 
   const nonFeaturedArticles = useMemo(() => {
     if (!featuredArticle) return filteredArticles;
-    // If user is searching or filtering, display all matches in the grid
     if (search || selectedCategory !== 'TODAS') {
       return filteredArticles;
     }
@@ -73,123 +71,144 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
   }, [filteredArticles, featuredArticle, search, selectedCategory]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Hero Banner */}
-      <section className="bg-black text-white border-b-4 border-black relative overflow-hidden">
-        {/* Subtle decorative hazard bar */}
-        <div className="h-2 hazard-stripes" />
+    <div className="min-h-screen flex flex-col relative bg-[#E9ECEF] text-[#111215]">
+      {/* Ghost Watermark Ideogram (Like Veeps Japan / China cards) */}
+      <div className="absolute top-16 left-6 pointer-events-none select-none text-[140px] font-mono font-bold leading-none text-[#111215]/[0.035] hidden xl:block">
+        設計
+      </div>
+      <div className="absolute top-96 right-6 pointer-events-none select-none text-[140px] font-mono font-bold leading-none text-[#111215]/[0.035] hidden xl:block">
+        構成
+      </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* Hero Section: In the soul of "Ornament is Crime" & "Titans of Mavericks" */}
+      <section className="border-b border-[#D0D5DD] bg-[#FFFFFF] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-14 sm:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            
+            {/* Left Typographic Statement */}
             <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 bg-[#FFE600] text-black px-3 py-1 font-mono text-xs font-black uppercase mb-4 border border-white">
+              {/* Top technical coordinates & squiggle */}
+              <div className="flex items-center gap-4 mb-6 text-xs font-mono text-[#64748B]">
+                <span className="text-[#111215] font-bold">〰〰</span>
                 <span>VOL. 04</span>
-                <span>///</span>
-                <span>MANIFESTO & CRÍTICA DE INTERFACES</span>
+                <span>/</span>
+                <span>37.5005° N — 122.5239° W</span>
+                <span>/</span>
+                <span className="text-[#E63926] font-semibold">ORNAMENT IS CRIME</span>
               </div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.95] mb-6">
-                CONTRA A <span className="text-[#FFE600] underline decoration-4 underline-offset-8">PASTEURIZAÇÃO</span> DO DESIGN DIGITAL.
+
+              {/* Monumental Modernist Headline */}
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[0.98] text-[#111215] mb-6">
+                Modernism &apos;26: <br />
+                <span className="text-[#64748B] font-medium">Titans of the</span> Web Architecture.
               </h1>
-              <p className="text-lg sm:text-xl text-zinc-300 font-sans max-w-2xl leading-relaxed mb-8">
-                Um arquivo aberto de artigos, manifestos e análises técnicas sobre honestidade estrutural, tipografia agressiva, design systems e o resgate da textura na web.
+
+              <p className="text-base sm:text-lg text-[#475569] font-sans max-w-2xl leading-relaxed mb-8">
+                Um arquivo crítico dedicado à honestidade estrutural, tipografia internacional e sistemas visuais sem concessões. Eliminamos o ornamento cosmético para revelar a verdade material da interface.
               </p>
 
-              <div className="flex flex-wrap gap-4 font-mono">
+              {/* Action buttons */}
+              <div className="flex flex-wrap items-center gap-4 font-mono text-xs">
                 <Link
                   href="/manifesto"
-                  className="btn-brutal bg-[#FFE600] text-black px-6 py-3 font-black text-sm flex items-center gap-2 hover:bg-white"
+                  className="px-5 py-3 bg-[#111215] text-white rounded-sm hover:bg-[#E63926] transition-colors flex items-center gap-2 font-semibold uppercase tracking-wider"
                 >
                   <BookOpen className="w-4 h-4" />
-                  <span>LER O MANIFESTO</span>
+                  <span>Ler o Manifesto</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/admin"
-                  className="btn-brutal bg-zinc-800 text-white border-white px-6 py-3 font-bold text-sm flex items-center gap-2 hover:bg-[#00E575] hover:text-black hover:border-black"
+                  className="px-5 py-3 bg-[#FFFFFF] border border-[#D0D5DD] hover:border-[#111215] text-[#111215] rounded-sm transition-colors flex items-center gap-2 font-medium uppercase tracking-wider"
                 >
                   <Terminal className="w-4 h-4" />
-                  <span>ACESSAR CMS</span>
+                  <span>Painel CMS</span>
                 </Link>
               </div>
             </div>
 
-            {/* Brutalist Hero Graphic / Spec Box */}
-            <div className="lg:col-span-4 bg-zinc-900 border-4 border-white p-6 font-mono text-xs shadow-brutal">
-              <div className="flex items-center justify-between border-b-2 border-zinc-700 pb-3 mb-4">
-                <span className="text-[#FFE600] font-black uppercase tracking-wider">REGISTRO DO SISTEMA</span>
-                <span className="text-zinc-400">STATUS: ATIVO</span>
+            {/* Right Technical Specification Block (Airskin / Veeps inspiration) */}
+            <div className="lg:col-span-4 bg-[#F8F9FA] border border-[#D0D5DD] p-6 rounded-sm font-mono text-xs">
+              <div className="flex justify-between items-center border-b border-[#D0D5DD] pb-3 mb-4 text-[#64748B]">
+                <span className="font-bold text-[#111215] uppercase tracking-wider">
+                  SYSTEM SPECIFICATIONS
+                </span>
+                <span className="text-[10px] text-[#E63926] font-semibold">CALIBRATED</span>
               </div>
-              <div className="space-y-3 text-zinc-300">
-                <div className="flex justify-between border-b border-zinc-800 pb-1">
-                  <span className="text-zinc-500">ARTIGOS PUBLICADOS:</span>
-                  <span className="font-bold text-white">{initialArticles.length}</span>
+              <div className="space-y-3 text-[#334155]">
+                <div className="flex justify-between border-b border-[#E2E8F0] pb-2">
+                  <span className="text-[#64748B]">ARTIGOS REGISTRADOS:</span>
+                  <span className="font-bold text-[#111215]">{articles.length}</span>
                 </div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1">
-                  <span className="text-zinc-500">CATEGORIAS:</span>
-                  <span className="font-bold text-white">{categories.length - 1}</span>
+                <div className="flex justify-between border-b border-[#E2E8F0] pb-2">
+                  <span className="text-[#64748B]">CATEGORIAS:</span>
+                  <span className="font-bold text-[#111215]">{categories.length - 1}</span>
                 </div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1">
-                  <span className="text-zinc-500">BLUR EM SOMBRAS:</span>
-                  <span className="font-bold text-[#FF4400]">0.00 PX</span>
+                <div className="flex justify-between border-b border-[#E2E8F0] pb-2">
+                  <span className="text-[#64748B]">DIVISÕES:</span>
+                  <span className="font-bold text-[#111215]">1.0 PX HAIRLINE</span>
                 </div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1">
-                  <span className="text-zinc-500">ESTÉTICA:</span>
-                  <span className="font-bold text-[#00E575]">BÉTON BRUT</span>
+                <div className="flex justify-between border-b border-[#E2E8F0] pb-2">
+                  <span className="text-[#64748B]">RIGOR VISUAL:</span>
+                  <span className="font-bold text-[#E63926]">INTERNATIONAL STYLE</span>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t-2 border-zinc-700 text-center">
-                <span className="block text-[10px] text-zinc-400 uppercase">
-                  NENHUM COOKIE RASTREADOR. APENAS DESIGN CRU.
+              <div className="mt-5 pt-3 border-t border-[#D0D5DD] flex justify-between items-center text-[10px] text-[#64748B]">
+                <span>AIRSKIN® SPEC // REF-2026</span>
+                <span className="w-4 h-4 rounded-full border border-[#D0D5DD] flex items-center justify-center font-serif text-[10px] text-[#111215]">
+                  A
                 </span>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Marquee ticker */}
-      <MarqueeTicker />
-
-      {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full" id="artigos">
-        {/* Search & Filter Toolbar */}
-        <section className="border-brutal bg-white p-4 sm:p-6 shadow-brutal mb-10">
+      {/* Main Content Container */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-12 flex-1 w-full" id="artigos">
+        {/* Search & Filter Bar (Veeps / Swiss Tabular Style) */}
+        <section className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-4 sm:p-6 mb-10 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
-            {/* Search Input */}
+            {/* Minimal Search Input */}
             <div className="relative flex-1">
-              <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-black" />
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="BUSCAR ENSAIOS, TEORIAS, PALAVRAS-CHAVE..."
-                className="w-full pl-10 pr-4 py-2.5 bg-[#F4F4F0] border-2 border-black font-mono text-sm font-bold text-black placeholder:text-black/50 focus:outline-none focus:bg-[#FFE600]/30 focus:border-black"
+                placeholder="BUSCAR NO ARQUIVO: TÍTULO, AUTOR, COORDENADA..."
+                className="w-full pl-9 pr-4 py-2.5 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-xs font-medium text-[#111215] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#111215] focus:bg-white transition-colors"
               />
               {search && (
                 <button
                   onClick={() => setSearch('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs font-black bg-black text-white px-1.5 py-0.5"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono text-[#64748B] hover:text-[#111215]"
                 >
-                  ✕
+                  [LIMPAR]
                 </button>
               )}
             </div>
 
-            {/* Compact/Grid Toggle */}
-            <div className="flex items-center gap-2 font-mono text-xs font-bold">
-              <span className="text-black/60 hidden sm:inline">VISUALIZAÇÃO:</span>
+            {/* View Mode Toggle */}
+            <div className="flex items-center gap-1 font-mono text-xs">
+              <span className="text-[#64748B] text-[11px] mr-2 hidden sm:inline">LAYOUT:</span>
               <button
                 onClick={() => setViewMode('grid')}
-                className={`px-3 py-2 border-2 border-black uppercase ${
-                  viewMode === 'grid' ? 'bg-black text-white' : 'bg-white hover:bg-zinc-100'
+                className={`px-3 py-2 rounded-sm border uppercase transition-colors ${
+                  viewMode === 'grid'
+                    ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                    : 'bg-white text-[#64748B] border-[#D0D5DD] hover:border-[#111215]'
                 }`}
               >
                 Grelha
               </button>
               <button
                 onClick={() => setViewMode('compact')}
-                className={`px-3 py-2 border-2 border-black uppercase ${
-                  viewMode === 'compact' ? 'bg-black text-white' : 'bg-white hover:bg-zinc-100'
+                className={`px-3 py-2 rounded-sm border uppercase transition-colors ${
+                  viewMode === 'compact'
+                    ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                    : 'bg-white text-[#64748B] border-[#D0D5DD] hover:border-[#111215]'
                 }`}
               >
                 Tabela
@@ -197,19 +216,19 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
             </div>
           </div>
 
-          {/* Category Chips */}
-          <div className="mt-4 pt-4 border-t-2 border-black flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs font-black text-black mr-2 flex items-center gap-1">
-              <Filter className="w-3.5 h-3.5" /> FILTRAR:
+          {/* Segmented Category Filters */}
+          <div className="mt-4 pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center gap-2">
+            <span className="font-mono text-[11px] text-[#64748B] mr-2 uppercase tracking-wider">
+              FILTRAR POR:
             </span>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1 font-mono text-xs font-bold uppercase border-2 border-black transition-all ${
+                className={`px-3 py-1 font-mono text-xs rounded-sm border transition-all uppercase ${
                   selectedCategory === cat
-                    ? 'bg-black text-[#FFE600] shadow-brutal-sm'
-                    : 'bg-white text-black hover:bg-[#FFE600]'
+                    ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                    : 'bg-[#F8F9FA] text-[#64748B] border-[#D0D5DD] hover:border-[#111215] hover:text-[#111215]'
                 }`}
               >
                 {cat}
@@ -218,13 +237,15 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
           </div>
         </section>
 
-        {/* Featured Article (When no active search/category filter) */}
+        {/* Featured Showcase (When no active search/category filter) */}
         {!search && selectedCategory === 'TODAS' && featuredArticle && (
-          <section className="mb-12">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-mono text-sm font-black uppercase tracking-wider bg-black text-white px-3 py-1 inline-block border-2 border-black">
-                /// EDIÇÃO PRINCIPAL EM FOCO
-              </h2>
+          <section className="mb-14">
+            <div className="flex items-center justify-between mb-4 font-mono text-xs text-[#64748B]">
+              <span className="font-bold text-[#111215] uppercase tracking-wider flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+                ENSAIO MONUMENTAL // EDIÇÃO EM FOCO
+              </span>
+              <span>REF-2026</span>
             </div>
             <ArticleCard article={featuredArticle} featured={true} />
           </section>
@@ -232,88 +253,87 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
 
         {/* Article Listing */}
         <section>
-          <div className="flex items-center justify-between mb-6 border-b-4 border-black pb-2">
-            <h2 className="font-black text-2xl sm:text-3xl text-black uppercase tracking-tight">
+          <div className="flex items-center justify-between mb-6 border-b border-[#D0D5DD] pb-3">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111215]">
               {search || selectedCategory !== 'TODAS'
-                ? `RESULTADOS (${nonFeaturedArticles.length})`
-                : `TODOS OS ENSAIOS (${nonFeaturedArticles.length})`}
+                ? `Resultados do Filtro (${nonFeaturedArticles.length})`
+                : `Arquivo Completo de Ensaios (${nonFeaturedArticles.length})`}
             </h2>
-            <span className="font-mono text-xs font-bold bg-[#FFE600] border-2 border-black px-2 py-1">
-              ARQUIVO COMPLETO
+            <span className="font-mono text-[11px] text-[#64748B]">
+              INDEX: 01—{nonFeaturedArticles.length.toString().padStart(2, '0')}
             </span>
           </div>
 
           {nonFeaturedArticles.length === 0 ? (
-            <div className="border-brutal bg-white p-12 text-center shadow-brutal">
-              <p className="font-mono text-lg font-bold uppercase mb-4 text-black">
-                Nenhum artigo encontrado com os filtros atuais.
+            <div className="border border-[#D0D5DD] bg-white p-12 text-center rounded-sm">
+              <p className="font-mono text-sm text-[#64748B] mb-4">
+                Nenhum ensaio corresponde aos filtros selecionados.
               </p>
               <button
                 onClick={() => {
                   setSearch('');
                   setSelectedCategory('TODAS');
                 }}
-                className="btn-brutal bg-[#FFE600] text-black px-4 py-2 font-mono text-xs"
+                className="px-4 py-2 bg-[#111215] text-white rounded-sm font-mono text-xs uppercase"
               >
-                LIMPAR FILTROS
+                Limpar Filtros
               </button>
             </div>
           ) : viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {nonFeaturedArticles.map((article) => (
                 <ArticleCard key={article.id} article={article} />
               ))}
             </div>
           ) : (
-            /* Compact / Table View */
-            <div className="border-brutal bg-white shadow-brutal overflow-x-auto">
+            /* Technical Tabular View (Veeps Style) */
+            <div className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm overflow-x-auto">
               <table className="w-full text-left font-mono text-xs border-collapse">
                 <thead>
-                  <tr className="bg-black text-white border-b-2 border-black">
-                    <th className="p-3">DATA</th>
-                    <th className="p-3">CATEGORIA</th>
-                    <th className="p-3">TÍTULO DO ARTIGO</th>
-                    <th className="p-3">AUTOR</th>
-                    <th className="p-3">TEMPO</th>
-                    <th className="p-3 text-right">AÇÃO</th>
+                  <tr className="bg-[#F8F9FA] text-[#64748B] border-b border-[#D0D5DD]">
+                    <th className="p-3.5 font-medium">DATA</th>
+                    <th className="p-3.5 font-medium">CATEGORIA</th>
+                    <th className="p-3.5 font-medium">TÍTULO DO ENSAIO</th>
+                    <th className="p-3.5 font-medium">AUTOR</th>
+                    <th className="p-3.5 font-medium">TEMPO</th>
+                    <th className="p-3.5 text-right font-medium">AÇÃO</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {nonFeaturedArticles.map((article, index) => (
+                <tbody className="divide-y divide-[#E2E8F0]">
+                  {nonFeaturedArticles.map((article) => (
                     <tr
                       key={article.id}
-                      className={`border-b-2 border-black hover:bg-[#FFE600]/30 transition-colors ${
-                        index % 2 === 0 ? 'bg-white' : 'bg-[#F4F4F0]'
-                      }`}
+                      className="hover:bg-[#F8F9FA] transition-colors"
                     >
-                      <td className="p-3 font-bold whitespace-nowrap">
+                      <td className="p-3.5 text-[#64748B] whitespace-nowrap">
                         {new Date(article.publishedAt).toLocaleDateString('pt-BR')}
                       </td>
-                      <td className="p-3 font-black whitespace-nowrap">
-                        <span className="bg-black text-white px-2 py-0.5">
+                      <td className="p-3.5 whitespace-nowrap">
+                        <span className="text-[#111215] font-semibold text-[11px]">
                           {article.category}
                         </span>
                       </td>
-                      <td className="p-3 font-black text-sm">
+                      <td className="p-3.5 font-bold text-sm text-[#111215]">
                         <Link
                           href={`/article/?slug=${article.slug}`}
-                          className="hover:underline hover:text-[#0029FF]"
+                          className="hover:text-[#E63926] transition-colors"
                         >
                           {article.title}
                         </Link>
                       </td>
-                      <td className="p-3 whitespace-nowrap font-bold">
+                      <td className="p-3.5 whitespace-nowrap text-[#64748B]">
                         {article.author.name}
                       </td>
-                      <td className="p-3 whitespace-nowrap font-bold">
-                        {article.readingTimeMinutes} MIN
+                      <td className="p-3.5 whitespace-nowrap text-[#64748B]">
+                        {article.readingTimeMinutes} min
                       </td>
-                      <td className="p-3 text-right whitespace-nowrap">
+                      <td className="p-3.5 text-right whitespace-nowrap">
                         <Link
                           href={`/article/?slug=${article.slug}`}
-                          className="btn-brutal bg-[#FFE600] px-2.5 py-1 text-[11px] inline-block"
+                          className="px-2.5 py-1 bg-[#F1F5F9] hover:bg-[#111215] hover:text-white rounded-sm text-[11px] font-semibold inline-flex items-center gap-1 transition-colors"
                         >
-                          LER →
+                          <span>LER</span>
+                          <ArrowUpRight className="w-3 h-3" />
                         </Link>
                       </td>
                     </tr>
@@ -324,39 +344,39 @@ export default function HomeClient({ initialArticles }: HomeClientProps) {
           )}
         </section>
 
-        {/* Brutalist Newsletter / Manifesto box */}
-        <section className="mt-16 border-brutal bg-[#FFE600] p-8 sm:p-12 shadow-brutal-lg">
+        {/* Minimalist Dispatch Banner (Swiss Monograph) */}
+        <section className="mt-16 border border-[#D0D5DD] bg-[#FFFFFF] p-8 sm:p-12 rounded-sm">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-8">
-              <span className="font-mono text-xs font-black bg-black text-[#FFE600] px-2 py-0.5 uppercase mb-3 inline-block">
-                RADICAL DISPATCH
+              <span className="font-mono text-xs text-[#E63926] font-semibold tracking-widest uppercase mb-2 block">
+                DISPATCH // ASSINATURA EDITORIAL
               </span>
-              <h3 className="text-3xl sm:text-5xl font-black uppercase text-black tracking-tight leading-none mb-4">
-                RECEBA CRÍTICAS SEM FILTRO NO SEU TERMINAL OU E-MAIL.
+              <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#111215] leading-tight mb-3">
+                Receba ensaios críticos sobre arquitetura visual e tipografia.
               </h3>
-              <p className="text-black font-sans text-base sm:text-lg max-w-xl font-medium">
-                Sem spam. Sem automação de engajamento agressiva. Enviamos ensaios profundos sobre tipografia e arquitetura web uma vez por mês.
+              <p className="text-[#64748B] font-sans text-sm sm:text-base leading-relaxed max-w-xl">
+                Sem rastreadores ou e-mails promocionais. Enviamos uma análise técnica selecionada por mês.
               </p>
             </div>
             <div className="md:col-span-4">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  alert('INSCRIÇÃO CONFIRMADA NO ARQUIVO DESIGNCRAFT.');
+                  alert('Inscrição confirmada no arquivo DesignCraft.');
                 }}
-                className="space-y-3 font-mono"
+                className="space-y-3 font-mono text-xs"
               >
                 <input
                   type="email"
                   required
                   placeholder="seu.email@dominio.com"
-                  className="w-full p-3 bg-white border-3 border-black text-black font-bold placeholder:text-black/50 focus:outline-none shadow-brutal-sm"
+                  className="w-full p-3 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm text-[#111215] font-medium placeholder:text-[#94A3B8] focus:outline-none focus:border-[#111215] focus:bg-white"
                 />
                 <button
                   type="submit"
-                  className="w-full btn-brutal bg-black text-white p-3 font-black uppercase hover:bg-white hover:text-black hover:border-black"
+                  className="w-full p-3 bg-[#111215] text-white rounded-sm font-semibold uppercase tracking-wider hover:bg-[#E63926] transition-colors"
                 >
-                  SUBSCREVER AGORA
+                  Subscrever Ensaio
                 </button>
               </form>
             </div>

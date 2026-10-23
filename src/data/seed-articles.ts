@@ -4,18 +4,19 @@ export const SEED_ARTICLES: Article[] = [
   {
     id: "art-01",
     slug: "a-tirania-do-canto-arredondado",
-    title: "A TIRANIA DO CANTO ARREDONDADO: O FIM DA PERSONALIDADE NO DESIGN DIGITAL",
-    subtitle: "Por que todos os aplicativos dos últimos dez anos parecem ter sido cuspido pelo mesmo algoritmo asséptico.",
-    excerpt: "Dos cantos de 16px aos cartões flutuantes em tons pastel, a web contemporânea abandonou o atrito, a textura e a identidade gráfica em nome de uma falsa sensação de segurança psicológica.",
+    title: "A Tirania do Canto Arredondado: O Fim da Personalidade no Design Digital",
+    subtitle: "Ornament is Crime: por que a padronização asséptica de 16px eliminou a tensão gráfica das interfaces contemporâneas.",
+    excerpt: "Dos cartões flutuantes em tons pastel às sombras difusas de 40px, a web contemporânea abandonou a arquitetura honesta e o rigor tipográfico em nome de um sedativo psicológico corporativo.",
     category: "TEORIA CRÍTICA",
-    tags: ["Brutalismo", "Interface", "Psicologia Cognitiva", "Cultura Visual"],
+    tags: ["Modernismo", "Adolf Loos", "Arquitetura", "Swiss Style"],
     author: {
       name: "Arthur Ferreira",
-      role: "Designer & Crítico de Sistemas",
-      bio: "Pesquisador de arquitetura da informação e estéticas computacionais radicais.",
+      role: "Crítico de Arquitetura Visual",
+      bio: "Pesquisador de tipografia internacional, Bauhaus e interfaces industriais.",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
     },
-    coverColor: "#FFE600",
+    coverImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80", // Modernist architectural concrete
+    coverColor: "#E63926",
     coverPattern: "stripes",
     published: true,
     featured: true,
@@ -26,66 +27,69 @@ export const SEED_ARTICLES: Article[] = [
     likes: 284,
     content: `## 01. O Grande Aplainamento da Web
 
-Se você abrir cinco aplicativos de fintech, três agregadores de notícias e a dashboard da sua ferramenta de produtividade favorita, notará um fenômeno perturbador: **todos eles usam rigorosamente a mesma linguagem formal**.
+Em 1908, o arquiteto austríaco Adolf Loos publicou seu célebre ensaio *"Ornamento e Crime"*, afirmando que a evolução cultural é proporcional à eliminação do ornamento supérfluo dos objetos de uso cotidiano. 
 
-Bordas arredondadas com raio de 12 a 24 pixels. Sombras difusas com desfoque de 30px e opacidade em 4%. Paleta cromática que orbita invariavelmente entre o azul corporativo confiável e o roxo místico da inteligência artificial.
+Hoje, no entanto, vivemos a distorção desse princípio: não eliminamos o ornamento em prol da verdade material; nós o substituímos por um **ornamento invisível de suavização compulsória**.
 
-> "A ausência de arestas afiadas não é uma escolha estética neutra. É a imposição corporativa de uma interface infantilizada, projetada para não oferecer qualquer resistência ao consumo."
+Se você abrir cinco aplicações digitais simultaneamente, notará uma homogeneidade inquietante:
+* Bordas com raio de 12px a 24px em todos os cantos.
+* Sombras difusas com desfoque de 30px e opacidade em 4%.
+* Gradientes adocicados que mascaram a grelha estrutural do HTML.
 
-### Anatomia da Padronização
+> "A ausência de arestas vivas não é neutralidade estética. É a imposição corporativa de um design anestésico, projetado para que o usuário nunca encontre resistência consciente."
 
-O que chamamos hoje de "Modern UI" nada mais é do que o triunfo de um utilitarismo higienizado:
+### Anatomia da Padronização Industrial
 
-| Elemento | Padrão Corporativo Dócil | Padrão Brutalista Honesto |
+| Parâmetro | Estilo Corporativo Dócil | Racionalismo Técnico Suíço |
 | :--- | :--- | :--- |
-| **Bordas** | \`border-radius: 16px\` | \`border: 3px solid #000\` |
-| **Sombras** | \`box-shadow: 0 10px 30px rgba(0,0,0,0.05)\` | \`box-shadow: 6px 6px 0 #000\` (Zero Blur) |
-| **Tipografia** | Sans-serif genérica geométrica | Monospace cru ou Grotesque pesado |
-| **Estrutura** | Divisórias invisíveis com espaçamento | Linhas de grid físicas expostas |
+| **Bordas** | \`border-radius: 16px;\` | \`border: 1px solid #D0D5DD;\` |
+| **Sombras** | \`box-shadow: 0 20px 40px rgba(0,0,0,0.05);\` | Ausência de sombra / Contraste por linha |
+| **Tipografia** | Sans-serif geométrica genérica | Grotesque com tracking estreito (-0.04em) |
+| **Estrutura** | Divisões invisíveis por espaçamento | Grid matemático exposto e tabular |
 
-## 02. O Canto Arredondado como Anestésico
+## 02. O Retorno ao Rigor de Ulm e Bauhaus
 
-Na psicologia evolucionária, formas pontiagudas ativam a amígdala — nosso centro primal de alerta contra ameaças e espinhos. Ao arredondar cada botão, cada card e cada modal, a indústria de tecnologia descobriu o sedativo perfeito: uma interface que nunca alarma, nunca desafia e nunca exige atenção crítica.
+A escola de Ulm, sob Max Bill e Otl Aicher, e a tradição de Dieter Rams na Braun ensinaram que a honestidade de um objeto reside na clareza com que suas divisões e funções são comunicadas.
+
+Uma linha de 1px não agride; ela estabelece um **limite geométrico exato**. Ela diz à mente: *aqui termina um dado, aqui inicia outro*.
 
 \`\`\`css
-/* O sedativo contemporâneo */
-.card-corporativo {
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+/* Estrutura Racional Suíça */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1px;
+  background-color: #D0D5DD; /* Hairline divider */
 }
 
-/* A resposta de atrito consciente */
-.card-brutalista {
-  border: 3px solid #000000;
-  box-shadow: 6px 6px 0px #000000;
-  background: #FFFFFF;
-  border-radius: 0px;
+.cell {
+  background-color: #FFFFFF;
+  padding: 24px;
 }
 \`\`\`
 
-## 03. O Resgate da Tensão Visual
+## 03. Tipografia como Sustentação Espacial
 
-O design brutalista não rejeita a usabilidade; ele rejeita a **hipocrisia da invisibilidade**. Uma ferramenta digital é um artefato industrial manufaturado em código. Expor sua carcaça, suas emendas e seu peso físico é um ato de respeito pela inteligência de quem a utiliza.
+Quando o tipo é desenhado e diagramado com maestria suíça — alinhado à esquerda, sem justificação forçada, com proporções assimétricas e pesos rigorosamente dosados —, qualquer sombra ou gradiente se torna um artifício desnecessário.
 
-Precisamos de cantos vivos. Precisamos de preto e branco intransigente. Precisamos de interfaces que tenham a coragem de parecer construídas por humanos deliberados, e não polidas por comitês executivos apavorados com qualquer aresta.`
+A verdadeira vanguarda hoje não consiste em adicionar mais efeitos de desfoque, mas em ter a disciplina de deixar os ossos da informação visíveis e belos por sua própria verdade matemática.`
   },
   {
     id: "art-02",
     slug: "brutalismo-web-honestidade-estrutural",
-    title: "BRUTALISMO WEB: A HONESTIDADE ESTRUTURAL CONTRA O SLOP DE IA",
-    subtitle: "Em um mar de interfaces geradas com gradientes idênticos, expor os ossos do HTML é um ato de resistência cultural.",
-    excerpt: "Quando geradores generativos produzem 10.000 landing pages indistinguíveis por segundo, a única saída para a relevância gráfica é a crueza deliberada e a fidelidade ao meio.",
+    title: "Béton Brut: A Honestidade Estrutural Contra o Slop Visual",
+    subtitle: "Em um mar de interfaces geradas por probabilidade, expor a engenharia do meio é o ato definitivo de rigor.",
+    excerpt: "Inspirada no concreto aparente de Le Corbusier e na precisão dos instrumentos de laboratório, a nova estética editorial rejeita o pastiche e celebra a fidelidade técnica.",
     category: "RADICAL WEB",
-    tags: ["HTML", "Arquitetura", "Inteligência Artificial", "Sistemas Visuais"],
+    tags: ["Le Corbusier", "Béton Brut", "HTML", "Arquitetura"],
     author: {
       name: "Arthur Ferreira",
-      role: "Designer & Crítico de Sistemas",
-      bio: "Pesquisador de arquitetura da informação e estéticas computacionais radicais.",
+      role: "Crítico de Arquitetura Visual",
+      bio: "Pesquisador de tipografia internacional, Bauhaus e interfaces industriais.",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
     },
-    coverColor: "#FF4400",
+    coverImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&auto=format&fit=crop&q=80", // Minimalist concrete architecture
+    coverColor: "#111215",
     coverPattern: "grid",
     published: true,
     featured: false,
@@ -94,43 +98,37 @@ Precisamos de cantos vivos. Precisamos de preto e branco intransigente. Precisam
     updatedAt: "2026-10-15T14:30:00.000Z",
     views: 980,
     likes: 195,
-    content: `## A Origem do Termo: Béton Brut
+    content: `## A Origem do Concreto Aparente
 
-Muitos confundem "brutalismo" com algo violento ou agressivo. O termo vem do francês *béton brut* — concreto bruto —, popularizado pelo arquiteto Le Corbusier ao construir a Unité d'Habitation em Marselha.
+A expressão francesa *béton brut* foi popularizada por Le Corbusier na construção da Unité d'Habitation em Marselha (1952). Não se tratava de criar algo rude ou negligente, mas de não aplicar estuque decorativo para esconder a textura da madeira que moldou o concreto.
 
-Tratava-se de **não rebocar**, de deixar as marcas da madeira que moldou o concreto aparentes na parede final.
+> "A beleza da engenharia moderna não está no revestimento cosmético, mas na exatidão de suas junções e na economia de seus gestos."
 
-> O brutalismo digital não é feiura proposital. É a decisão consciente de não esconder que a web é feita de caixas retangulares, texto e hiperlinks.
+### O Fenômeno do Slop Sintético
 
-### O Fenômeno do "AI Slop" Visual
+Com a geração em massa de telas por inteligência artificial, o design digital convergiu para um estilo médio pré-mastigado: iluminações falsas de estúdio, paletas violeta pasteurizadas e ausência de grid.
 
-Com a proliferação desenfreada de ferramentas generativas, o custo de produzir uma interface "bonitinha" caiu para zero. O resultado é o que chamamos de *visual slop*:
-
-1. **Ilustrações 3D genéricas** em roxo e turquesa com personagens sem ossos.
-2. **Glassmorphism falso** que prejudica taxas de contraste WCAG.
-3. **Micro-animações preguiçosas** que servem apenas para mascarar latência de servidor.
-
-### Princípios do DesignCraft Brutalista
-
-* **01. Linhas Visíveis:** Não esconda as divisões do layout. Se duas áreas são distintas, uma linha preta de 3px diz isso com clareza incomparável.
-* **02. Sombra de Deslocamento Rígido:** Esqueça sombras embaçadas. Use sombras com blur zero (\`6px 6px 0px #000\`). Elas transmitem massa, gravidade e certeza mecânica.
-* **03. Cores de Sinalização:** Use amarelo de advertência (\`#FFE600\`), laranja de tráfego (\`#FF4400\`) e azul de sinal (\`#0029FF\`).`
+Em contraposição, o design editorial técnico baseia-se em:
+1. **Grids Asimétricos Rigorosos:** Colunas em proporções matemáticas claras.
+2. **Fotografia Documental Preto e Branco:** Texturas reais de materiais e espaços.
+3. **Monospaçadas Técnicas de Precisão:** Inclusão de carimbos cronológicos, coordenadas e identificadores de documento.`
   },
   {
     id: "art-03",
     slug: "sistemas-de-design-sao-prisoes-douradas",
-    title: "SISTEMAS DE DESIGN SÃO PRISÕES DOURADAS?",
-    subtitle: "Como a busca corporativa por consistência absoluta matou a experimentação e a serendipidade nos times de produto.",
-    excerpt: "Nascidos para acelerar o desenvolvimento, os design systems tornaram-se departamentos burocráticos de censura visual onde nenhuma ideia nova sobrevive sem aprovação de comitê.",
+    title: "Sistemas de Design: Da Padronização à Paralisia Criativa",
+    subtitle: "Como a busca corporativa por consistência absoluta substituiu a inteligência de contexto por burocracia de tokens.",
+    excerpt: "Nascidos para acelerar a entrega, os repositórios corporativos de componentes transformaram-se em departamentos regulatórios onde nenhuma inovação sobrevive sem carimbo comitial.",
     category: "DESIGN SYSTEMS",
-    tags: ["Design Ops", "Figma", "Processo", "Governança"],
+    tags: ["Design Ops", "Governança", "Processo", "Contexto"],
     author: {
       name: "Arthur Ferreira",
-      role: "Designer & Crítico de Sistemas",
-      bio: "Pesquisador de arquitetura da informação e estéticas computacionais radicais.",
+      role: "Crítico de Arquitetura Visual",
+      bio: "Pesquisador de tipografia internacional, Bauhaus e interfaces industriais.",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
     },
-    coverColor: "#00E575",
+    coverImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&auto=format&fit=crop&q=80", // Minimalist monochrome industrial
+    coverColor: "#64748B",
     coverPattern: "blocks",
     published: true,
     featured: false,
@@ -141,45 +139,40 @@ Com a proliferação desenfreada de ferramentas generativas, o custo de produzir
     likes: 310,
     content: `## Da Ferramenta à Burocracia
 
-A promessa original dos Design Systems era libertadora: criar um vocabulário compartilhado de tokens e componentes para que designers e desenvolvedores pudessem focar nos problemas de negócio de alta complexidade.
-
-Dez anos depois, o que vemos na maioria das organizações?
-
-* Designers seniores que gastam 80% do sprint gerenciando variantes de botões no Figma.
-* Novas soluções contextuais sendo rejeitadas porque "não existem no sistema de tokens v3.4".
-* Aplicações inteiras sofrendo de paralisia criativa enquanto esperam o comitê de governança.
+A promessa original dos Design Systems era libertadora: unificar primitivas técnicas para liberar tempo intelectual. Contudo, em corporações maduras, o sistema converteu-se no objetivo final da equipe, acima da própria experiência do usuário.
 
 \`\`\`
-          [IDEIA CONTEXTUAL VIVAZ]
+       [PROBLEMA SINGULAR DO USUÁRIO]
                      │
                      ▼
-        ┌─────────────────────────┐
-        │  COMITÊ DE DESIGN OPS   │ ──► [MORRE NA FILA DE TOKENS]
-        └─────────────────────────┘
+       ┌───────────────────────────┐
+       │     CATÁLOGO DE TOKENS    │ ──► [CONFLITO DE COMPONENTE]
+       └───────────────────────────┘
                      │
                      ▼
-           [PRODUTO PASTEURIZADO]
+         [EXPERIÊNCIA COMPROMETIDA]
 \`\`\`
 
-### A Regra dos 80/20: Sistemas Vivos
+### O Princípio da Permeabilidade Contextual
 
-Um bom sistema deve ser um **chão firme**, e não um teto de concreto. Recomendamos que 20% de qualquer superfície de tela seja livre para divergência experimental sem necessidade de autorização prévia.`
+Os maiores designers industriais da história — de Dieter Rams a Naoto Fukasawa — nunca projetaram regras imutáveis. Criaram sistemas com folga para que a solução responda à singularidade do momento.`
   },
   {
     id: "art-04",
     slug: "tipografia-como-arquitetura-espacial",
-    title: "TIPOGRAFIA COMO ARQUITETURA ESPACIAL: DO SUÍÇO AO CAOS BRUTALISTA",
-    subtitle: "Deixar o texto ditar a estrutura física da página em vez de preencher caixas decorativas pré-fabricadas.",
-    excerpt: "A tipografia não existe para ornamentar um contêiner; ela é a própria alvenaria da experiência digital. Quando o tipo ganha escala brutal, o resto da interface se torna supérfluo.",
+    title: "Titans of the Type: Tipografia como Arquitetura Espacial",
+    subtitle: "Deixar o peso e o ritmo do caractere ditar a estrutura física da página em vez de preencher caixas decorativas.",
+    excerpt: "A tipografia não existe para preencher uma caixa; ela é a própria parede de sustentação. Quando a escala do tipo ganha peso monumental, o ornamento visual torna-se obsoleto.",
     category: "TIPOGRAFIA",
-    tags: ["Editorial", "Grid", "Cartazes", "Hierarquia"],
+    tags: ["Swiss Style", "Grid", "Editorial", "Josef Müller-Brockmann"],
     author: {
       name: "Arthur Ferreira",
-      role: "Designer & Crítico de Sistemas",
-      bio: "Pesquisador de arquitetura da informação e estéticas computacionais radicais.",
+      role: "Crítico de Arquitetura Visual",
+      bio: "Pesquisador de tipografia internacional, Bauhaus e interfaces industriais.",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
     },
-    coverColor: "#0029FF",
+    coverImage: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1200&auto=format&fit=crop&q=80", // Dramatic ocean waves B&W
+    coverColor: "#E63926",
     coverPattern: "dots",
     published: true,
     featured: false,
@@ -188,36 +181,28 @@ Um bom sistema deve ser um **chão firme**, e não um teto de concreto. Recomend
     updatedAt: "2026-10-09T18:00:00.000Z",
     views: 890,
     likes: 174,
-    content: `## A Ilusão do Conteúdo Secundário
+    content: `## A Ilusão do Texto Secundário
 
-A maioria dos layouts de produto digital é concebida ao contrário: desenha-se primeiro uma grelha de cartões com proporções arbitrárias, e depois tenta-se espremer o texto lá dentro com \`text-overflow: ellipsis\` para não quebrar a diagramação bonitinha.
+A maioria dos layouts de produto digital é concebida de trás para a frente: desenha-se primeiro uma grelha de cartões com proporções arbitrárias, e depois tenta-se espremer o texto lá dentro com \`text-overflow: ellipsis\` para não quebrar a diagramação.
 
-Isto é uma aberração contra séculos de história tipográfica.
-
-> "Tipografia é arquitetura bidimensional. As letras são colunas de sustentação; o entrelinhamento é a altura do pé-direito; os brancos são as janelas de ventilação."
-
-### O Peso da Monospace
-
-Por que a estética brutalista venera famílias monospace como Courier, Menlo e JetBrains Mono?
-
-1. **Rigor Geométrico:** Cada caractere ocupa exatamente o mesmo espaço horizontal (1 em). Isso permite alinhamentos matemáticos que remetem às matrizes de chumbo e teleimpressores.
-2. **Ausência de Artifício:** Não há compensação ótica para agradar o olho burguês. É texto puro como dado computacional crú.`
+Josef Müller-Brockmann demonstrou em seus cartazes da Tonhalle de Zurique que a tipografia é som visual. O entrelinhamento apertado, o contraste colossal de corpo e o posicionamento assimétrico criam dinamismo sem um único pixel de ilustração.`
   },
   {
     id: "art-05",
     slug: "dark-patterns-erosao-do-consentimento",
-    title: "DARK PATTERNS E A EROSÃO DO CONSENTIMENTO NA ERA ALGORÍTMICA",
-    subtitle: "Um mapeamento minucioso dos mecanismos psicológicos predatórios disfarçados de 'otimização de taxa de conversão'.",
-    excerpt: "Botões de cancelamento cinza-claros em fundo branco, cronômetros falsos de escassez e trilhas de saída labirínticas. O design industrial virou uma arma de extorsão de atenção.",
+    title: "Engenharia da Decepção: Dark Patterns e a Ética da Interface",
+    subtitle: "Mapeamento minucioso dos mecanismos psicológicos predatórios disfarçados de 'otimização de conversão'.",
+    excerpt: "Botões de cancelamento cinza-claros em fundo branco, cronômetros falsos de escassez e labirintos cognitivos. Como o design digital virou arma de coerção psicológica.",
     category: "ANTI-PATTERNS",
-    tags: ["Ética", "UX Research", "Direito Digital", "Dark Patterns"],
+    tags: ["Ética", "Cognição", "Legislação", "Transparência"],
     author: {
       name: "Arthur Ferreira",
-      role: "Designer & Crítico de Sistemas",
-      bio: "Pesquisador de arquitetura da informação e estéticas computacionais radicais.",
+      role: "Crítico de Arquitetura Visual",
+      bio: "Pesquisador de tipografia internacional, Bauhaus e interfaces industriais.",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
     },
-    coverColor: "#FFE600",
+    coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80", // Glass skyscraper geometric facade B&W
+    coverColor: "#111215",
     coverPattern: "stripes",
     published: true,
     featured: false,
@@ -226,18 +211,10 @@ Por que a estética brutalista venera famílias monospace como Courier, Menlo e 
     updatedAt: "2026-10-05T11:20:00.000Z",
     views: 1650,
     likes: 422,
-    content: `## O Eufemismo do Growth Hacking
+    content: `## O Eufemismo da Otimização
 
-Chamamos de "experimentos de conversão" o que em qualquer outro contexto civil seria classificado como fraude ou coação por indução ao erro.
+Quando uma interface oculta a opção de descadastro sob três níveis de abas descontextualizadas com texto cinza sobre fundo cinza (\`#999999\` em \`#F5F5F5\`), o designer executou uma sabotagem calculada contra a autonomia do usuário.
 
-Quando uma interface deliberadamente esconde o botão de cancelamento de assinatura sob três níveis de abas descontextualizadas com texto cinza sobre fundo cinza (\`#999999\` em \`#F5F5F5\`), o designer que desenhou aquilo não cometeu um erro de contraste: ele executou uma sabotagem calculada.
-
-### O Arsenal da Desonestidade
-
-* **Confirmshaming:** Textos de rejeição que insultam o usuário ("Não, eu prefiro continuar perdendo dinheiro").
-* **Roach Motel:** Fácil de entrar, quase impossível de sair. Assinatura em 1 clique; cancelamento exige ligação telefônica em horário comercial.
-* **Sneak into Basket:** Adição sub-reptícia de seguros ou itens extras durante o checkout.
-
-O antídoto brutalista para isso é o **Princípio da Clareza Violenta**: contraste máximo, opções simétricas e termos explícitos sem letras miúdas.`
+A resposta moderna e ética é a **Hiper-Transparência Estrutural**: escolhas simétricas, contraste evidente e respeito irrestrito ao tempo do usuário.`
   }
 ];

@@ -85,7 +85,6 @@ export default function AdminDashboardClient({
     });
   }, [articles, search, statusFilter]);
 
-  // Toggle publish
   const handleTogglePublish = (article: Article) => {
     const updated = toggleStoredArticlePublish(article.id);
     if (updated) {
@@ -96,7 +95,6 @@ export default function AdminDashboardClient({
     }
   };
 
-  // Delete article
   const handleDelete = (id: string, title: string) => {
     if (!confirm(`CONFIRMAR EXCLUSÃO DO ARTIGO:\n\n"${title}"\n\nEsta ação é irreversível.`)) {
       return;
@@ -109,7 +107,6 @@ export default function AdminDashboardClient({
     }
   };
 
-  // Export JSON
   const handleExport = () => {
     const currentList = getStoredArticles();
     const dataStr =
@@ -124,10 +121,9 @@ export default function AdminDashboardClient({
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
-    showNotification('Backup JSON baixado com sucesso!');
+    showNotification('Backup JSON baixado com sucesso.');
   };
 
-  // Import JSON
   const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -142,7 +138,7 @@ export default function AdminDashboardClient({
 
         saveStoredArticles(imported);
         setArticles(imported);
-        showNotification('Artigos importados com sucesso!');
+        showNotification('Artigos importados com sucesso.');
       } catch (err) {
         showNotification((err as Error).message, 'error');
       }
@@ -150,7 +146,6 @@ export default function AdminDashboardClient({
     reader.readAsText(file);
   };
 
-  // Reset to seeds
   const handleResetSeeds = () => {
     if (
       !confirm(
@@ -162,44 +157,46 @@ export default function AdminDashboardClient({
 
     const reset = resetStoredArticlesToSeeds();
     setArticles(reset);
-    showNotification('Repositório restaurado com os artigos seminais!');
+    showNotification('Repositório restaurado com os artigos seminais.');
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F4F0] py-8 sm:py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Admin Header */}
-        <div className="border-brutal bg-black text-white p-6 sm:p-8 shadow-brutal-lg mb-8">
+    <div className="min-h-screen bg-[#E9ECEF] py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        {/* Admin Header (Surgical Industrial Console) */}
+        <div className="border border-[#D0D5DD] bg-[#FFFFFF] p-6 sm:p-8 rounded-sm mb-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <div className="flex items-center gap-2 mb-2 font-mono text-xs">
-                <span className="w-2.5 h-2.5 bg-[#00E575] inline-block" />
-                <span className="text-[#FFE600] font-black uppercase">
-                  PAINEL ADMINISTRATIVO // CMS DESIGNCRAFT
+              <div className="flex items-center gap-2 mb-2 font-mono text-xs text-[#64748B]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+                <span className="font-semibold text-[#111215] uppercase tracking-wider">
+                  CONSOLA EDITORIAL // CMS DESIGNCRAFT
                 </span>
+                <span>/</span>
+                <span>AIRSKIN® SPEC</span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-white">
-                CENTRO DE COMANDO EDITORIAL
+              <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#111215]">
+                Centro de Comando Editorial
               </h1>
-              <p className="text-zinc-300 font-sans text-sm sm:text-base mt-2 max-w-xl">
-                Crie, edite, organize e audite os ensaios críticos de design publicados no repositório.
+              <p className="text-[#64748B] font-sans text-xs sm:text-sm mt-1 max-w-xl leading-relaxed">
+                Gerencie, publique e audite o catálogo de ensaios com precisão tipográfica.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 font-mono">
+            <div className="flex flex-wrap items-center gap-2.5 font-mono text-xs">
               <Link
                 href="/admin/new"
-                className="btn-brutal bg-[#FFE600] text-black px-5 py-3 text-sm font-black flex items-center gap-2 hover:bg-[#00E575]"
+                className="px-4 py-2.5 bg-[#111215] text-white rounded-sm hover:bg-[#E63926] transition-colors flex items-center gap-2 font-semibold uppercase tracking-wider"
               >
-                <Plus className="w-4 h-4" />
-                <span>NOVO ARTIGO</span>
+                <Plus className="w-3.5 h-3.5" />
+                <span>Novo Ensaio</span>
               </Link>
               <Link
                 href="/"
-                className="btn-brutal bg-white text-black px-4 py-3 text-sm font-bold flex items-center gap-2 hover:bg-zinc-200"
+                className="px-4 py-2.5 bg-[#F8F9FA] border border-[#D0D5DD] hover:border-[#111215] text-[#111215] rounded-sm transition-colors flex items-center gap-1.5 font-medium uppercase tracking-wider"
               >
-                <span>VER SITE</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span>Ver Site</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#64748B]" />
               </Link>
             </div>
           </div>
@@ -208,102 +205,109 @@ export default function AdminDashboardClient({
         {/* Notification Toast */}
         {notification && (
           <div
-            className={`border-brutal p-4 mb-6 font-mono text-sm font-black flex items-center gap-2 shadow-brutal ${
+            className={`border p-3.5 mb-6 font-mono text-xs font-semibold flex items-center gap-2 rounded-sm ${
               notification.type === 'success'
-                ? 'bg-[#00E575] text-black'
-                : 'bg-[#FF4400] text-white'
+                ? 'bg-[#FFFFFF] border-[#10B981] text-[#065F46]'
+                : 'bg-[#FFFFFF] border-[#EF4444] text-[#991B1B]'
             }`}
           >
             {notification.type === 'success' ? (
-              <CheckCircle className="w-5 h-5" />
+              <CheckCircle className="w-4 h-4 text-[#10B981]" />
             ) : (
-              <AlertTriangle className="w-5 h-5" />
+              <AlertTriangle className="w-4 h-4 text-[#EF4444]" />
             )}
             <span>{notification.text}</span>
           </div>
         )}
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8 font-mono">
-          <div className="border-brutal bg-white p-4 shadow-brutal">
-            <span className="text-[11px] font-bold text-black/60 uppercase block">
+        {/* Stats Grid (Tabular Technical Cards) */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5 mb-8 font-mono">
+          <div className="border border-[#D0D5DD] bg-white p-4 rounded-sm">
+            <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider block">
               TOTAL DE ARTIGOS
             </span>
-            <span className="text-3xl font-black text-black">{stats.total}</span>
+            <span className="text-2xl font-extrabold text-[#111215] mt-1 block">
+              {stats.total.toString().padStart(2, '0')}
+            </span>
           </div>
-          <div className="border-brutal bg-white p-4 shadow-brutal">
-            <span className="text-[11px] font-bold text-black/60 uppercase block">
+          <div className="border border-[#D0D5DD] bg-white p-4 rounded-sm">
+            <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider block">
               PUBLICADOS
             </span>
-            <span className="text-3xl font-black text-[#00E575]">
-              {stats.published}
+            <span className="text-2xl font-extrabold text-[#111215] mt-1 block flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+              {stats.published.toString().padStart(2, '0')}
             </span>
           </div>
-          <div className="border-brutal bg-white p-4 shadow-brutal">
-            <span className="text-[11px] font-bold text-black/60 uppercase block">
+          <div className="border border-[#D0D5DD] bg-white p-4 rounded-sm">
+            <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider block">
               RASCUNHOS
             </span>
-            <span className="text-3xl font-black text-[#FF4400]">
-              {stats.drafts}
+            <span className="text-2xl font-extrabold text-[#64748B] mt-1 block">
+              {stats.drafts.toString().padStart(2, '0')}
             </span>
           </div>
-          <div className="border-brutal bg-white p-4 shadow-brutal">
-            <span className="text-[11px] font-bold text-black/60 uppercase block">
+          <div className="border border-[#D0D5DD] bg-white p-4 rounded-sm">
+            <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider block">
               LEITURAS TOTAIS
             </span>
-            <span className="text-3xl font-black text-black">{stats.views}</span>
-          </div>
-          <div className="border-brutal bg-white p-4 shadow-brutal col-span-2 lg:col-span-1">
-            <span className="text-[11px] font-bold text-black/60 uppercase block">
-              CURTIDAS REGISTRADAS
+            <span className="text-2xl font-extrabold text-[#111215] mt-1 block">
+              {stats.views}
             </span>
-            <span className="text-3xl font-black text-[#0029FF]">{stats.likes}</span>
+          </div>
+          <div className="border border-[#D0D5DD] bg-white p-4 rounded-sm col-span-2 lg:col-span-1">
+            <span className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider block">
+              CURTIDAS
+            </span>
+            <span className="text-2xl font-extrabold text-[#E63926] mt-1 block">
+              {stats.likes}
+            </span>
           </div>
         </div>
 
         {/* Toolbar & Filter */}
-        <div className="border-brutal bg-white p-4 sm:p-6 shadow-brutal mb-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
+        <div className="border border-[#D0D5DD] bg-white p-4 sm:p-5 rounded-sm mb-6">
+          <div className="flex flex-col lg:flex-row gap-3.5 items-stretch lg:items-center justify-between">
             {/* Search */}
             <div className="relative flex-1">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-black" />
+              <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="FILTRAR POR TÍTULO OU CATEGORIA..."
-                className="w-full pl-9 pr-4 py-2 border-2 border-black font-mono text-xs font-bold text-black placeholder:text-black/50 focus:outline-none focus:bg-[#FFE600]/20"
+                className="w-full pl-9 pr-4 py-2 bg-[#F8F9FA] border border-[#D0D5DD] rounded-sm font-mono text-xs font-medium text-[#111215] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#111215] focus:bg-white transition-colors"
               />
             </div>
 
             {/* Status Filter */}
-            <div className="flex items-center gap-1 font-mono text-xs font-bold">
+            <div className="flex items-center gap-1 font-mono text-xs">
               <button
                 onClick={() => setStatusFilter('ALL')}
-                className={`px-3 py-2 border-2 border-black uppercase ${
+                className={`px-3 py-1.5 rounded-sm border uppercase transition-colors ${
                   statusFilter === 'ALL'
-                    ? 'bg-black text-white'
-                    : 'bg-white hover:bg-zinc-100'
+                    ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                    : 'bg-[#F8F9FA] text-[#64748B] border-[#D0D5DD] hover:border-[#111215]'
                 }`}
               >
                 Todos ({stats.total})
               </button>
               <button
                 onClick={() => setStatusFilter('PUBLISHED')}
-                className={`px-3 py-2 border-2 border-black uppercase ${
+                className={`px-3 py-1.5 rounded-sm border uppercase transition-colors ${
                   statusFilter === 'PUBLISHED'
-                    ? 'bg-black text-[#00E575]'
-                    : 'bg-white hover:bg-zinc-100'
+                    ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                    : 'bg-[#F8F9FA] text-[#64748B] border-[#D0D5DD] hover:border-[#111215]'
                 }`}
               >
                 Publicados ({stats.published})
               </button>
               <button
                 onClick={() => setStatusFilter('DRAFT')}
-                className={`px-3 py-2 border-2 border-black uppercase ${
+                className={`px-3 py-1.5 rounded-sm border uppercase transition-colors ${
                   statusFilter === 'DRAFT'
-                    ? 'bg-black text-[#FFE600]'
-                    : 'bg-white hover:bg-zinc-100'
+                    ? 'bg-[#111215] text-white border-[#111215] font-semibold'
+                    : 'bg-[#F8F9FA] text-[#64748B] border-[#D0D5DD] hover:border-[#111215]'
                 }`}
               >
                 Rascunhos ({stats.drafts})
@@ -314,15 +318,15 @@ export default function AdminDashboardClient({
             <div className="flex items-center gap-2 font-mono text-xs">
               <button
                 onClick={handleExport}
-                className="btn-brutal bg-white px-3 py-2 flex items-center gap-1 font-bold text-black hover:bg-[#FFE600]"
+                className="px-3 py-1.5 bg-[#F8F9FA] border border-[#D0D5DD] hover:border-[#111215] rounded-sm flex items-center gap-1 font-medium text-[#111215] transition-colors"
                 title="Exportar todos os artigos em arquivo JSON"
               >
-                <Download className="w-3.5 h-3.5" />
+                <Download className="w-3 h-3" />
                 <span className="hidden sm:inline">EXPORTAR</span>
               </button>
 
-              <label className="btn-brutal bg-white px-3 py-2 flex items-center gap-1 font-bold text-black hover:bg-[#FFE600] cursor-pointer">
-                <Upload className="w-3.5 h-3.5" />
+              <label className="px-3 py-1.5 bg-[#F8F9FA] border border-[#D0D5DD] hover:border-[#111215] rounded-sm flex items-center gap-1 font-medium text-[#111215] transition-colors cursor-pointer">
+                <Upload className="w-3 h-3" />
                 <span className="hidden sm:inline">IMPORTAR</span>
                 <input
                   type="file"
@@ -334,22 +338,22 @@ export default function AdminDashboardClient({
 
               <button
                 onClick={handleResetSeeds}
-                className="btn-brutal bg-white px-3 py-2 flex items-center gap-1 font-bold text-black hover:bg-[#FF4400] hover:text-white"
+                className="px-3 py-1.5 bg-[#F8F9FA] border border-[#D0D5DD] hover:border-[#E63926] hover:text-[#E63926] rounded-sm flex items-center gap-1 font-medium text-[#64748B] transition-colors"
                 title="Restaurar artigos padrão"
               >
-                <RefreshCw className="w-3.5 h-3.5" />
+                <RefreshCw className="w-3 h-3" />
                 <span className="hidden sm:inline">RESET</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Articles Table */}
-        <div className="border-brutal bg-white shadow-brutal-lg overflow-x-auto">
+        {/* Articles Table (Airskin / Technical Tabular Style) */}
+        <div className="border border-[#D0D5DD] bg-white rounded-sm overflow-x-auto shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <table className="w-full text-left font-mono text-xs border-collapse">
             <thead>
-              <tr className="bg-black text-white border-b-2 border-black">
-                <th className="p-3 w-12 text-center">COR</th>
+              <tr className="bg-[#F8F9FA] text-[#64748B] border-b border-[#D0D5DD]">
+                <th className="p-3 w-10 text-center">REF</th>
                 <th className="p-3">TÍTULO & SLUG</th>
                 <th className="p-3">CATEGORIA</th>
                 <th className="p-3">STATUS</th>
@@ -358,111 +362,95 @@ export default function AdminDashboardClient({
                 <th className="p-3 text-right">AÇÕES</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-[#E2E8F0]">
               {filteredArticles.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="p-8 text-center text-black/60 font-bold">
-                    Nenhum artigo encontrado.
+                  <td colSpan={7} className="p-8 text-center text-[#94A3B8]">
+                    Nenhum documento encontrado com os parâmetros atuais.
                   </td>
                 </tr>
               ) : (
                 filteredArticles.map((article, idx) => (
                   <tr
                     key={article.id}
-                    className={`border-b-2 border-black hover:bg-[#FFE600]/20 transition-colors ${
-                      idx % 2 === 0 ? 'bg-white' : 'bg-[#F4F4F0]'
-                    }`}
+                    className="hover:bg-[#F8F9FA] transition-colors"
                   >
-                    {/* Cover color badge */}
-                    <td className="p-3 text-center">
-                      <div
-                        className="w-6 h-6 border-2 border-black mx-auto"
-                        style={{ backgroundColor: article.coverColor || '#FFE600' }}
-                        title={`Cor de capa: ${article.coverColor}`}
-                      />
+                    <td className="p-3 text-center text-[#94A3B8]">
+                      {(idx + 1).toString().padStart(2, '0')}
                     </td>
 
-                    {/* Title & Slug */}
                     <td className="p-3">
-                      <div className="font-black text-sm text-black uppercase leading-tight">
+                      <div className="font-bold text-sm text-[#111215] tracking-tight leading-snug">
                         {article.featured && (
-                          <span className="text-[#FF4400] mr-1.5 font-black">★</span>
+                          <span className="text-[#E63926] mr-1.5 font-bold">★</span>
                         )}
                         {article.title}
                       </div>
-                      <div className="text-[11px] text-black/60 font-mono mt-0.5">
+                      <div className="text-[11px] text-[#64748B] font-mono mt-0.5">
                         /{article.slug}
                       </div>
                     </td>
 
-                    {/* Category */}
                     <td className="p-3 whitespace-nowrap">
-                      <span className="bg-black text-white px-2 py-0.5 font-bold uppercase text-[11px]">
+                      <span className="text-[#111215] font-semibold text-[11px] uppercase">
                         {article.category}
                       </span>
                     </td>
 
-                    {/* Status Toggle Badge */}
                     <td className="p-3 whitespace-nowrap">
                       <button
                         onClick={() => handleTogglePublish(article)}
-                        className={`px-2 py-1 font-black text-[10px] uppercase border-2 border-black shadow-brutal-sm cursor-pointer ${
+                        className={`px-2 py-0.5 rounded-sm text-[10px] font-semibold uppercase tracking-wider transition-colors ${
                           article.published
-                            ? 'bg-[#00E575] text-black hover:bg-[#00c966]'
-                            : 'bg-[#FFE600] text-black hover:bg-[#ffd900]'
+                            ? 'bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0]'
+                            : 'bg-[#F1F5F9] text-[#64748B] border border-[#CBD5E1]'
                         }`}
-                        title="Clique para alternar Publicado / Rascunho"
+                        title="Alternar Publicado / Rascunho"
                       >
-                        {article.published ? '✓ PUBLICADO' : '● RASCUNHO'}
+                        {article.published ? '● PUBLICADO' : '○ RASCUNHO'}
                       </button>
                     </td>
 
-                    {/* Stats */}
-                    <td className="p-3 whitespace-nowrap font-bold text-black/70">
+                    <td className="p-3 whitespace-nowrap text-[#64748B]">
                       <div className="flex items-center gap-3">
                         <span className="flex items-center gap-1" title="Visualizações">
-                          <Eye className="w-3 h-3 text-black" />
+                          <Eye className="w-3 h-3 text-[#94A3B8]" />
                           {article.views || 0}
                         </span>
                         <span className="flex items-center gap-1" title="Curtidas">
-                          <Heart className="w-3 h-3 text-[#FF4400]" />
+                          <Heart className="w-3 h-3 text-[#E63926]" />
                           {article.likes || 0}
                         </span>
                       </div>
                     </td>
 
-                    {/* Date */}
-                    <td className="p-3 whitespace-nowrap font-bold text-black/70">
+                    <td className="p-3 whitespace-nowrap text-[#64748B]">
                       {article.publishedAt
                         ? new Date(article.publishedAt).toLocaleDateString('pt-BR')
                         : '—'}
                     </td>
 
-                    {/* Actions */}
                     <td className="p-3 text-right whitespace-nowrap">
                       <div className="flex items-center justify-end gap-1.5">
-                        {/* View in site */}
                         <Link
                           href={`/article/?slug=${article.slug}`}
-                          className="btn-brutal bg-white p-1.5 text-black hover:bg-[#FFE600]"
+                          className="p-1.5 text-[#64748B] hover:text-[#111215] hover:bg-[#F1F5F9] rounded-sm transition-colors"
                           title="Abrir no site"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </Link>
 
-                        {/* Edit via /admin/edit?id=... */}
                         <Link
                           href={`/admin/edit?id=${article.id}`}
-                          className="btn-brutal bg-[#FFE600] p-1.5 text-black hover:bg-black hover:text-white"
+                          className="p-1.5 text-[#64748B] hover:text-[#111215] hover:bg-[#F1F5F9] rounded-sm transition-colors"
                           title="Editar artigo"
                         >
                           <Edit className="w-3.5 h-3.5" />
                         </Link>
 
-                        {/* Delete */}
                         <button
                           onClick={() => handleDelete(article.id, article.title)}
-                          className="btn-brutal bg-white p-1.5 text-[#FF4400] hover:bg-[#FF4400] hover:text-white"
+                          className="p-1.5 text-[#64748B] hover:text-[#E63926] hover:bg-[#FDECEB] rounded-sm transition-colors"
                           title="Excluir artigo"
                         >
                           <Trash2 className="w-3.5 h-3.5" />

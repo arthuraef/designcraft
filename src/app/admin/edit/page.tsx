@@ -23,9 +23,9 @@ function EditArticleLoader() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F4F4F0] p-12 flex items-center justify-center font-mono">
-        <div className="border-brutal bg-white p-6 shadow-brutal font-bold">
-          CARREGANDO ARTIGO...
+      <div className="min-h-screen bg-[#E9ECEF] p-12 flex items-center justify-center font-mono">
+        <div className="border border-[#D0D5DD] bg-white p-6 rounded-sm text-xs text-[#64748B]">
+          CARREGANDO DOCUMENTO...
         </div>
       </div>
     );
@@ -33,14 +33,19 @@ function EditArticleLoader() {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-[#F4F4F0] p-12 flex items-center justify-center font-mono">
-        <div className="border-brutal bg-white p-8 shadow-brutal text-center max-w-md">
-          <h2 className="text-xl font-black uppercase mb-4">Artigo Não Encontrado</h2>
-          <p className="text-sm text-black/70 mb-6">
-            O identificador fornecido não corresponde a nenhum ensaio registrado.
+      <div className="min-h-screen bg-[#E9ECEF] p-12 flex items-center justify-center font-mono">
+        <div className="border border-[#D0D5DD] bg-white p-8 rounded-sm text-center max-w-md shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+          <h2 className="text-xl font-bold tracking-tight text-[#111215] mb-2">
+            Documento Não Encontrado
+          </h2>
+          <p className="text-xs text-[#64748B] mb-6">
+            O identificador fornecido não corresponde a nenhum ensaio registrado no catálogo.
           </p>
-          <Link href="/admin" className="btn-brutal bg-[#FFE600] px-4 py-2 font-bold text-xs">
-            VOLTAR AO CMS
+          <Link
+            href="/admin"
+            className="px-4 py-2 bg-[#111215] text-white hover:bg-[#E63926] rounded-sm font-semibold text-xs uppercase tracking-wider transition-colors inline-block"
+          >
+            Voltar ao CMS
           </Link>
         </div>
       </div>
@@ -54,8 +59,8 @@ export default function EditArticlePage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#F4F4F0] p-12 flex items-center justify-center font-mono">
-          <div className="border-brutal bg-white p-6 shadow-brutal font-bold">
+        <div className="min-h-screen bg-[#E9ECEF] p-12 flex items-center justify-center font-mono">
+          <div className="border border-[#D0D5DD] bg-white p-6 rounded-sm text-xs text-[#64748B]">
             CARREGANDO EDITOR...
           </div>
         </div>

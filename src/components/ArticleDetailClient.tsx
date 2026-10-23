@@ -10,13 +10,12 @@ import {
   ArrowLeft,
   Share2,
   Heart,
-  Eye,
   Clock,
   Printer,
   Check,
   Tag,
   ArrowRight,
-  Bookmark,
+  ArrowUpRight,
 } from 'lucide-react';
 
 interface ArticleDetailClientProps {
@@ -60,63 +59,66 @@ export default function ArticleDetailClient({
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F4F0] py-8 sm:py-12">
+    <div className="min-h-screen bg-[#E9ECEF] py-8 sm:py-14">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Navigation breadcrumb bar */}
-        <div className="flex items-center justify-between font-mono text-xs font-bold mb-8 pb-4 border-b-2 border-black">
+        {/* Navigation Breadcrumb Bar */}
+        <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-8 pb-4 border-b border-[#D0D5DD]">
           <Link
             href="/"
-            className="btn-brutal bg-white px-3 py-1.5 flex items-center gap-1.5 hover:bg-[#FFE600] text-black"
+            className="flex items-center gap-1.5 text-[#111215] hover:text-[#E63926] transition-colors font-medium uppercase tracking-wider"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>VOLTAR AO ARQUIVO</span>
+            <span>Voltar ao Arquivo</span>
           </Link>
 
-          <div className="flex items-center gap-2">
-            <span className="bg-black text-white px-2 py-1 uppercase">
+          <div className="flex items-center gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+            <span className="text-[#111215] font-semibold uppercase">
               {article.category}
             </span>
-            <span className="hidden sm:inline text-black/60">
-              DOC_ID: {article.id}
+            <span className="text-[#CBD5E1]">/</span>
+            <span className="hidden sm:inline text-[#64748B]">
+              DOC // {article.id}
             </span>
           </div>
         </div>
 
         {/* Article Header Card */}
-        <header className="border-brutal bg-white p-6 sm:p-10 shadow-brutal-lg mb-8">
-          <div className="flex flex-wrap items-center gap-3 font-mono text-xs font-bold mb-4">
-            <span className="bg-[#FFE600] text-black border border-black px-2 py-0.5 uppercase">
+        <header className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-6 sm:p-10 mb-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+          <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-[#64748B] mb-4">
+            <span className="font-semibold text-[#111215] uppercase tracking-wider">
               {article.category}
             </span>
-            <span className="flex items-center gap-1 text-black/70">
+            <span>•</span>
+            <span className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5" />
-              {article.readingTimeMinutes} MINUTOS DE LEITURA
+              {article.readingTimeMinutes} MIN DE LEITURA
             </span>
-            <span className="text-black/50">•</span>
-            <span className="text-black/70">{formattedDate}</span>
+            <span>•</span>
+            <span>{formattedDate}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-black tracking-tighter leading-[0.95] mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111215] leading-[1.02] mb-6">
             {article.title}
           </h1>
 
           {article.subtitle && (
-            <p className="text-xl sm:text-2xl text-black font-sans font-medium leading-relaxed border-l-4 border-[#FF4400] pl-4 mb-8">
+            <p className="text-lg sm:text-xl text-[#475569] font-sans font-normal leading-relaxed border-l-2 border-[#E63926] pl-4 mb-8">
               {article.subtitle}
             </p>
           )}
 
           {/* Author bar & actions */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t-2 border-black font-mono">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#E2E8F0] font-mono">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 border-2 border-black bg-[#FFE600] flex items-center justify-center font-black text-lg">
+              <div className="w-10 h-10 rounded-sm border border-[#D0D5DD] bg-[#F8F9FA] flex items-center justify-center font-bold text-sm text-[#111215]">
                 {article.author.name.charAt(0)}
               </div>
               <div>
-                <span className="block font-black text-sm text-black uppercase">
+                <span className="block font-bold text-xs text-[#111215] uppercase">
                   {article.author.name}
                 </span>
-                <span className="block text-xs text-black/70">
+                <span className="block text-[11px] text-[#64748B]">
                   {article.author.role}
                 </span>
               </div>
@@ -126,10 +128,10 @@ export default function ArticleDetailClient({
             <div className="flex items-center gap-2">
               <button
                 onClick={handleLike}
-                className={`btn-brutal px-3.5 py-1.5 text-xs flex items-center gap-1.5 ${
+                className={`px-3 py-1.5 rounded-sm border text-xs flex items-center gap-1.5 transition-colors ${
                   hasLiked
-                    ? 'bg-[#FF4400] text-white'
-                    : 'bg-white hover:bg-[#FFE600] text-black'
+                    ? 'bg-[#E63926] text-white border-[#E63926]'
+                    : 'bg-[#F8F9FA] border-[#D0D5DD] hover:border-[#111215] text-[#111215]'
                 }`}
                 title="Apoiar este ensaio"
               >
@@ -139,17 +141,17 @@ export default function ArticleDetailClient({
 
               <button
                 onClick={handleShare}
-                className="btn-brutal bg-white hover:bg-[#FFE600] text-black px-3.5 py-1.5 text-xs flex items-center gap-1.5"
+                className="px-3 py-1.5 rounded-sm border border-[#D0D5DD] bg-[#F8F9FA] hover:border-[#111215] text-[#111215] text-xs flex items-center gap-1.5 transition-colors"
                 title="Copiar link"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-[#00E575]" /> : <Share2 className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-[#E63926]" /> : <Share2 className="w-3.5 h-3.5" />}
                 <span>{copied ? 'COPIADO' : 'COMPARTILHAR'}</span>
               </button>
 
               <button
                 onClick={handlePrint}
-                className="btn-brutal bg-white hover:bg-black hover:text-white text-black px-3 py-1.5 text-xs hidden sm:flex items-center gap-1"
-                title="Imprimir visualização brutalista"
+                className="px-2.5 py-1.5 rounded-sm border border-[#D0D5DD] bg-[#F8F9FA] hover:border-[#111215] text-[#111215] text-xs hidden sm:flex items-center gap-1 transition-colors"
+                title="Imprimir visualização técnica"
               >
                 <Printer className="w-3.5 h-3.5" />
               </button>
@@ -158,7 +160,7 @@ export default function ArticleDetailClient({
         </header>
 
         {/* Cover graphic */}
-        <div className="border-brutal bg-white shadow-brutal mb-10 overflow-hidden">
+        <div className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm mb-10 overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <BrutalistCover
             title={article.title}
             category={article.category}
@@ -170,13 +172,13 @@ export default function ArticleDetailClient({
         </div>
 
         {/* Main Reading Content */}
-        <article className="border-brutal bg-white p-6 sm:p-12 shadow-brutal-lg mb-12">
+        <article className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-6 sm:p-12 mb-12 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <MarkdownRenderer content={article.content} />
 
           {/* Tags */}
-          <div className="mt-12 pt-6 border-t-4 border-black">
-            <div className="flex items-center gap-2 mb-3 font-mono text-xs font-bold uppercase text-black">
-              <Tag className="w-4 h-4" />
+          <div className="mt-12 pt-6 border-t border-[#E2E8F0]">
+            <div className="flex items-center gap-2 mb-3 font-mono text-xs text-[#64748B] uppercase tracking-wider">
+              <Tag className="w-3.5 h-3.5 text-[#94A3B8]" />
               <span>CLASSIFICAÇÃO METADADOS:</span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -184,7 +186,7 @@ export default function ArticleDetailClient({
                 <Link
                   key={tag}
                   href={`/?search=${encodeURIComponent(tag)}`}
-                  className="btn-brutal bg-[#F4F4F0] hover:bg-[#FFE600] px-3 py-1 font-mono text-xs font-bold text-black"
+                  className="px-2.5 py-1 bg-[#F8F9FA] border border-[#CBD5E1] hover:border-[#111215] rounded-sm font-mono text-xs text-[#475569] hover:text-[#111215] transition-colors"
                 >
                   #{tag}
                 </Link>
@@ -192,22 +194,22 @@ export default function ArticleDetailClient({
             </div>
           </div>
 
-          {/* Author Box Signature */}
-          <div className="mt-10 border-2 border-black bg-[#FFE600] p-6 shadow-brutal">
+          {/* Author Signature Box */}
+          <div className="mt-10 border border-[#D0D5DD] bg-[#F8F9FA] p-6 rounded-sm">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <div className="w-14 h-14 bg-black text-white flex items-center justify-center font-black text-2xl border-2 border-black font-mono">
+              <div className="w-12 h-12 rounded-sm border border-[#D0D5DD] bg-white flex items-center justify-center font-bold text-lg text-[#111215] font-mono">
                 {article.author.name.charAt(0)}
               </div>
               <div className="flex-1">
-                <span className="font-mono text-[10px] font-black uppercase tracking-widest text-black/70 block">
-                  SOBRE QUEM ESCREVE
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-[#64748B] block">
+                  REGISTRO AUTORAL
                 </span>
-                <h4 className="font-black text-lg text-black uppercase">
+                <h4 className="font-bold text-base text-[#111215] tracking-tight">
                   {article.author.name}
                 </h4>
-                <p className="font-sans text-sm text-black/90 mt-1">
+                <p className="font-sans text-xs text-[#475569] mt-1 leading-relaxed">
                   {article.author.bio ||
-                    'Pesquisador e designer dedicado a questionar interfaces convencionais e arquiteturas digitais corporativas.'}
+                    'Pesquisador de tipografia internacional, Bauhaus e interfaces industriais.'}
                 </p>
               </div>
             </div>
@@ -219,17 +221,17 @@ export default function ArticleDetailClient({
           {prevArticle ? (
             <Link
               href={`/article/?slug=${prevArticle.slug}`}
-              className="border-brutal bg-white p-5 shadow-brutal card-brutal-interactive flex flex-col justify-between"
+              className="border border-[#D0D5DD] bg-[#FFFFFF] p-5 rounded-sm hover:border-[#111215] transition-all flex flex-col justify-between shadow-[0_1px_2px_rgba(0,0,0,0.02)] group"
             >
-              <span className="text-xs font-bold text-black/60 flex items-center gap-1 mb-2">
-                <ArrowLeft className="w-3.5 h-3.5" /> ENSAIO ANTERIOR
+              <span className="text-[11px] text-[#64748B] flex items-center gap-1 mb-2 uppercase">
+                <ArrowLeft className="w-3 h-3" /> ENSAIO ANTERIOR
               </span>
-              <h5 className="font-black text-sm uppercase text-black line-clamp-2">
+              <h5 className="font-bold text-sm text-[#111215] group-hover:text-[#E63926] transition-colors line-clamp-2">
                 {prevArticle.title}
               </h5>
             </Link>
           ) : (
-            <div className="border-2 border-dashed border-black/30 p-5 flex items-center justify-center text-xs text-black/40">
+            <div className="border border-dashed border-[#D0D5DD] p-5 rounded-sm flex items-center justify-center text-xs text-[#94A3B8]">
               INÍCIO DO ARQUIVO
             </div>
           )}
@@ -237,17 +239,17 @@ export default function ArticleDetailClient({
           {nextArticle ? (
             <Link
               href={`/article/?slug=${nextArticle.slug}`}
-              className="border-brutal bg-white p-5 shadow-brutal card-brutal-interactive flex flex-col justify-between text-right"
+              className="border border-[#D0D5DD] bg-[#FFFFFF] p-5 rounded-sm hover:border-[#111215] transition-all flex flex-col justify-between text-right shadow-[0_1px_2px_rgba(0,0,0,0.02)] group"
             >
-              <span className="text-xs font-bold text-black/60 flex items-center justify-end gap-1 mb-2">
-                PRÓXIMO ENSAIO <ArrowRight className="w-3.5 h-3.5" />
+              <span className="text-[11px] text-[#64748B] flex items-center justify-end gap-1 mb-2 uppercase">
+                PRÓXIMO ENSAIO <ArrowRight className="w-3 h-3" />
               </span>
-              <h5 className="font-black text-sm uppercase text-black line-clamp-2">
+              <h5 className="font-bold text-sm text-[#111215] group-hover:text-[#E63926] transition-colors line-clamp-2">
                 {nextArticle.title}
               </h5>
             </Link>
           ) : (
-            <div className="border-2 border-dashed border-black/30 p-5 flex items-center justify-center text-xs text-black/40">
+            <div className="border border-dashed border-[#D0D5DD] p-5 rounded-sm flex items-center justify-center text-xs text-[#94A3B8]">
               FIM DO ARQUIVO
             </div>
           )}

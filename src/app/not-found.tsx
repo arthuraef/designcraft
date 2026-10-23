@@ -17,7 +17,6 @@ export default function NotFound() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const pathname = window.location.pathname;
-      // Match patterns like /designcraft/article/<slug>/ or /article/<slug>/
       const match = pathname.match(/\/article\/([^/]+)/);
       if (match && match[1]) {
         const slug = decodeURIComponent(match[1]);
@@ -37,8 +36,8 @@ export default function NotFound() {
 
   if (!checked) {
     return (
-      <div className="min-h-screen bg-[#F4F4F0] p-12 flex items-center justify-center font-mono">
-        <div className="border-brutal bg-white p-6 shadow-brutal font-bold text-black">
+      <div className="min-h-screen bg-[#E9ECEF] p-12 flex items-center justify-center font-mono">
+        <div className="border border-[#D0D5DD] bg-white p-6 rounded-sm text-xs text-[#64748B]">
           CARREGANDO DOCUMENTO DO ARQUIVO...
         </div>
       </div>
@@ -58,40 +57,43 @@ export default function NotFound() {
 
   // Otherwise, real 404
   return (
-    <div className="min-h-screen bg-[#F4F4F0] py-16 px-4 font-mono flex items-center justify-center">
-      <div className="max-w-xl w-full border-brutal bg-white p-8 sm:p-12 shadow-brutal-lg text-black">
-        <div className="inline-block bg-[#FF4400] text-white px-2.5 py-1 text-xs font-black uppercase mb-4">
-          ERRO 404 /// DOCUMENTO NÃO ENCONTRADO
+    <div className="min-h-screen bg-[#E9ECEF] py-16 px-4 font-mono flex items-center justify-center">
+      <div className="max-w-xl w-full border border-[#D0D5DD] bg-white p-8 sm:p-12 rounded-sm text-[#111215] shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="flex items-center gap-2 mb-4 text-xs">
+          <span className="w-2 h-2 rounded-full bg-[#E63926]" />
+          <span className="text-[#E63926] font-semibold uppercase tracking-wider">
+            ERRO 404 // DOCUMENTO NÃO LOCALIZADO
+          </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4 leading-none">
-          OBJETO NÃO REGISTRADO
+        <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Objeto Não Encontrado
         </h1>
-        <p className="font-sans text-base sm:text-lg text-black/80 mb-6 leading-relaxed">
+        <p className="font-sans text-sm sm:text-base text-[#475569] mb-6 leading-relaxed">
           {attemptedSlug ? (
             <>
               O ensaio com slug{' '}
-              <code className="bg-black text-[#FFE600] px-1.5 py-0.5 font-mono text-sm">
+              <code className="bg-[#F1F5F9] border border-[#CBD5E1] text-[#0F172A] px-1.5 py-0.5 font-mono text-xs rounded-sm">
                 /{attemptedSlug}
               </code>{' '}
-              não foi localizado no armazenamento deste navegador.
+              não foi localizado no armazenamento do navegador nem no índice estático.
             </>
           ) : (
-            'O endereço solicitado não corresponde a nenhuma rota ou documento do DesignCraft.'
+            'O endereço solicitado não corresponde a nenhuma rota registrada no DesignCraft.'
           )}
         </p>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 text-xs">
           <Link
             href="/"
-            className="btn-brutal bg-[#FFE600] text-black px-4 py-2 font-bold text-xs flex items-center gap-1.5"
+            className="px-4 py-2.5 bg-[#111215] text-white hover:bg-[#E63926] rounded-sm font-semibold transition-colors flex items-center gap-1.5 uppercase tracking-wider"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>RETORNAR AO INÍCIO</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Retornar ao Início</span>
           </Link>
           <Link
             href="/admin"
-            className="btn-brutal bg-black text-white px-4 py-2 font-bold text-xs"
+            className="px-4 py-2.5 bg-[#F8F9FA] border border-[#D0D5DD] hover:border-[#111215] text-[#111215] rounded-sm font-medium transition-colors uppercase tracking-wider"
           >
-            ABRIR CMS / ADMIN
+            Abrir Painel CMS
           </Link>
         </div>
       </div>

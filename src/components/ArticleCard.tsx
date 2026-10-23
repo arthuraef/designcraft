@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Article } from '@/types/article';
 import BrutalistCover from './BrutalistCover';
-import { ArrowUpRight, Clock, Eye, Heart } from 'lucide-react';
+import { ArrowUpRight, Play, Eye, Heart, Clock } from 'lucide-react';
 
 interface ArticleCardProps {
   article: Article;
@@ -18,12 +18,19 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
       })
     : 'RASCUNHO';
 
+  // Structured topic tags as technical schedule lines
+  const topics = [
+    { label: '01', name: article.tags[0] || 'Modernismo' },
+    { label: '02', name: article.tags[1] || 'Arquitetura' },
+    { label: '03', name: article.tags[2] || 'Tipografia' },
+  ];
+
   if (featured) {
     return (
-      <article className="border-brutal bg-white shadow-brutal-lg card-brutal-interactive mb-12 overflow-hidden">
+      <article className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm mb-12 overflow-hidden hover:border-[#111215] transition-all shadow-[0_2px_8px_rgba(0,0,0,0.03)] group">
         <div className="grid grid-cols-1 lg:grid-cols-12">
-          {/* Cover section */}
-          <div className="lg:col-span-7">
+          {/* Left Column: Visual & Overview */}
+          <div className="lg:col-span-7 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#D0D5DD]">
             <BrutalistCover
               title={article.title}
               category={article.category}
@@ -32,58 +39,95 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
               image={article.coverImage}
               className="h-72 sm:h-96 w-full"
             />
-          </div>
-
-          {/* Details */}
-          <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between border-t-4 lg:border-t-0 lg:border-l-4 border-black bg-white">
-            <div>
-              <div className="flex items-center gap-2 mb-4 font-mono text-xs font-black">
-                <span className="bg-[#FF4400] text-white px-2.5 py-1 uppercase tracking-wider border border-black shadow-brutal-sm">
-                  ★ DESTAQUE EDITORIAL
+            <div className="p-6 sm:p-8">
+              <div className="flex items-center gap-3 font-mono text-xs text-[#64748B] mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+                <span className="text-[#E63926] font-bold tracking-widest uppercase">
+                  DESTAQUE EDITORIAL
                 </span>
-                <span className="text-black/70">• {article.readingTimeMinutes} MIN LEITURA</span>
+                <span>/</span>
+                <span>{article.readingTimeMinutes} MIN LEITURA</span>
               </div>
-
               <Link href={`/article/?slug=${article.slug}`}>
-                <h2 className="text-2xl sm:text-4xl font-black text-black uppercase tracking-tight leading-none hover:text-[#0029FF] transition-colors mb-4">
+                <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#111215] leading-[1.05] hover:text-[#E63926] transition-colors mb-4">
                   {article.title}
                 </h2>
               </Link>
-
-              <p className="text-black/80 font-sans text-base sm:text-lg mb-6 leading-relaxed line-clamp-3">
+              <p className="text-[#475569] font-sans text-sm sm:text-base leading-relaxed line-clamp-3">
                 {article.excerpt}
               </p>
+            </div>
+          </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {article.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-xs bg-[#F4F4F0] border-2 border-black px-2 py-0.5 font-bold"
+          {/* Right Column: Veeps-Inspired Tabular Technical Index */}
+          <div className="lg:col-span-5 flex flex-col justify-between bg-[#F8F9FA]">
+            <div>
+              {/* Tabular Header */}
+              <div className="p-4 sm:p-6 border-b border-[#D0D5DD] flex justify-between items-center font-mono text-xs text-[#64748B]">
+                <span className="font-semibold text-[#111215] uppercase tracking-wider">
+                  SPECIFICATION INDEX
+                </span>
+                <span>{formattedDate}</span>
+              </div>
+
+              {/* Sub-rows like Tour Dates in Veeps */}
+              <div className="divide-y divide-[#D0D5DD]">
+                <div className="p-4 sm:p-6 flex items-start justify-between bg-[#FFFFFF]">
+                  <div className="flex items-start gap-4">
+                    <span className="font-mono text-xs text-[#E63926] font-bold tracking-wider pt-0.5">
+                      NOW
+                    </span>
+                    <div>
+                      <h4 className="font-bold text-sm text-[#111215] tracking-tight">
+                        {article.category}
+                      </h4>
+                      <p className="text-xs font-mono text-[#64748B] mt-0.5">
+                        AUTOR: {article.author.name}
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href={`/article/?slug=${article.slug}`}
+                    className="w-8 h-8 rounded-sm bg-[#E9ECEF] group-hover:bg-[#E63926] group-hover:text-white flex items-center justify-center transition-colors text-[#111215]"
+                    title="Ler agora"
                   >
-                    #{tag}
-                  </span>
+                    <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                  </Link>
+                </div>
+
+                {topics.map((t) => (
+                  <div
+                    key={t.label}
+                    className="p-4 sm:p-5 flex items-center justify-between font-mono text-xs"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-[#94A3B8]">{t.label}</span>
+                      <span className="font-medium text-[#334155]">{t.name}</span>
+                    </div>
+                    <span className="text-[10px] text-[#94A3B8]">CONFIRMED</span>
+                  </div>
                 ))}
               </div>
             </div>
 
-            <div className="border-t-2 border-black pt-4 flex items-center justify-between font-mono text-xs font-bold">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-none border-2 border-black bg-[#FFE600] flex items-center justify-center font-black">
-                  {article.author.name.charAt(0)}
-                </div>
-                <div>
-                  <span className="block text-black uppercase">{article.author.name}</span>
-                  <span className="text-black/60 text-[10px]">{formattedDate}</span>
-                </div>
+            {/* Bottom Actions */}
+            <div className="p-4 sm:p-6 border-t border-[#D0D5DD] bg-[#FFFFFF] flex items-center justify-between font-mono text-xs">
+              <div className="flex items-center gap-4 text-[#64748B] text-[11px]">
+                <span className="flex items-center gap-1">
+                  <Eye className="w-3.5 h-3.5" />
+                  {article.views || 0}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Heart className="w-3.5 h-3.5 text-[#E63926]" />
+                  {article.likes || 0}
+                </span>
               </div>
-
               <Link
                 href={`/article/?slug=${article.slug}`}
-                className="btn-brutal bg-[#FFE600] px-4 py-2 flex items-center gap-1.5 text-black hover:bg-black hover:text-white"
+                className="px-4 py-2 bg-[#111215] text-white rounded-sm hover:bg-[#E63926] transition-colors flex items-center gap-2 font-medium uppercase tracking-wider"
               >
-                <span>LER ENSAIO</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span>Acessar Ensaio</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
@@ -92,8 +136,9 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
     );
   }
 
+  // Standard Feed Card
   return (
-    <article className="border-brutal bg-white shadow-brutal card-brutal-interactive flex flex-col justify-between h-full">
+    <article className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm flex flex-col justify-between h-full hover:border-[#111215] transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)] group">
       <div>
         <BrutalistCover
           title={article.title}
@@ -104,56 +149,53 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
           className="h-48 w-full"
         />
 
-        <div className="p-5">
-          <div className="flex items-center justify-between text-xs font-mono font-bold text-black/70 mb-2">
-            <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-black" />
-              {article.readingTimeMinutes} MIN
+        {/* Technical Header Row */}
+        <div className="p-5 pb-3">
+          <div className="flex items-center justify-between font-mono text-[11px] text-[#64748B] mb-2 pb-2 border-b border-[#E2E8F0]">
+            <span className="flex items-center gap-1 text-[#111215] font-semibold">
+              <span className="w-1 h-1 rounded-full bg-[#E63926]" />
+              {article.category}
             </span>
             <span>{formattedDate}</span>
           </div>
 
           <Link href={`/article/?slug=${article.slug}`}>
-            <h3 className="text-xl font-black text-black uppercase tracking-tight leading-tight hover:text-[#0029FF] transition-colors mb-3 line-clamp-2">
+            <h3 className="text-lg font-bold tracking-tight text-[#111215] leading-snug hover:text-[#E63926] transition-colors mb-2.5 line-clamp-2">
               {article.title}
             </h3>
           </Link>
 
-          <p className="text-black/80 text-sm leading-normal line-clamp-3 mb-4 font-sans">
+          <p className="text-[#475569] text-xs leading-relaxed line-clamp-3 font-sans">
             {article.excerpt}
           </p>
         </div>
       </div>
 
       <div className="p-5 pt-0">
-        <div className="flex flex-wrap gap-1 mb-4">
-          {article.tags.slice(0, 2).map((tag) => (
+        {/* Fine Technical Tag Row */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {article.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="font-mono text-[10px] bg-[#F4F4F0] border border-black px-1.5 py-0.5 font-bold"
+              className="font-mono text-[10px] text-[#64748B] bg-[#F1F5F9] border border-[#CBD5E1] px-2 py-0.5 rounded-sm"
             >
               #{tag}
             </span>
           ))}
         </div>
 
-        <div className="border-t-2 border-black pt-3 flex items-center justify-between font-mono text-xs font-bold">
-          <div className="flex items-center gap-3 text-black/60 text-[11px]">
-            <span className="flex items-center gap-1">
-              <Eye className="w-3 h-3" />
-              {article.views || 0}
-            </span>
-            <span className="flex items-center gap-1">
-              <Heart className="w-3 h-3 text-[#FF4400]" />
-              {article.likes || 0}
-            </span>
-          </div>
+        {/* Tabular Bottom Action Row */}
+        <div className="border-t border-[#D0D5DD] pt-3 flex items-center justify-between font-mono text-xs">
+          <span className="flex items-center gap-1 text-[#64748B] text-[11px]">
+            <Clock className="w-3 h-3 text-[#94A3B8]" />
+            {article.readingTimeMinutes} MIN
+          </span>
 
           <Link
             href={`/article/?slug=${article.slug}`}
-            className="btn-brutal bg-white px-3 py-1.5 flex items-center gap-1 text-black hover:bg-[#FFE600]"
+            className="flex items-center gap-1 text-xs font-semibold text-[#111215] group-hover:text-[#E63926] transition-colors uppercase tracking-wider"
           >
-            <span>LER</span>
+            <span>Ler</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>

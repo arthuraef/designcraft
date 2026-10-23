@@ -13,106 +13,76 @@ interface BrutalistCoverProps {
 export default function BrutalistCover({
   title,
   category,
-  color = '#FFE600',
+  color = '#E63926',
   pattern = 'stripes',
   image,
-  edition = 'ED. 04',
+  edition = '02—10 OCT',
   className = '',
 }: BrutalistCoverProps) {
   if (image) {
     return (
-      <div className={`relative border-b-4 border-black overflow-hidden bg-black ${className}`}>
+      <div className={`relative overflow-hidden bg-[#111215] border-b border-[#D0D5DD] group ${className}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-200"
+          className="w-full h-full object-cover filter grayscale contrast-115 group-hover:scale-[1.02] group-hover:contrast-125 transition-all duration-500 ease-out"
         />
-        <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 text-xs font-mono font-bold border border-white">
+        {/* Architectural coordinate stamp */}
+        <div className="absolute top-3 left-3 bg-[#111215]/85 backdrop-blur-sm text-white px-2 py-0.5 text-[10px] font-mono tracking-widest uppercase border border-white/20">
           {category}
+        </div>
+        <div className="absolute bottom-3 right-3 bg-[#FFFFFF]/90 backdrop-blur-sm text-[#111215] px-2 py-0.5 text-[9px] font-mono tracking-tight font-semibold border border-[#D0D5DD]">
+          REF // {edition}
         </div>
       </div>
     );
   }
 
+  // Pure Swiss / Technical Industrial Graphic
   return (
     <div
-      className={`relative overflow-hidden border-b-4 border-black select-none ${className}`}
-      style={{ backgroundColor: color }}
+      className={`relative overflow-hidden bg-[#F3F5F7] border-b border-[#D0D5DD] select-none flex flex-col justify-between p-6 ${className}`}
     >
-      {/* Pattern background overlay */}
-      {pattern === 'stripes' && (
+      {/* Top technical line with category and crosshair */}
+      <div className="flex justify-between items-start font-mono text-[10px] text-[#64748B] border-b border-[#D0D5DD]/60 pb-2">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+          <span className="font-semibold text-[#111215] tracking-widest uppercase">
+            {category}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span>{edition}</span>
+          <span className="text-[#94A3B8]">+</span>
+        </div>
+      </div>
+
+      {/* Center Motif (Minimalist Semicircle / Wave / Schematic) */}
+      <div className="my-auto py-4 flex items-center justify-center relative">
+        {/* Subtle grid background */}
         <div
-          className="absolute inset-0 opacity-15"
+          className="absolute inset-0 opacity-40 pointer-events-none"
           style={{
             backgroundImage:
-              'repeating-linear-gradient(45deg, #000 0, #000 8px, transparent 0, transparent 20px)',
-          }}
-        />
-      )}
-      {pattern === 'grid' && (
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)',
+              'linear-gradient(to right, #D0D5DD 1px, transparent 1px), linear-gradient(to bottom, #D0D5DD 1px, transparent 1px)',
             backgroundSize: '24px 24px',
           }}
         />
-      )}
-      {pattern === 'dots' && (
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            backgroundImage: 'radial-gradient(#000 2px, transparent 2px)',
-            backgroundSize: '16px 16px',
-          }}
-        />
-      )}
-      {pattern === 'blocks' && (
-        <div className="absolute inset-0 flex justify-between items-center opacity-10 pointer-events-none">
-          <div className="w-24 h-full bg-black" />
-          <div className="w-12 h-full bg-black" />
-          <div className="w-36 h-full bg-black" />
-        </div>
-      )}
 
-      {/* Decorative brutalist stamps */}
-      <div className="relative p-6 h-full flex flex-col justify-between z-10">
-        <div className="flex justify-between items-start font-mono text-xs font-black tracking-widest text-black">
-          <span className="bg-black text-white px-2 py-0.5 border border-black uppercase">
-            {category}
-          </span>
-          <span className="border-2 border-black px-2 py-0.5 bg-white">
-            {edition}
-          </span>
+        {/* Japanese Rising Sun / Red Semicircle Motif (Image 1 Veeps Inspiration) */}
+        <div className="relative z-10 flex flex-col items-center">
+          <div className="w-28 h-14 bg-[#E63926] rounded-t-full shadow-[0_2px_10px_rgba(230,57,38,0.2)]" />
+          <div className="w-36 h-[1px] bg-[#111215]" />
         </div>
+      </div>
 
-        <div className="my-6">
-          <p className="font-mono text-[10px] font-bold text-black uppercase tracking-tighter mb-1 opacity-75">
-            /// DESIGNCRAFT ESSAY ARCHIVE
-          </p>
-          <h3 className="font-extrabold text-2xl md:text-3xl tracking-tighter text-black uppercase leading-none line-clamp-3">
-            {title}
-          </h3>
-        </div>
-
-        <div className="flex justify-between items-end font-mono text-[10px] font-bold text-black border-t-2 border-black pt-3">
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-2.5 h-2.5 bg-black" />
-            <span>RAW_FORMAT // NO_BLUR</span>
-          </div>
-          {/* Faux barcode */}
-          <div className="flex items-center gap-[2px] h-4">
-            <div className="w-[1px] h-full bg-black" />
-            <div className="w-[3px] h-full bg-black" />
-            <div className="w-[1px] h-full bg-black" />
-            <div className="w-[2px] h-full bg-black" />
-            <div className="w-[4px] h-full bg-black" />
-            <div className="w-[1px] h-full bg-black" />
-            <div className="w-[3px] h-full bg-black" />
-            <div className="w-[2px] h-full bg-black" />
-          </div>
+      {/* Bottom technical coordinates and schematics */}
+      <div className="flex justify-between items-end font-mono text-[9px] text-[#64748B] border-t border-[#D0D5DD]/60 pt-2">
+        <span>AIRSKIN® SPEC // 37.5005 — 122.5239</span>
+        <div className="flex items-center gap-1 font-semibold text-[#111215]">
+          <span>FIG. 01</span>
+          <span className="inline-block w-2.5 h-[1px] bg-[#111215]" />
         </div>
       </div>
     </div>

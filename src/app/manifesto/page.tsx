@@ -1,113 +1,130 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, Terminal, Sparkles, AlertCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'O MANIFESTO BRUTALISTA /// DESIGNCRAFT',
-  description: '10 Teses radicais para o resgate da textura, honestidade e atrito no design digital.',
+  title: 'O MANIFESTO: ORNAMENT IS CRIME /// DESIGNCRAFT',
+  description: '10 Teses fundamentais sobre arquitetura visual, tipografia internacional e eliminação do ornamento supérfluo.',
 };
 
 const THESES = [
   {
     num: '01',
-    title: 'A HONESTIDADE DO MATERIAL DIGITAL',
-    body: 'O meio computacional não é vidro fumê, nem plástico acetinado, nem papel aquarelado. É feito de pixels, linhas de grid, contêineres retangulares e texto. Esconder as linhas de divisão com sombras difusas é covardia arquitetônica. Exponha a estrutura.',
+    code: 'FIG. 01 // MATÉRIA',
+    title: 'A Honestidade do Meio Computacional',
+    body: 'O meio digital não é plástico acetinado, nem vidro fumê, nem papel aquarelado. É composto por coordenadas matemáticas, caixas de fluxo, vetores e caracteres. Ocultar as emendas estruturais com sombras difusas é um ato de covardia arquitetônica. Exponha o grid.',
   },
   {
     num: '02',
-    title: 'O CANTO VIVO É O LUGAR DA INTENÇÃO',
-    body: 'O arredondamento automático de 16px virou o anestésico da indústria. Quando tudo é curvo, nada é deliberado. O ângulo reto de 90 graus declara: "Aqui começa um pensamento, aqui termina outro". Reivindique as arestas vivas.',
+    code: 'FIG. 02 // FORMA',
+    title: 'O Canto Vivo e a Decisão Deliberada',
+    body: 'O raio compulsório de 16px virou o sedativo da indústria de tecnologia. Quando toda aresta é arredondada, nenhuma decisão é intencional. O ângulo reto declara: "Aqui encerra-se um conceito, aqui inicia-se outro". Reivindique o rigor geométrico.',
   },
   {
     num: '03',
-    title: 'SOMBRA É MASSA, NÃO NÉVOA',
-    body: 'Sombras com desfoque de 40px fingem uma tridimensionalidade hipócrita. Uma sombra rígida de 6px sem desfoque (blur: 0px) confere peso mecânico, gravidade e certeza tátil. A interface deve parecer esculpida em bloco sólido.',
+    code: 'FIG. 03 // GRAVIDADE',
+    title: 'Linha como Fronteira, não Sombra como Névoa',
+    body: 'Sombras de 40px de desfoque simulam uma profundidade falsa e teatral. Uma linha precisa de 1px estabelece uma fronteira clara e indelével. A clareza de uma interface mede-se pela precisão de suas demarcações.',
   },
   {
     num: '04',
-    title: 'CONTRA O SLOP VISUAL DE IA',
-    body: 'Modelos de linguagem visual foram treinados na média aritmética de dez anos de Dribbble. O resultado é um pântano homogêneo de gradientes lilases e personagens 3D flutuantes. O brutalismo é a vacina contra a mediocridade gerada por probabilidade.',
+    code: 'FIG. 04 // SÍNTESE',
+    title: 'A Vacina Contra o Slop Visual de IA',
+    body: 'Algoritmos generativos foram treinados na média aritmética de dez anos de interfaces cosméticas. O resultado é um oceano de gradientes lilases e ilustrações vazias. O racionalismo suíço é o antídoto definitivo contra a mediocridade estatística.',
   },
   {
     num: '05',
-    title: 'A TIPOGRAFIA NÃO É DECORAÇÃO; É A PRÓPRIA CASA',
-    body: 'Não projetamos cartões para depois encaixar o texto. A palavra dita o ritmo, a escala e a alvenaria da tela. Quando o tipo possui força monumental, não há necessidade de ornamentos supérfluos.',
+    code: 'FIG. 05 // ESTRUTURA',
+    title: 'Tipografia é Alvenaria, Não Adorno',
+    body: 'Não desenhamos recipientes vazios para depois tentar acomodar palavras. O tipo determina a escala, o ritmo e o pé-direito da experiência visual. Quando a tipografia possui maestria arquitetônica, qualquer ornamento torna-se supérfluo.',
   },
   {
     num: '06',
-    title: 'ATRITO CONSCIENTE > VELOCIDADE CEGA',
-    body: 'Interfaces que removem todo o atrito também removem a agência humana. Uma decisão importante — como assinar, excluir ou comprar — deve exigir presença mental, firmeza de clique e contraste explícito, não um deslize acidental.',
+    code: 'FIG. 06 // AGÊNCIA',
+    title: 'Atrito Consciente contra o Deslize Cego',
+    body: 'Interfaces que eliminam todo atrito também eliminam a presença mental de quem as usa. Decisões fundamentais exigem clareza, tempo de leitura e contraste inequívoco — não um clique acidental induzido por mecânica predatória.',
   },
   {
     num: '07',
-    title: 'SISTEMAS DEVEM SER PISOS, NUNCA TETOS',
-    body: 'Um Design System que proíbe o desvio criativo não é um acelerador de engenharia; é uma prisão dourada gerida por burocratas do Figma. Vinte por cento de cada interface pertence à anomalia poética do contexto.',
+    code: 'FIG. 07 // SISTEMA',
+    title: 'Sistemas Devem Ser Chão Firme, Nunca Teto',
+    body: 'Um catálogo de componentes que impede a experimentação no ponto de contato não é engenharia; é burocracia corporativa. Toda superfície precisa de permeabilidade para responder à singularidade do problema.',
   },
   {
     num: '08',
-    title: 'O CÓDIGO CRU É ARTE INDUSTRIAL',
-    body: 'HTML semântico e CSS direto são tecnologias de durabilidade incomparável. O que é construído com fidelidade ao meio continua legível em qualquer dispositivo por décadas.',
+    code: 'FIG. 08 // CÓDIGO',
+    title: 'O HTML Semântico como Concreto Armado',
+    body: 'HTML e CSS puros são tecnologias industriais de durabilidade centenária. O que é edificado com fidelidade ao meio permanece veloz, acessível e legível em qualquer dispositivo por décadas.',
   },
   {
     num: '09',
-    title: 'CONTRA OS DARK PATTERNS',
-    body: 'Esconder opções com contraste insuficiente (#999 em #FFF) é sabotagem. O design brutalista pratica a hiper-visibilidade: opções simétricas, termos em negrito e respeito visceral pelo consentimento de quem lê.',
+    code: 'FIG. 09 // ÉTICA',
+    title: 'Hiper-Transparência contra Dark Patterns',
+    body: 'Esconder opções com contraste insuficiente (#999 sobre #FFF) é sabotagem cognitiva. Praticamos a visibilidade radical: escolhas simétricas, termos em negrito e respeito reverente pela autonomia de quem lê.',
   },
   {
     num: '10',
-    title: 'COR COMO SINAL DE TRÂNSITO',
-    body: 'Amarelo é atenção. Laranja é advertência. Verde é confirmação terminal. O preto e o branco são a lei da gravidade. Use cores com a clareza de uma placa rodoviária, não com a indecisão de um perfume comercial.',
+    code: 'FIG. 10 // SINAL',
+    title: 'Cor como Sinalização Rodoviária',
+    body: 'O preto e o branco são as leis da gravidade. O vermilion é o foco, o alerta, o ponto vivo. Utilize a cor com a sobriedade de uma placa de trânsito ou instrumento cirúrgico, jamais como perfume comercial.',
   },
 ];
 
 export default function ManifestoPage() {
   return (
-    <div className="min-h-screen bg-[#F4F4F0] py-10 sm:py-16">
+    <div className="min-h-screen bg-[#E9ECEF] py-10 sm:py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Breadcrumb */}
-        <div className="flex items-center justify-between font-mono text-xs font-bold mb-8 pb-4 border-b-2 border-black">
+        <div className="flex items-center justify-between font-mono text-xs text-[#64748B] mb-8 pb-4 border-b border-[#D0D5DD]">
           <Link
             href="/"
-            className="btn-brutal bg-white px-3 py-1.5 flex items-center gap-1.5 hover:bg-[#FFE600] text-black"
+            className="flex items-center gap-1.5 text-[#111215] hover:text-[#E63926] transition-colors font-medium uppercase tracking-wider"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>RETORNAR AOS ARTIGOS</span>
+            <span>Retornar aos Artigos</span>
           </Link>
-          <span className="bg-black text-[#FFE600] px-2 py-1 uppercase">
-            DECLARAÇÃO FORMAL
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+            <span className="text-[#111215] font-semibold uppercase">
+              DOCUMENTO METODOLÓGICO
+            </span>
+          </div>
         </div>
 
         {/* Hero Card */}
-        <div className="border-brutal bg-black text-white p-8 sm:p-12 shadow-brutal-lg mb-12">
-          <div className="inline-block bg-[#FFE600] text-black font-mono font-black text-xs px-2.5 py-1 mb-4">
-            DOCUMENTO OFICIAL /// OUTUBRO DE 2026
+        <div className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-8 sm:p-12 mb-10 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+          <div className="flex justify-between items-center text-xs font-mono text-[#64748B] mb-4 border-b border-[#E2E8F0] pb-3">
+            <span>ORNAMENT IS CRIME // MODERNISM &apos;26</span>
+            <span>37.5005 — 122.5239</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
-            O MANIFESTO BRUTALISTA DO DESIGN DIGITAL
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#111215] leading-[1.05] mb-5">
+            O Manifesto da Arquitetura Visual Digital
           </h1>
-          <p className="text-zinc-300 font-sans text-lg sm:text-xl leading-relaxed max-w-2xl">
-            10 Teses fundamentais contra a pasteurização estética e a favor da honestidade estrutural na construção de interfaces contemporâneas.
+          <p className="text-[#475569] font-sans text-base sm:text-lg leading-relaxed max-w-2xl">
+            10 Teses fundamentais contra a pasteurização cosmética e em defesa da verdade material, rigor tipográfico e clareza estrutural na construção de interfaces.
           </p>
         </div>
 
-        {/* The 10 Theses */}
-        <div className="space-y-6 mb-16">
+        {/* 10 Theses Grid */}
+        <div className="space-y-4 mb-14">
           {THESES.map((thesis) => (
             <div
               key={thesis.num}
-              className="border-brutal bg-white p-6 sm:p-8 shadow-brutal card-brutal-interactive"
+              className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-6 sm:p-8 hover:border-[#111215] transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
             >
-              <div className="flex items-start gap-4">
-                <span className="font-mono text-2xl sm:text-4xl font-black bg-[#FFE600] text-black px-3 py-1 border-2 border-black shadow-brutal-sm leading-none shrink-0">
+              <div className="flex items-start gap-5">
+                <span className="font-mono text-sm sm:text-base font-bold bg-[#F1F5F9] text-[#111215] px-2.5 py-1 border border-[#CBD5E1] rounded-sm leading-none shrink-0">
                   {thesis.num}
                 </span>
-                <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-black uppercase tracking-tight mb-3">
+                <div className="flex-1">
+                  <span className="font-mono text-[10px] text-[#E63926] font-semibold tracking-wider block mb-1">
+                    {thesis.code}
+                  </span>
+                  <h2 className="text-lg sm:text-xl font-bold tracking-tight text-[#111215] mb-2">
                     {thesis.title}
                   </h2>
-                  <p className="font-sans text-base sm:text-lg text-black/85 leading-relaxed">
+                  <p className="font-sans text-sm sm:text-base text-[#475569] leading-relaxed">
                     {thesis.body}
                   </p>
                 </div>
@@ -117,28 +134,24 @@ export default function ManifestoPage() {
         </div>
 
         {/* Signature Box */}
-        <div className="border-brutal bg-[#FFE600] p-8 shadow-brutal-lg text-black font-mono">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            <div>
-              <span className="text-xs font-black uppercase tracking-widest text-black/70 block mb-1">
-                PUBLICADO POR
-              </span>
-              <h3 className="text-2xl font-black uppercase">
-                COLETIVO DESIGNCRAFT
-              </h3>
-              <p className="text-xs text-black/80 font-sans mt-1">
-                Distribuído sob licença livre de pensamento crítico.
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Link
-                href="/admin/new"
-                className="btn-brutal bg-black text-white px-5 py-2.5 text-xs font-bold uppercase hover:bg-white hover:text-black hover:border-black"
-              >
-                ESCREVER UM ENSAIO
-              </Link>
-            </div>
+        <div className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-8 text-[#111215] font-mono text-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+          <div>
+            <span className="text-[10px] text-[#64748B] uppercase tracking-widest block mb-1">
+              CHANCELA EDITORIAL
+            </span>
+            <h3 className="text-lg font-bold uppercase tracking-tight text-[#111215]">
+              COLETIVO DESIGNCRAFT
+            </h3>
+            <p className="text-[#64748B] font-sans text-xs mt-1">
+              Publicado sob os cânones da tipografia internacional e racionalismo funcional.
+            </p>
           </div>
+          <Link
+            href="/admin/new"
+            className="px-5 py-2.5 bg-[#111215] text-white hover:bg-[#E63926] rounded-sm font-semibold uppercase tracking-wider transition-colors"
+          >
+            Submeter Ensaio
+          </Link>
         </div>
       </div>
     </div>
