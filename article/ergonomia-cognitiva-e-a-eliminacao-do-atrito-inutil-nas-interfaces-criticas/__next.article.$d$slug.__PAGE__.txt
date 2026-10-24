@@ -1,0 +1,86 @@
+1:"$Sreact.fragment"
+2:"/designcraft/_next/static/chunks/2uh-xu28j0sml.js"
+3:I[45678,["$2"],"default"]
+4:I[39756,["$2"],"default"]
+5:I[37457,["$2"],"default"]
+6:"/designcraft/_next/static/chunks/0k0gnncq7ju4d.js"
+7:"/designcraft/_next/static/chunks/1ka3eu8ixxtod.js"
+8:I[29306,["$2","$6","$7"],"default"]
+9:I[13642,["$2"],"default"]
+12:"/designcraft/_next/static/chunks/0lmre80zvki8o.js"
+13:I[65258,["$2","$12","$7"],"default"]
+1b:"ViewportBoundary"
+1c:I[97367,["$2"],"$1b"]
+1d:"MetadataBoundary"
+1e:I[97367,["$2"],"$1d"]
+1f:"$Sreact.suspense"
+20:I[27201,["$2"],"IconMark"]
+:HL["/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","style"]
+b:X
+e:X
+e:C
+14:T4a5,## 01. A Saturação das Interfaces Cosméticas
+
+A transição para softwares de telemetria, consoles de desenvolvimento e estações médicas revelou os limites do design corporativo de consumo. O uso excessivo de sombras difusas e cartões flutuantes criava poluição visual e lentidão no rastreamento de dados críticos.
+
+A ergonomia contemporânea resgata a disciplina de Ulm e da tipografia internacional suíça:
+* Grids matemáticos com espaçamento previsível em múltiplos de 8px.
+* Tipografia monoespaçada reservada para dados escalares e comparativos.
+* Eliminação de elementos puramente ornamentais que não auxiliam a tomada de decisão.
+
+### Diretrizes de Arquitetura
+
+* **Hierarquia por Escala, Não por Cor**: Use no máximo duas cores vivas de foco e deixe a tipografia conduzir o ritmo.
+* **Transparência de Estados**: Feedback imediato para ações assíncronas sem transições lentas que travem o usuário.
+
+---
+
+*Notícia apurada e selecionada pelo Good Morning News a partir de reportagem de **[Smashing Magazine](https://smashingmagazine.com/2026/10/embracing-playful-imperfection-css-random-function/)**. Todos os direitos reservados à redação original.*15:T544,## 01. O Esgotamento das Bibliotecas Passivas
+
+Durante anos, design systems foram tratados como manuais estáticos de marca e repositórios de componentes no Figma. A aceleração do desenvolvimento de software gerou um descompasso estrutural: código de produção e artefatos visuais divergiam em poucas semanas.
+
+A nova fronteira técnica trata o design system como uma **camada de protocolo formal**:
+* Variáveis de cor, tipografia e espaçamento são governadas por pipelines com testes de regressão visual contínuos.
+* O design deixa de ser adorno estético para se tornar um contrato de usabilidade e WCAG AA rigoroso.
+
+> "Um design system só tem valor se ele reduz a fricção cognitiva de quem cria e de quem navega."
+
+### O Que Isso Significa na Prática
+
+1. **Tokens Semânticos Universais**: Menos foco em hexadecimais arbitrários e mais em significado operacional (`surface-raised`, `border-subtle`, `feedback-critical`).
+2. **Acessibilidade por Padrão**: Foco absoluto em contraste tipográfico de alta legibilidade, respeitando modo noturno, saturação adaptativa e navegação por teclado.
+
+---
+
+*Notícia apurada e selecionada pelo Good Morning News a partir de reportagem de **[Smashing Magazine](https://smashingmagazine.com/2026/10/accordion-icons-which-work-best/)**. Todos os direitos reservados à redação original.*16:T43f,## 01. A Fronteira do Silício Vertical
+
+A miniaturização clássica encontrou barreiras quânticas intransponíveis na escala horizontal. A resposta da indústria foi a engenharia de empacotamento tridimensional, permitindo que blocos de memória e núcleos de processamento compartilhem vias diretas de silício.
+
+O impacto imediato se faz sentir nos custos de refrigeração e na densidade de computação por rack:
+* Redução de latência de comunicação interna entre chiplets para menos de 1 nanossegundo.
+* Eficiência térmica otimizada para cargas de trabalho contínuas.
+
+### O Horizonte da Infraestrutura
+
+Engenheiros de datacenter comemoram a desaceleração na demanda térmica, embora o custo de fabricação de wafers sub-2nm continue concentrado em poucos polos industriais globais.
+
+---
+
+*Notícia apurada e selecionada pelo Good Morning News a partir de reportagem de **[Ars Technica](https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/)**. Todos os direitos reservados à redação original.*11:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L13",null,{"article":{"id":"gmn-20261023-02","slug":"ergonomia-cognitiva-e-a-eliminacao-do-atrito-inutil-nas-interfaces-criticas","title":"Ergonomia Cognitiva e a Eliminação do Atrito Inútil nas Interfaces Críticas","subtitle":"Pesquisas recentes de ergonomia de software mostram que o excesso de micro-animações e cantos excessivamente arredondados reduz a velocidade de varredura visual em softwares profissionais.","excerpt":"Pesquisas recentes de ergonomia de software mostram que o excesso de micro-animações e cantos excessivamente arredondados reduz a velocidade de varredura visual em softwares profissionais.","content":"$14","category":"UX Design","tags":["Ergonomia","Cognitive Load","Usabilidade","Sistemas Críticos"],"author":{"name":"Smashing Magazine","role":"Correspondente UX Design","bio":"Cobertura internacional de UX Design apurada por Smashing Magazine e sintetizada pelo Good Morning News Bot.","avatar":"https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&auto=format&fit=crop&q=80"},"coverImage":"https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&auto=format&fit=crop&q=80","coverColor":"#E63926","coverPattern":"grid","published":true,"featured":false,"readingTimeMinutes":5,"publishedAt":"2026-10-24T01:46:39.176Z","updatedAt":"2026-10-24T01:46:39.176Z","views":605,"likes":70,"sourceName":"Smashing Magazine","sourceUrl":"https://smashingmagazine.com/2026/10/embracing-playful-imperfection-css-random-function/","editionDate":"23 DE OUT. DE 2026"},"prevArticle":{"id":"gmn-20261023-01","slug":"arquitetura-de-sistemas-de-design-em-2026-do-token-primitivo-ao-agente-de-interface","title":"Arquitetura de Sistemas de Design em 2026: Do Token Primitivo ao Agente de Interface","subtitle":"Equipes de produto abandonam catálogos estáticos de componentes em favor de contratos semânticos que agentes autônomos de UI conseguem compilar e testar sem quebras visuais.","excerpt":"Equipes de produto abandonam catálogos estáticos de componentes em favor de contratos semânticos que agentes autônomos de UI conseguem compilar e testar sem quebras visuais.","content":"$15","category":"UX Design","tags":["Design Systems","UX Architecture","Tokens","Design Ops"],"author":{"name":"Smashing Magazine","role":"Correspondente UX Design","bio":"Cobertura internacional de UX Design apurada por Smashing Magazine e sintetizada pelo Good Morning News Bot.","avatar":"https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&auto=format&fit=crop&q=80"},"coverImage":"https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&auto=format&fit=crop&q=80","coverColor":"#E63926","coverPattern":"grid","published":true,"featured":true,"readingTimeMinutes":4,"publishedAt":"2026-10-24T01:46:39.176Z","updatedAt":"2026-10-24T01:46:39.176Z","views":320,"likes":80,"sourceName":"Smashing Magazine","sourceUrl":"https://smashingmagazine.com/2026/10/accordion-icons-which-work-best/","editionDate":"23 DE OUT. DE 2026"},"nextArticle":{"id":"gmn-20261023-03","slug":"nova-geracao-de-processadores-com-arquitetura-hibrida-reduz-consumo-termico-em-40","title":"Nova Geração de Processadores com Arquitetura Híbrida Reduz Consumo Térmico em 40%","subtitle":"Avanços em litografia sub-2nm e empacotamento vertical 3D transformam a eficiência de data centers, desafiando a curva de consumo energético global.","excerpt":"Avanços em litografia sub-2nm e empacotamento vertical 3D transformam a eficiência de data centers, desafiando a curva de consumo energético global.","content":"$16","category":"Tecnologia","tags":["Semicondutores","Hardware","Eficiência Térmica","Infraestrutura"],"author":{"name":"Ars Technica","role":"Correspondente Tecnologia","bio":"Cobertura internacional de Tecnologia apurada por Ars Technica e sintetizada pelo Good Morning News Bot.","avatar":"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80"},"coverImage":"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80","coverColor":"#0F172A","coverPattern":"blocks","published":true,"featured":false,"readingTimeMinutes":4,"publishedAt":"2026-10-24T01:46:39.176Z","updatedAt":"2026-10-24T01:46:39.176Z","views":619,"likes":114,"sourceName":"Ars Technica","sourceUrl":"https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/","editionDate":"23 DE OUT. DE 2026"}}],["$L17","$L18"],"$L19"]}],"p":"$@1a","v":null,"s":"$b"}}]]
+f:[["children",{"s":{"n":"slug","t":"d","k":"ergonomia-cognitiva-e-a-eliminacao-do-atrito-inutil-nas-interfaces-criticas","s":[]},"h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@10","v":"$e","s":"$b"},"c":"$Q11"}]]
+c:[["children",{"s":"article","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@d","v":"$e","s":"$b"},"c":"$Qf"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","precedence":"next"}],["$","script","script-0",{"src":"/designcraft/_next/static/chunks/2uh-xu28j0sml.js","async":true}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"className":"min-h-screen bg-[#E9ECEF] text-[#111215] font-sans selection:bg-[#E63926] selection:text-white flex flex-col","children":[["$","$L3",null,{}],["$","div",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[["$","$L8",null,{}],[]]}]}],["$","$L9",null,{}]]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1c",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1e",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1f",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Ergonomia Cognitiva e a Eliminação do Atrito Inútil nas Interfaces Críticas /// GOOD MORNING NEWS (07:00 AM)"}],["$","meta","1",{"name":"description","content":"Pesquisas recentes de ergonomia de software mostram que o excesso de micro-animações e cantos excessivamente arredondados reduz a velocidade de varredura visual em softwares profissionais."}],["$","meta","2",{"property":"og:title","content":"Ergonomia Cognitiva e a Eliminação do Atrito Inútil nas Interfaces Críticas"}],["$","meta","3",{"property":"og:description","content":"Pesquisas recentes de ergonomia de software mostram que o excesso de micro-animações e cantos excessivamente arredondados reduz a velocidade de varredura visual em softwares profissionais."}],["$","meta","4",{"property":"og:type","content":"article"}],["$","meta","5",{"property":"article:published_time","content":"2026-10-24T01:46:39.176Z"}],["$","meta","6",{"property":"article:author","content":"Smashing Magazine"}],["$","meta","7",{"name":"twitter:card","content":"summary"}],["$","meta","8",{"name":"twitter:title","content":"Ergonomia Cognitiva e a Eliminação do Atrito Inútil nas Interfaces Críticas"}],["$","meta","9",{"name":"twitter:description","content":"Pesquisas recentes de ergonomia de software mostram que o excesso de micro-animações e cantos excessivamente arredondados reduz a velocidade de varredura visual em softwares profissionais."}],["$","link","10",{"rel":"icon","href":"/designcraft/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L20","11",{}]]}]}],null]}],null]}],"p":"$@21","v":null,"s":"$b"}},"a":"$@22","u":"$@23","b":"vWW-Dn3pdHRW3IBr75lqR"}
+24:I[97367,["$2"],"OutletBoundary"]
+17:["$","script","script-0",{"src":"/designcraft/_next/static/chunks/0lmre80zvki8o.js","async":true}]
+18:["$","script","script-1",{"src":"/designcraft/_next/static/chunks/1ka3eu8ixxtod.js","async":true}]
+19:["$","$L24",null,{"children":["$","$1f",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]
+b:300
+25:null
+23:true
+b:C
+22:0
+10:"$undefined"
+d:"$undefined"
+a:"$undefined"
+21:"$undefined"
+1a:"$undefined"

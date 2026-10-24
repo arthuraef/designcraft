@@ -1,14 +1,14 @@
 1:"$Sreact.fragment"
-2:"/designcraft/_next/static/chunks/3suph_y-59pyw.js"
+2:"/designcraft/_next/static/chunks/2uh-xu28j0sml.js"
 3:I[45678,["$2"],"default"]
 4:I[39756,["$2"],"default"]
 5:I[37457,["$2"],"default"]
-6:"/designcraft/_next/static/chunks/3sff_reqvldpr.js"
-7:"/designcraft/_next/static/chunks/2zctai_sjbt_k.js"
+6:"/designcraft/_next/static/chunks/0k0gnncq7ju4d.js"
+7:"/designcraft/_next/static/chunks/1ka3eu8ixxtod.js"
 8:I[29306,["$2","$6","$7"],"default"]
 9:I[13642,["$2"],"default"]
 d:I[47257,["$2"],"ClientPageRoot"]
-e:"/designcraft/_next/static/chunks/1fo8vbg2s52s6.js"
+e:"/designcraft/_next/static/chunks/31nlq4lom1q35.js"
 f:I[66527,["$2","$e","$7"],"default"]
 12:I[97367,["$2"],"OutletBoundary"]
 13:"$Sreact.suspense"
@@ -17,15 +17,15 @@ f:I[66527,["$2","$e","$7"],"default"]
 18:"MetadataBoundary"
 19:I[97367,["$2"],"$18"]
 1b:I[68027,["$2"],"default",1]
-:HL["/designcraft/_next/static/chunks/2wf8a17s37zsk.css","style"]
+:HL["/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","style"]
 b:X
-c:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","$Ld",null,{"Component":"$f","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@10","$@11"]}}],[["$","script","script-0",{"src":"/designcraft/_next/static/chunks/1fo8vbg2s52s6.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/designcraft/_next/static/chunks/2zctai_sjbt_k.js","async":true,"nonce":"$undefined"}]],["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]]}],"p":false,"v":null}}]]
+c:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","$Ld",null,{"Component":"$f","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@10","$@11"]}}],[["$","script","script-0",{"src":"/designcraft/_next/static/chunks/31nlq4lom1q35.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/designcraft/_next/static/chunks/1ka3eu8ixxtod.js","async":true,"nonce":"$undefined"}]],["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]]}],"p":false,"v":null}}]]
 a:[["children",{"s":"article","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$b"},"c":"$Qc"}]]
-0:{"P":null,"c":["","article",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/2wf8a17s37zsk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/designcraft/_next/static/chunks/3suph_y-59pyw.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"className":"min-h-screen bg-[#E9ECEF] text-[#111215] font-sans selection:bg-[#E63926] selection:text-white flex flex-col","children":[["$","$L3",null,{}],["$","div",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L8",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L9",null,{}]]}]}]]}],"p":false,"v":null},"c":"$Qa"},"h":{"r":["$","$1","h",{"children":[null,["$","$L16",null,{"children":"$L17"}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$13",null,{"name":"Next.Metadata","children":"$L1a"}]}],null]}],null]}],"p":false,"v":null}},"m":"$undefined","G":["$1b",[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/2wf8a17s37zsk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"FxMeSa9Lu-Ntl7uO458_L"}
+0:{"P":null,"c":["","article",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/designcraft/_next/static/chunks/2uh-xu28j0sml.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"className":"min-h-screen bg-[#E9ECEF] text-[#111215] font-sans selection:bg-[#E63926] selection:text-white flex flex-col","children":[["$","$L3",null,{}],["$","div",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L8",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L9",null,{}]]}]}]]}],"p":false,"v":null},"c":"$Qa"},"h":{"r":["$","$1","h",{"children":[null,["$","$L16",null,{"children":"$L17"}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$13",null,{"name":"Next.Metadata","children":"$L1a"}]}],null]}],null]}],"p":false,"v":null}},"m":"$undefined","G":["$1b",[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"vWW-Dn3pdHRW3IBr75lqR"}
 b:C
 10:{}
 11:"$c:0:1:d:r:props:children:0:props:serverProvidedParams:params"
 17:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 1c:I[27201,["$2"],"IconMark"]
 14:null
-1a:[["$","title","0",{"children":"DESIGNCRAFT /// ARQUIVO DE ARQUITETURA VISUAL & MODERNISMO"}],["$","meta","1",{"name":"description","content":"Ensaios sobre tipografia internacional, racionalismo suíço, arquitetura de interfaces e sistemas visuais."}],["$","link","2",{"rel":"icon","href":"/designcraft/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L1c","3",{}]]
+1a:[["$","title","0",{"children":"GOOD MORNING NEWS /// SÍNTESE MATINAL DAS 07:00 AM"}],["$","meta","1",{"name":"description","content":"Edição diária automatizada às 07:00 AM com as 2 notícias fundamentais sobre UX Design, Tecnologia, AI, Games, Board Games e Ciência. Sem ruído, sem clickbait."}],["$","link","2",{"rel":"icon","href":"/designcraft/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L1c","3",{}]]

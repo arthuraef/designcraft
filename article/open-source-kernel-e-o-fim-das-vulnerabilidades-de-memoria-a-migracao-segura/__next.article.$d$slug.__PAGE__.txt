@@ -1,0 +1,67 @@
+1:"$Sreact.fragment"
+2:"/designcraft/_next/static/chunks/2uh-xu28j0sml.js"
+3:I[45678,["$2"],"default"]
+4:I[39756,["$2"],"default"]
+5:I[37457,["$2"],"default"]
+6:"/designcraft/_next/static/chunks/0k0gnncq7ju4d.js"
+7:"/designcraft/_next/static/chunks/1ka3eu8ixxtod.js"
+8:I[29306,["$2","$6","$7"],"default"]
+9:I[13642,["$2"],"default"]
+12:"/designcraft/_next/static/chunks/0lmre80zvki8o.js"
+13:I[65258,["$2","$12","$7"],"default"]
+1a:"ViewportBoundary"
+1b:I[97367,["$2"],"$1a"]
+1c:"MetadataBoundary"
+1d:I[97367,["$2"],"$1c"]
+1e:"$Sreact.suspense"
+1f:I[27201,["$2"],"IconMark"]
+:HL["/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","style"]
+b:X
+e:X
+e:C
+14:T43f,## 01. A Fronteira do Silício Vertical
+
+A miniaturização clássica encontrou barreiras quânticas intransponíveis na escala horizontal. A resposta da indústria foi a engenharia de empacotamento tridimensional, permitindo que blocos de memória e núcleos de processamento compartilhem vias diretas de silício.
+
+O impacto imediato se faz sentir nos custos de refrigeração e na densidade de computação por rack:
+* Redução de latência de comunicação interna entre chiplets para menos de 1 nanossegundo.
+* Eficiência térmica otimizada para cargas de trabalho contínuas.
+
+### O Horizonte da Infraestrutura
+
+Engenheiros de datacenter comemoram a desaceleração na demanda térmica, embora o custo de fabricação de wafers sub-2nm continue concentrado em poucos polos industriais globais.
+
+---
+
+*Notícia apurada e selecionada pelo Good Morning News a partir de reportagem de **[Ars Technica](https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/)**. Todos os direitos reservados à redação original.*15:T46b,## 01. Da Força Bruta ao Pensamento Metódico
+
+A corrida por modelos de centenas de bilhões de parâmetros esbarrou nos custos de energia e escassez de dados limpos. A grande virada científica é o **raciocínio em tempo de teste (Test-Time Compute)**.
+
+Em vez de disparar uma previsão estatística imediata, o sistema gera hipóteses, valida consistência interna, recua de becos sem saída lógicos e formula a resposta final:
+* Menos alucinações em demonstrações matemáticas e geração de código complexo.
+* Custo previsível: o modelo pode dedicar 2 segundos a uma pergunta simples ou 40 segundos a um bug de concorrência profunda.
+
+### Consequências para Desenvolvedores
+
+Agentes de software tornam-se autônomos em tarefas que exigem validação em vários passos, tornando a automação de refatoração e testes de regressão uma realidade produtiva.
+
+---
+
+*Notícia apurada e selecionada pelo Good Morning News a partir de reportagem de **[The Decoder](https://the-decoder.com/chinese-ai-model-kimi-k3-1-pro-is-closing-in-on-anthropics-claude-opus-5-5/)**. Todos os direitos reservados à redação original.*11:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L13",null,{"article":{"id":"gmn-20261023-04","slug":"open-source-kernel-e-o-fim-das-vulnerabilidades-de-memoria-a-migracao-segura","title":"Open-Source Kernel e o Fim das Vulnerabilidades de Memória: A Migração Segura","subtitle":"Módulos essenciais de sistemas operacionais e servidores de borda atingem paridade de desempenho com segurança de memória comprovada matematicamente.","excerpt":"Módulos essenciais de sistemas operacionais e servidores de borda atingem paridade de desempenho com segurança de memória comprovada matematicamente.","content":"## 01. O Padrão Inegociável da Segurança de Memória\n\nDécadas de relatórios do setor apontavam que mais de 70% das falhas graves de segurança em infraestrutura de software decorriam de manipulação insegura de ponteiros em linguagens de baixo nível.\n\nA modernização dos subsistemas de rede e drivers agora comprova em larga escala:\n* A sobrecarga de abstrações seguras é praticamente nula em arquiteturas modernas.\n* A produtividade dos times de infraestrutura dispara ao eliminar classes inteiras de bugs antes da compilação.\n\nA indústria atinge um ponto sem retorno: componentes de baixo nível sem garantia formal de memória tornam-se inaceitáveis em setores críticos.\n\n---\n\n*Notícia apurada e selecionada pelo Good Morning News a partir de reportagem de **[Ars Technica](https://arstechnica.com/tech-policy/2026/10/pentagon-memo-on-prediction-markets-says-insider-bets-put-troops-lives-at-risk/)**. Todos os direitos reservados à redação original.*","category":"Tecnologia","tags":["Segurança","Kernel","Sistemas Operacionais","Engenharia"],"author":{"name":"Ars Technica","role":"Correspondente Tecnologia","bio":"Cobertura internacional de Tecnologia apurada por Ars Technica e sintetizada pelo Good Morning News Bot.","avatar":"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80"},"coverImage":"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80","coverColor":"#0F172A","coverPattern":"blocks","published":true,"featured":false,"readingTimeMinutes":5,"publishedAt":"2026-10-24T01:46:39.176Z","updatedAt":"2026-10-24T01:46:39.176Z","views":813,"likes":48,"sourceName":"Ars Technica","sourceUrl":"https://arstechnica.com/tech-policy/2026/10/pentagon-memo-on-prediction-markets-says-insider-bets-put-troops-lives-at-risk/","editionDate":"23 DE OUT. DE 2026"},"prevArticle":{"id":"gmn-20261023-03","slug":"nova-geracao-de-processadores-com-arquitetura-hibrida-reduz-consumo-termico-em-40","title":"Nova Geração de Processadores com Arquitetura Híbrida Reduz Consumo Térmico em 40%","subtitle":"Avanços em litografia sub-2nm e empacotamento vertical 3D transformam a eficiência de data centers, desafiando a curva de consumo energético global.","excerpt":"Avanços em litografia sub-2nm e empacotamento vertical 3D transformam a eficiência de data centers, desafiando a curva de consumo energético global.","content":"$14","category":"Tecnologia","tags":["Semicondutores","Hardware","Eficiência Térmica","Infraestrutura"],"author":{"name":"Ars Technica","role":"Correspondente Tecnologia","bio":"Cobertura internacional de Tecnologia apurada por Ars Technica e sintetizada pelo Good Morning News Bot.","avatar":"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80"},"coverImage":"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80","coverColor":"#0F172A","coverPattern":"blocks","published":true,"featured":false,"readingTimeMinutes":4,"publishedAt":"2026-10-24T01:46:39.176Z","updatedAt":"2026-10-24T01:46:39.176Z","views":619,"likes":114,"sourceName":"Ars Technica","sourceUrl":"https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/","editionDate":"23 DE OUT. DE 2026"},"nextArticle":{"id":"gmn-20261023-05","slug":"modelos-de-raciocinio-em-tempo-de-teste-a-virada-da-busca-estruturada-sobre-o-tamanho-bruto","title":"Modelos de Raciocínio em Tempo de Teste: A Virada da Busca Estruturada sobre o Tamanho Bruto","subtitle":"Aumentar parâmetros cegamente cede lugar a técnicas de busca e verificação iterativa em tempo de inferência, permitindo que modelos menores superem gigantes em tarefas de lógica pura.","excerpt":"Aumentar parâmetros cegamente cede lugar a técnicas de busca e verificação iterativa em tempo de inferência, permitindo que modelos menores superem gigantes em tarefas de lógica pura.","content":"$15","category":"AI","tags":["Modelos de Raciocínio","Test-Time Compute","LLMs","Pesquisa"],"author":{"name":"The Decoder","role":"Correspondente AI","bio":"Cobertura internacional de AI apurada por The Decoder e sintetizada pelo Good Morning News Bot.","avatar":"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop&q=80"},"coverImage":"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop&q=80","coverColor":"#E63926","coverPattern":"stripes","published":true,"featured":false,"readingTimeMinutes":4,"publishedAt":"2026-10-24T01:46:39.176Z","updatedAt":"2026-10-24T01:46:39.176Z","views":541,"likes":59,"sourceName":"The Decoder","sourceUrl":"https://the-decoder.com/chinese-ai-model-kimi-k3-1-pro-is-closing-in-on-anthropics-claude-opus-5-5/","editionDate":"23 DE OUT. DE 2026"}}],["$L16","$L17"],"$L18"]}],"p":"$@19","v":null,"s":"$b"}}]]
+f:[["children",{"s":{"n":"slug","t":"d","k":"open-source-kernel-e-o-fim-das-vulnerabilidades-de-memoria-a-migracao-segura","s":[]},"h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@10","v":"$e","s":"$b"},"c":"$Q11"}]]
+c:[["children",{"s":"article","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@d","v":"$e","s":"$b"},"c":"$Qf"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","precedence":"next"}],["$","script","script-0",{"src":"/designcraft/_next/static/chunks/2uh-xu28j0sml.js","async":true}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"className":"min-h-screen bg-[#E9ECEF] text-[#111215] font-sans selection:bg-[#E63926] selection:text-white flex flex-col","children":[["$","$L3",null,{}],["$","div",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[["$","$L8",null,{}],[]]}]}],["$","$L9",null,{}]]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1b",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1d",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1e",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Open-Source Kernel e o Fim das Vulnerabilidades de Memória: A Migração Segura /// GOOD MORNING NEWS (07:00 AM)"}],["$","meta","1",{"name":"description","content":"Módulos essenciais de sistemas operacionais e servidores de borda atingem paridade de desempenho com segurança de memória comprovada matematicamente."}],["$","meta","2",{"property":"og:title","content":"Open-Source Kernel e o Fim das Vulnerabilidades de Memória: A Migração Segura"}],["$","meta","3",{"property":"og:description","content":"Módulos essenciais de sistemas operacionais e servidores de borda atingem paridade de desempenho com segurança de memória comprovada matematicamente."}],["$","meta","4",{"property":"og:type","content":"article"}],["$","meta","5",{"property":"article:published_time","content":"2026-10-24T01:46:39.176Z"}],["$","meta","6",{"property":"article:author","content":"Ars Technica"}],["$","meta","7",{"name":"twitter:card","content":"summary"}],["$","meta","8",{"name":"twitter:title","content":"Open-Source Kernel e o Fim das Vulnerabilidades de Memória: A Migração Segura"}],["$","meta","9",{"name":"twitter:description","content":"Módulos essenciais de sistemas operacionais e servidores de borda atingem paridade de desempenho com segurança de memória comprovada matematicamente."}],["$","link","10",{"rel":"icon","href":"/designcraft/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L1f","11",{}]]}]}],null]}],null]}],"p":"$@20","v":null,"s":"$b"}},"a":"$@21","u":"$@22","b":"vWW-Dn3pdHRW3IBr75lqR"}
+23:I[97367,["$2"],"OutletBoundary"]
+16:["$","script","script-0",{"src":"/designcraft/_next/static/chunks/0lmre80zvki8o.js","async":true}]
+17:["$","script","script-1",{"src":"/designcraft/_next/static/chunks/1ka3eu8ixxtod.js","async":true}]
+18:["$","$L23",null,{"children":["$","$1e",null,{"name":"Next.MetadataOutlet","children":"$@24"}]}]
+b:300
+24:null
+22:true
+b:C
+21:0
+10:"$undefined"
+d:"$undefined"
+a:"$undefined"
+20:"$undefined"
+19:"$undefined"

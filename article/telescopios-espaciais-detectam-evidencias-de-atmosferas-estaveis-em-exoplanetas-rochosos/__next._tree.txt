@@ -1,0 +1,5 @@
+:HL["/designcraft/_next/static/chunks/1ls8zkwrmzeku.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"telescopios-espaciais-detectam-evidencias-de-atmosferas-estaveis-em-exoplanetas-rochosos","s":[]},"h":96,"c":"$Q3"}]]
+1:[["children",{"s":"article","h":96,"c":"$Q2"}]]
+0:{"b":"vWW-Dn3pdHRW3IBr75lqR","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
