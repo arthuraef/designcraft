@@ -82,7 +82,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
                         {article.category}
                       </h4>
                       <p className="text-xs font-mono text-[#64748B] mt-0.5">
-                        AUTOR: {article.author.name}
+                        FONTE: {article.sourceName || article.author.name}
                       </p>
                     </div>
                   </div>
@@ -104,7 +104,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
                       <span className="text-[#94A3B8]">{t.label}</span>
                       <span className="font-medium text-[#334155]">{t.name}</span>
                     </div>
-                    <span className="text-[10px] text-[#94A3B8]">CONFIRMED</span>
+                    <span className="text-[10px] text-[#94A3B8]">07:00 AM</span>
                   </div>
                 ))}
               </div>
@@ -113,9 +113,9 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
             {/* Bottom Actions */}
             <div className="p-4 sm:p-6 border-t border-[#D0D5DD] bg-[#FFFFFF] flex items-center justify-between font-mono text-xs">
               <div className="flex items-center gap-4 text-[#64748B] text-[11px]">
-                <span className="flex items-center gap-1">
-                  <Eye className="w-3.5 h-3.5" />
-                  {article.views || 0}
+                <span className="flex items-center gap-1 font-semibold text-[#111215]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
+                  ED. 07:00 AM
                 </span>
                 <span className="flex items-center gap-1">
                   <Heart className="w-3.5 h-3.5 text-[#E63926]" />
@@ -126,7 +126,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
                 href={`/article/?slug=${article.slug}`}
                 className="px-4 py-2 bg-[#111215] text-white rounded-sm hover:bg-[#E63926] transition-colors flex items-center gap-2 font-medium uppercase tracking-wider"
               >
-                <span>Acessar Ensaio</span>
+                <span>Acessar Notícia</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>

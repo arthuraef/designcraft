@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "curate": "node scripts/curator-agent.mjs",
+    "morning": "node scripts/curator-agent.mjs && npm run deploy",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out -b gh-pages --dotfiles"
   },

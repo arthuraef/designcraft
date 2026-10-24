@@ -5,6 +5,14 @@ export interface Author {
   avatar?: string;
 }
 
+export type NewsCategory = 
+  | 'UX Design'
+  | 'Tecnologia'
+  | 'AI'
+  | 'Games'
+  | 'Board Games'
+  | 'Ciência';
+
 export interface Article {
   id: string;
   slug: string;
@@ -25,8 +33,12 @@ export interface Article {
   updatedAt: string;
   views: number;
   likes: number;
+  sourceName?: string;
+  sourceUrl?: string;
+  editionDate?: string;
 }
 
 export type ArticleInput = Omit<Article, 'id' | 'views' | 'likes' | 'publishedAt' | 'updatedAt' | 'readingTimeMinutes'> & {
   readingTimeMinutes?: number;
 };
+

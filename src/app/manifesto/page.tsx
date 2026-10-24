@@ -1,73 +1,73 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, SunMedium } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'O MANIFESTO: ORNAMENT IS CRIME /// DESIGNCRAFT',
-  description: '10 Teses fundamentais sobre arquitetura visual, tipografia internacional e eliminação do ornamento supérfluo.',
+  title: 'O MANIFESTO: O SINAL CONTRA O RUÍDO /// GOOD MORNING NEWS',
+  description: '10 Teses sobre a curadoria matinal autônoma, a regra das 2 histórias e o combate à dispersão informacional.',
 };
 
 const THESES = [
   {
     num: '01',
-    code: 'FIG. 01 // MATÉRIA',
-    title: 'A Honestidade do Meio Computacional',
-    body: 'O meio digital não é plástico acetinado, nem vidro fumê, nem papel aquarelado. É composto por coordenadas matemáticas, caixas de fluxo, vetores e caracteres. Ocultar as emendas estruturais com sombras difusas é um ato de covardia arquitetônica. Exponha o grid.',
+    code: 'TESE 01 // O RITUAL DAS 07:00 AM',
+    title: 'A Manhã Pertence à Clareza, Não à Ansiedade',
+    body: 'O despertar humano não foi concebido para ser bombardeado por 500 notificações dispersas, timelines viciantes e alarmismo algorítmico. O dia exige uma síntese lúcida, fechada e deliberada que capacite a tomada de decisão antes que o caos comece.',
   },
   {
     num: '02',
-    code: 'FIG. 02 // FORMA',
-    title: 'O Canto Vivo e a Decisão Deliberada',
-    body: 'O raio compulsório de 16px virou o sedativo da indústria de tecnologia. Quando toda aresta é arredondada, nenhuma decisão é intencional. O ângulo reto declara: "Aqui encerra-se um conceito, aqui inicia-se outro". Reivindique o rigor geométrico.',
+    code: 'TESE 02 // A REGRA DE OURO DAS DUAS HISTÓRIAS',
+    title: 'Informação é Abundante; Seleção é Rara',
+    body: 'Apresentar 50 matérias sobre um tema é transferir o trabalho editorial para o leitor. Em qualquer dia civil, existem exatamente duas transformações realmente estruturais em cada grande disciplina. Selecionar essas duas e descartar as outras 98 é o verdadeiro ato de inteligência.',
   },
   {
     num: '03',
-    code: 'FIG. 03 // GRAVIDADE',
-    title: 'Linha como Fronteira, não Sombra como Névoa',
-    body: 'Sombras de 40px de desfoque simulam uma profundidade falsa e teatral. Uma linha precisa de 1px estabelece uma fronteira clara e indelével. A clareza de uma interface mede-se pela precisão de suas demarcações.',
+    code: 'TESE 03 // OS SEIS DOMÍNIOS DO PENSAMENTO MODERNO',
+    title: 'A Interseção entre Técnica, Cultura e Matéria',
+    body: 'UX Design, Tecnologia, AI, Games, Board Games e Ciência não são silos isolados. Eles formam a tapeçaria com a qual a civilização digital projeta ferramentas, constrói inteligência, exercita a ludicidade estratégica e desvenda as leis do universo físico.',
   },
   {
     num: '04',
-    code: 'FIG. 04 // SÍNTESE',
-    title: 'A Vacina Contra o Slop Visual de IA',
-    body: 'Algoritmos generativos foram treinados na média aritmética de dez anos de interfaces cosméticas. O resultado é um oceano de gradientes lilases e ilustrações vazias. O racionalismo suíço é o antídoto definitivo contra a mediocridade estatística.',
+    code: 'TESE 04 // MORTE AO FEED INFINITO',
+    title: 'Um Jornal que Sabe a Hora de Acabar',
+    body: 'O scroll infinito é uma armadilha psicológica desenhada para sequestrar dopamina. O Good Morning News tem 12 histórias — exatamente duas por domínio. Quando a última é lida, a edição se encerra. Sua mente está abastecida. Volte a criar no mundo real.',
   },
   {
     num: '05',
-    code: 'FIG. 05 // ESTRUTURA',
-    title: 'Tipografia é Alvenaria, Não Adorno',
-    body: 'Não desenhamos recipientes vazios para depois tentar acomodar palavras. O tipo determina a escala, o ritmo e o pé-direito da experiência visual. Quando a tipografia possui maestria arquitetônica, qualquer ornamento torna-se supérfluo.',
+    code: 'TESE 05 // TOLERÂNCIA ZERO AO CLICKBAIT',
+    title: 'O Fato no Primeiro Parágrafo',
+    body: 'Nenhum título dirá "Você não vai acreditar no que aconteceu". Não há pontos de exclamação apelativos ou meias-palavras. O título declara a tese; o lead sintetiza a consequência material; os pontos-chave condensam as evidências.',
   },
   {
     num: '06',
-    code: 'FIG. 06 // AGÊNCIA',
-    title: 'Atrito Consciente contra o Deslize Cego',
-    body: 'Interfaces que eliminam todo atrito também eliminam a presença mental de quem as usa. Decisões fundamentais exigem clareza, tempo de leitura e contraste inequívoco — não um clique acidental induzido por mecânica predatória.',
+    code: 'TESE 06 // AGENTE CURADOR MATINAL',
+    title: 'Automação a Serviço do Rigor',
+    body: 'Enquanto o mundo dorme, nosso agente varre os principais veículos independentes e redações globais. Ele filtra o ruído de releases comerciais, detecta avanços com relevância de longo prazo e formula a síntese editorial precisa que ancora a edição diária.',
   },
   {
     num: '07',
-    code: 'FIG. 07 // SISTEMA',
-    title: 'Sistemas Devem Ser Chão Firme, Nunca Teto',
-    body: 'Um catálogo de componentes que impede a experimentação no ponto de contato não é engenharia; é burocracia corporativa. Toda superfície precisa de permeabilidade para responder à singularidade do problema.',
+    code: 'TESE 07 // FIDELIDADE À FONTE ORIGINAL',
+    title: 'A Curadoria Honra a Apuração',
+    body: 'Não ocultamos a procedência das histórias. Cada síntese indica claramente o veículo original — Ars Technica, Smashing Magazine, Phys.org, The Decoder, Polygon, Dicebreaker — e inclui o link canônico para o leitor que desejar investigar a fundo a reportagem primária.',
   },
   {
     num: '08',
-    code: 'FIG. 08 // CÓDIGO',
-    title: 'O HTML Semântico como Concreto Armado',
-    body: 'HTML e CSS puros são tecnologias industriais de durabilidade centenária. O que é edificado com fidelidade ao meio permanece veloz, acessível e legível em qualquer dispositivo por décadas.',
+    code: 'TESE 08 // DESIGN SUÍÇO CONTRA O SLOP VISUAL',
+    title: 'A Calma Visual é um Valor Editorial',
+    body: 'Sem popups intrusivos pedindo email a cada rolagem, sem banners piscando, sem auto-play de vídeos inúteis. O International Typographic Style — linhas de 1px, tipografia grotesque com tracking cirúrgico e fundo de concreto suave — devolve a dignidade da leitura tranquila.',
   },
   {
     num: '09',
-    code: 'FIG. 09 // ÉTICA',
-    title: 'Hiper-Transparência contra Dark Patterns',
-    body: 'Esconder opções com contraste insuficiente (#999 sobre #FFF) é sabotagem cognitiva. Praticamos a visibilidade radical: escolhas simétricas, termos em negrito e respeito reverente pela autonomia de quem lê.',
+    code: 'TESE 09 // SÍNTESE ANALÍTICA, NÃO AGÊNCIA DE NOTÍCIAS',
+    title: 'Por Que Isso Importa, Não Quem Postou Primeiro',
+    body: 'A velocidade dos feeds é uma ilusão de ótica. Chegar três minutos antes com uma frase vaga não produz discernimento. Explicar o que uma descoberta em modelos de difusão ou uma nova mecânica em jogos de tabuleiro acarreta para a cultura humana produz sabedoria.',
   },
   {
     num: '10',
-    code: 'FIG. 10 // SINAL',
-    title: 'Cor como Sinalização Rodoviária',
-    body: 'O preto e o branco são as leis da gravidade. O vermilion é o foco, o alerta, o ponto vivo. Utilize a cor com a sobriedade de uma placa de trânsito ou instrumento cirúrgico, jamais como perfume comercial.',
+    code: 'TESE 10 // A SOBERANIA DO SEU TEMPO',
+    title: 'Oito Minutos para Entender o Dia',
+    body: 'O Good Morning News foi projetado para ser consumido em oito minutos de café da manhã. Ele não quer reter sua atenção para vender impressões de anúncios; ele quer libertar o seu tempo para que você realize o seu melhor trabalho.',
   },
 ];
 
@@ -82,12 +82,12 @@ export default function ManifestoPage() {
             className="flex items-center gap-1.5 text-[#111215] hover:text-[#E63926] transition-colors font-medium uppercase tracking-wider"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Retornar aos Artigos</span>
+            <span>Retornar à Edição do Dia</span>
           </Link>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E63926]" />
             <span className="text-[#111215] font-semibold uppercase">
-              DOCUMENTO METODOLÓGICO
+              MANIFESTO EDITORIAL // 07:00 AM
             </span>
           </div>
         </div>
@@ -95,14 +95,17 @@ export default function ManifestoPage() {
         {/* Hero Card */}
         <div className="border border-[#D0D5DD] bg-[#FFFFFF] rounded-sm p-8 sm:p-12 mb-10 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex justify-between items-center text-xs font-mono text-[#64748B] mb-4 border-b border-[#E2E8F0] pb-3">
-            <span>ORNAMENT IS CRIME // MODERNISM &apos;26</span>
-            <span>37.5005 — 122.5239</span>
+            <span className="flex items-center gap-2 text-[#111215] font-bold">
+              <SunMedium className="w-4 h-4 text-[#E63926]" />
+              GOOD MORNING NEWS
+            </span>
+            <span>ED. 07:00 AM // 6 DOMÍNIOS × 2 HISTÓRIAS</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#111215] leading-[1.05] mb-5">
-            O Manifesto da Arquitetura Visual Digital
+            O Sinal Contra o Ruído: O Manifesto da Atenção Matinal
           </h1>
           <p className="text-[#475569] font-sans text-base sm:text-lg leading-relaxed max-w-2xl">
-            10 Teses fundamentais contra a pasteurização cosmética e em defesa da verdade material, rigor tipográfico e clareza estrutural na construção de interfaces.
+            10 Princípios fundamentais para uma manhã lúcida: curadoria algorítmica rigorosa, exatas duas histórias por domínio, design editorial suíço e a recusa convicta da economia da distração.
           </p>
         </div>
 
@@ -140,17 +143,18 @@ export default function ManifestoPage() {
               CHANCELA EDITORIAL
             </span>
             <h3 className="text-lg font-bold uppercase tracking-tight text-[#111215]">
-              COLETIVO DESIGNCRAFT
+              GOOD MORNING NEWS BOT & REDAÇÃO
             </h3>
             <p className="text-[#64748B] font-sans text-xs mt-1">
-              Publicado sob os cânones da tipografia internacional e racionalismo funcional.
+              Sempre às 07:00 AM. 12 notícias. Zero ruído.
             </p>
           </div>
           <Link
-            href="/admin/new"
-            className="px-5 py-2.5 bg-[#111215] text-white hover:bg-[#E63926] rounded-sm font-semibold uppercase tracking-wider transition-colors"
+            href="/"
+            className="px-5 py-2.5 bg-[#111215] text-white hover:bg-[#E63926] rounded-sm font-semibold uppercase tracking-wider transition-colors flex items-center gap-1.5"
           >
-            Submeter Ensaio
+            <span>Ver a Edição de Hoje</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>

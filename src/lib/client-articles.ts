@@ -1,7 +1,7 @@
-import { Article, ArticleInput } from '@/types/article';
+import { Article } from '@/types/article';
 import { SEED_ARTICLES } from '@/data/seed-articles';
 
-const STORAGE_KEY = 'designcraft_articles_v1';
+const LIKES_KEY = 'good_morning_news_likes_v1';
 
 export function calculateReadingTime(text: string): number {
   const wordsPerMinute = 200;
@@ -18,35 +18,28 @@ export function generateSlug(title: string): string {
     .replace(/(^-|-$)+/g, '');
 }
 
+/**
+ * Returns articles directly from the curated daily edition (SEED_ARTICLES),
+ * augmented with local user interactions (likes).
+ */
 export function getStoredArticles(): Article[] {
   if (typeof window === 'undefined') {
     return SEED_ARTICLES;
   }
 
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_ARTICLES));
-      return SEED_ARTICLES;
-    }
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed;
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_ARTICLES));
-    return SEED_ARTICLES;
+    const rawLikes = localStorage.getItem(LIKES_KEY);
+    const likesMap: Record<string, number> = rawLikes ? JSON.parse(rawLikes) : {};
+    return SEED_ARTICLES.map((article) => {
+      const extraLikes = likesMap[article.id] || 0;
+      return {
+        ...article,
+        likes: (article.likes || 0) + extraLikes,
+      };
+    });
   } catch (e) {
-    console.warn('Failed to read localStorage, falling back to seeds:', e);
+    console.warn('Error reading likes from localStorage:', e);
     return SEED_ARTICLES;
-  }
-}
-
-export function saveStoredArticles(articles: Article[]): void {
-  if (typeof window === 'undefined') return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(articles));
-  } catch (e) {
-    console.error('Failed to save to localStorage:', e);
   }
 }
 
@@ -60,116 +53,18 @@ export function getStoredArticleById(id: string): Article | null {
   return articles.find((a) => a.id === id) || null;
 }
 
-export function createStoredArticle(input: ArticleInput): Article {
-  const articles = getStoredArticles();
-  const now = new Date().toISOString();
-
-  let slug = input.slug ? generateSlug(input.slug) : generateSlug(input.title);
-  if (articles.some((a) => a.slug === slug)) {
-    slug = `${slug}-${Date.now().toString(36)}`;
-  }
-
-  const readingTime =
-    input.readingTimeMinutes || calculateReadingTime(input.content);
-
-  const newArticle: Article = {
-    ...input,
-    id: `art-${Date.now().toString(36)}`,
-    slug,
-    readingTimeMinutes: readingTime,
-    publishedAt: input.published ? now : '',
-    updatedAt: now,
-    views: 0,
-    likes: 0,
-    coverColor: input.coverColor || '#FFE600',
-    coverPattern: input.coverPattern || 'stripes',
-  };
-
-  const updated = [newArticle, ...articles];
-  saveStoredArticles(updated);
-  return newArticle;
-}
-
-export function updateStoredArticle(
-  id: string,
-  input: Partial<ArticleInput> & { published?: boolean }
-): Article | null {
-  const articles = getStoredArticles();
-  const index = articles.findIndex((a) => a.id === id);
-  if (index === -1) return null;
-
-  const current = articles[index];
-  const now = new Date().toISOString();
-
-  let slug = current.slug;
-  if (input.slug && input.slug !== current.slug) {
-    slug = generateSlug(input.slug);
-  } else if (!current.slug && input.title) {
-    slug = generateSlug(input.title);
-  }
-
-  const content = input.content !== undefined ? input.content : current.content;
-  const readingTime =
-    input.readingTimeMinutes || calculateReadingTime(content);
-
-  const updated: Article = {
-    ...current,
-    ...input,
-    slug,
-    content,
-    readingTimeMinutes: readingTime,
-    updatedAt: now,
-    publishedAt:
-      input.published && !current.publishedAt
-        ? now
-        : current.publishedAt || (input.published ? now : ''),
-  };
-
-  articles[index] = updated;
-  saveStoredArticles(articles);
-  return updated;
-}
-
-export function deleteStoredArticle(id: string): boolean {
-  const articles = getStoredArticles();
-  const filtered = articles.filter((a) => a.id !== id);
-  if (filtered.length === articles.length) return false;
-  saveStoredArticles(filtered);
-  return true;
-}
-
-export function toggleStoredArticlePublish(id: string): Article | null {
-  const articles = getStoredArticles();
-  const index = articles.findIndex((a) => a.id === id);
-  if (index === -1) return null;
-
-  const current = articles[index];
-  const willPublish = !current.published;
-  const updated: Article = {
-    ...current,
-    published: willPublish,
-    publishedAt: willPublish && !current.publishedAt ? new Date().toISOString() : current.publishedAt,
-    updatedAt: new Date().toISOString(),
-  };
-
-  articles[index] = updated;
-  saveStoredArticles(articles);
-  return updated;
-}
-
 export function likeStoredArticle(id: string): number {
-  const articles = getStoredArticles();
-  const index = articles.findIndex((a) => a.id === id);
-  if (index === -1) return 0;
+  if (typeof window === 'undefined') return 0;
+  try {
+    const rawLikes = localStorage.getItem(LIKES_KEY);
+    const likesMap: Record<string, number> = rawLikes ? JSON.parse(rawLikes) : {};
+    likesMap[id] = (likesMap[id] || 0) + 1;
+    localStorage.setItem(LIKES_KEY, JSON.stringify(likesMap));
 
-  articles[index].likes = (articles[index].likes || 0) + 1;
-  saveStoredArticles(articles);
-  return articles[index].likes;
-}
-
-export function resetStoredArticlesToSeeds(): Article[] {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_ARTICLES));
+    const base = SEED_ARTICLES.find((a) => a.id === id);
+    return (base?.likes || 0) + likesMap[id];
+  } catch (e) {
+    console.error('Failed to like article:', e);
+    return 0;
   }
-  return SEED_ARTICLES;
 }

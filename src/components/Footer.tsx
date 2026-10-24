@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Terminal } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -13,21 +13,21 @@ export default function Footer() {
           <div className="flex items-center gap-2 mb-2">
             <span className="w-2 h-2 rounded-full bg-[#E63926] inline-block" />
             <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-[#111215]">
-              designcraft archive.
+              good morning news<span className="text-[#E63926]">.</span>
             </h3>
           </div>
           <p className="text-[#64748B] text-xs font-sans max-w-xl leading-relaxed">
-            Publicação independente sobre a verdade material do design digital, tipografia internacional e rejeição do ornamento cosmético.
+            A síntese matinal das 07:00 AM. Um agente autônomo que varre as principais redações do planeta para extrair as 2 histórias fundamentais de 6 domínios essenciais. Zero clickbait, sem feed infinito.
           </p>
         </div>
 
         <div className="flex items-center gap-3 text-xs">
           <Link
-            href="/admin"
+            href="/manifesto"
             className="px-4 py-2 bg-[#111215] text-white rounded-sm hover:bg-[#E63926] transition-colors flex items-center gap-2 font-medium"
           >
-            <Terminal className="w-3.5 h-3.5" />
-            <span>PAINEL CMS</span>
+            <span>LER MANIFESTO</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
           <a
             href="https://github.com/arthuraef/designcraft"
@@ -48,55 +48,55 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto p-6 sm:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-b border-[#D0D5DD] text-xs">
         <div>
           <h4 className="font-bold uppercase text-[#111215] mb-3 tracking-wider">
-            [01] CATEGORIAS
+            [01] 6 DOMÍNIOS CURADOS
           </h4>
           <ul className="space-y-2 text-[#64748B]">
-            <li><Link href="/?category=TEORIA+CRÍTICA" className="hover:text-[#E63926] transition-colors">→ TEORIA CRÍTICA</Link></li>
-            <li><Link href="/?category=RADICAL+WEB" className="hover:text-[#E63926] transition-colors">→ RADICAL WEB</Link></li>
-            <li><Link href="/?category=DESIGN+SYSTEMS" className="hover:text-[#E63926] transition-colors">→ DESIGN SYSTEMS</Link></li>
-            <li><Link href="/?category=TIPOGRAFIA" className="hover:text-[#E63926] transition-colors">→ TIPOGRAFIA</Link></li>
-            <li><Link href="/?category=ANTI-PATTERNS" className="hover:text-[#E63926] transition-colors">→ ANTI-PATTERNS</Link></li>
+            <li><Link href="/?category=UX+Design" className="hover:text-[#E63926] transition-colors">→ UX DESIGN (2 HISTÓRIAS)</Link></li>
+            <li><Link href="/?category=Tecnologia" className="hover:text-[#E63926] transition-colors">→ TECNOLOGIA (2 HISTÓRIAS)</Link></li>
+            <li><Link href="/?category=AI" className="hover:text-[#E63926] transition-colors">→ AI & MODELOS (2 HISTÓRIAS)</Link></li>
+            <li><Link href="/?category=Games" className="hover:text-[#E63926] transition-colors">→ GAMES (2 HISTÓRIAS)</Link></li>
+            <li><Link href="/?category=Board+Games" className="hover:text-[#E63926] transition-colors">→ BOARD GAMES (2 HISTÓRIAS)</Link></li>
+            <li><Link href="/?category=Ciência" className="hover:text-[#E63926] transition-colors">→ CIÊNCIA (2 HISTÓRIAS)</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-bold uppercase text-[#111215] mb-3 tracking-wider">
-            [02] DOCUMENTAÇÃO
+            [02] ARQUITETURA EDITORIAL
           </h4>
           <ul className="space-y-2 text-[#64748B]">
-            <li><Link href="/manifesto" className="hover:text-[#E63926] transition-colors">→ O MANIFESTO BRUTALISTA</Link></li>
-            <li><Link href="/admin" className="hover:text-[#E63926] transition-colors">→ CMS & GESTÃO EDITORIAL</Link></li>
-            <li><Link href="/admin/new" className="hover:text-[#E63926] transition-colors">→ NOVO ENSAIO</Link></li>
+            <li><Link href="/manifesto" className="hover:text-[#E63926] transition-colors">→ O MANIFESTO MATINAL</Link></li>
+            <li><Link href="/" className="hover:text-[#E63926] transition-colors">→ EDIÇÃO DO DIA (07:00 AM)</Link></li>
             <li><a href="#topo" className="hover:text-[#E63926] transition-colors">→ RETORNAR AO TOPO ↑</a></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-bold uppercase text-[#111215] mb-3 tracking-wider">
-            [03] ORNAMENT IS CRIME
+            [03] SINAL CONTRA O RUÍDO
           </h4>
           <p className="text-[#64748B] font-sans text-xs leading-relaxed">
-            &ldquo;A evolução da cultura é proporcional ao desaparecimento do ornamento do objeto de uso.&rdquo; — Adolf Loos, 1908.
+            &ldquo;A quantidade de informação que você consome não define sua clareza; o rigor com que você filtra o ruído, sim.&rdquo; Apenas 12 histórias por dia. Nada a mais.
           </p>
         </div>
 
         <div>
           <h4 className="font-bold uppercase text-[#111215] mb-3 tracking-wider">
-            [04] SISTEMA TÉCNICO
+            [04] ESPECIFICAÇÃO DO AGENTE
           </h4>
           <div className="bg-[#F8F9FA] border border-[#E2E8F0] p-3 text-[11px] text-[#64748B] space-y-1 rounded-sm">
-            <p>STACK: NEXT.JS 16 / REACT 19</p>
-            <p>GRID: 1PX HAIRLINE SPEC</p>
-            <p>TYPE: SPACE GROTESK & JETBRAINS</p>
-            <p>REF: 37.5005 — 122.5239</p>
+            <p>CRON: 07:00 AM BRT (10:00 UTC)</p>
+            <p>FONTES: ARS, SMASHING, DECODER, ETC.</p>
+            <p>FORMATO: SWISS EDITORIAL STATIC</p>
+            <p>CURADORIA: AUTÔNOMA RIGOROSA</p>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-[11px] text-[#94A3B8] gap-2">
-        <p>© 2026 DESIGNCRAFT — REPOSITÓRIO EDITORIAL LIVRE</p>
-        <p className="font-mono">INTERNATIONAL TYPOGRAPHIC STYLE SPECIFICATION</p>
+        <p>© 2026 GOOD MORNING NEWS — SÍNTESE MATINAL INDEPENDENTE</p>
+        <p className="font-mono">ED. 07:00 AM // INTERNATIONAL TYPOGRAPHIC STYLE</p>
       </div>
     </footer>
   );

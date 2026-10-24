@@ -71,13 +71,13 @@ function ArticleQueryLoader() {
               className="px-4 py-2.5 bg-[#111215] text-white hover:bg-[#E63926] rounded-sm font-semibold transition-colors flex items-center gap-1.5 uppercase tracking-wider"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Retornar ao Início</span>
+              <span>Ver Edição do Dia</span>
             </Link>
             <Link
-              href="/admin"
+              href="/manifesto"
               className="px-4 py-2.5 bg-[#F8F9FA] border border-[#D0D5DD] hover:border-[#111215] text-[#111215] rounded-sm font-medium transition-colors uppercase tracking-wider"
             >
-              Abrir Painel CMS
+              Ler Manifesto
             </Link>
           </div>
         </div>

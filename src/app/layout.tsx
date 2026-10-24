@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DESIGNCRAFT /// ARQUIVO DE ARQUITETURA VISUAL & MODERNISMO",
-  description: "Ensaios sobre tipografia internacional, racionalismo suíço, arquitetura de interfaces e sistemas visuais.",
+  title: "GOOD MORNING NEWS /// SÍNTESE MATINAL DAS 07:00 AM",
+  description: "Edição diária automatizada às 07:00 AM com as 2 notícias fundamentais sobre UX Design, Tecnologia, AI, Games, Board Games e Ciência. Sem ruído, sem clickbait.",
 };
 
 export default function RootLayout({

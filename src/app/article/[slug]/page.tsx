@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getArticleBySlug, getAllArticles, incrementArticleStats } from '@/lib/articles';
+import { getArticleBySlug, getAllArticles } from '@/lib/articles';
 import ArticleDetailClient from '@/components/ArticleDetailClient';
 import type { Metadata } from 'next';
 
@@ -20,19 +20,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!article) {
     return {
-      title: 'ARTIGO NÃO ENCONTRADO /// DESIGNCRAFT',
+      title: 'HISTÓRIA NÃO LOCALIZADA /// GOOD MORNING NEWS',
     };
   }
 
   return {
-    title: `${article.title} /// DESIGNCRAFT`,
+    title: `${article.title} /// GOOD MORNING NEWS (07:00 AM)`,
     description: article.excerpt,
     openGraph: {
       title: article.title,
       description: article.excerpt,
       type: 'article',
       publishedTime: article.publishedAt,
-      authors: [article.author.name],
+      authors: [article.sourceName || article.author.name],
     },
   };
 }
