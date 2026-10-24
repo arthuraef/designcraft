@@ -1,0 +1,52 @@
+# GOOD MORNING NEWS — GITHUB ACTIONS CRON
+# Para ativar este workflow nas nuvens do GitHub:
+# Copie este arquivo para .github/workflows/morning-curator.yml via GitHub Web ou adicione o escopo 'workflow' ao seu Personal Access Token.
+
+name: Good Morning News Curator
+
+on:
+  schedule:
+    # Executa todos os dias às 07:00 AM BRT (10:00 UTC)
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  curate-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Curator Agent (07:00 AM Scan)
+        run: node scripts/curator-agent.mjs
+
+      - name: Build Next.js Static Export
+        run: npm run build
+
+      - name: Commit updated daily edition data
+        run: |
+          git config --global user.name "Good Morning News Bot"
+          git config --global user.email "bot@goodmorningnews.local"
+          git add src/data/seed-articles.ts src/data/articles.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(daily): Good Morning News edition 07:00 AM [skip ci]" && git push origin main)
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
